@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance'
+    xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+
+    <Scene>
+        <!--     World Meta Data, Background colour is in Generic Decimal colour format     -->
+        <WorldInfo title='Demo Land' />
+        <Background skyColor='0.000, 0.662, 0.949' />
+
+        <!--     The players view position     -->
+        <Viewpoint position="43.13747 9.08974 -68.82131" orientation="0.06506 0.99585 0.06369 2.39221"
+            centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description=""></Viewpoint>
+        <!--     How the player moves within the world, there are a number of options     -->
+        <navigationInfo type='"LOOKAT"' headlight='false' speed='0.5' avatarSize='120'></navigationInfo>
+
+        <Transform DEF='WORLD' translation='0 0 0'>
+
+            <!--     This is an example of a generic object and an image being rendered onto it     -->
+            <Transform translation='0 -10 0'>
+                <Shape>
+                    <Box size='500 0.1 500' />
+                    <Appearance>
+                        <ImageTexture url='fun.png' />
+                    </Appearance>
+                </Shape>
+            </Transform>
+
+                <!--     This is an example of a generic object and an image being rendered onto it     -->
+            <Transform translation='10 20 30'>
+                <Shape>
+                    <Cone size='50 10 50' />
+                    <Appearance>
+                        <ImageTexture url='water.jpeg' />
+                    </Appearance>
+                </Shape>
+            </Transform>
+
+        </Transform>
+
+    </Scene>
+</X3D>
