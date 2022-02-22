@@ -1,3 +1,56 @@
 .title-marquee {
     font-size: xx-large;
 }
+
+@keyframes hooray {
+    0% {
+        top: -5px;
+        color: red;
+    }
+    50% {
+        top: -15px;
+        color: green;
+    }
+    100% {
+        top: 5px;
+        color: violet;
+    }
+}
+
+.hooray {
+    position: absolute;
+    font-weight: 900;
+    font-size: large;
+    /* display: inline-block; */
+    top: -5px;
+    animation: hooray 1.5s linear infinite alternate;
+}
+
+.hooray:nth-of-type(2){
+    animation-delay: .2s;
+    left: 15px;
+}
+.hooray:nth-of-type(3){
+    animation-delay: .4s;
+    left: 25px;
+}
+.hooray:nth-of-type(4){
+    animation-delay: .6s;
+    left: 36px;
+}
+.hooray:nth-of-type(5){
+    animation-delay: .7s;
+    left: 45px;
+}
+.hooray:nth-of-type(6){
+    animation-delay: .9s;
+    left: 55px;
+}
+.hooray:nth-of-type(7){
+    animation-delay: 1.1s;
+    left: 65px;
+}
+
+.hooray-div {
+    position: relative;
+}
