@@ -2,6 +2,14 @@
     font-size: xx-large;
 }
 
+#falling {
+    margin-top: 20px;
+}
+
+#rising {
+    margin-top: 10px;
+}
+
 @keyframes hooray {
     0% {
         top: -5px;
