@@ -10,6 +10,20 @@
     margin-top: 10px;
 }
 
+@keyframes breath {
+    0% {
+        font-size: 1em;
+    }
+    100% {
+        font-size: 1.1em;
+    }
+}
+
+#breath {
+    animation: breath 3s ease-in-out infinite alternate;
+    line-height: 1.1em;
+}
+
 @keyframes hooray {
     0% {
         top: -5px;
