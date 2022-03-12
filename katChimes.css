@@ -1,0 +1,72 @@
+body {
+    background-image: url("bowl.png");
+    font-family: "Comic Sans MS", "Comic Sans";
+    font-size: xx-large;
+}
+
+.readable-section {
+    display: flex;
+    justify-content: center;
+    background-image: url("papyrus.jpg");
+    min-height: 800px;
+    margin: 30px auto;
+    width: 90vw;
+}
+
+.grid-class {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 200px 1fr;
+    gap: 0px 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "flowers"
+        "input"
+        "lengths";
+}
+
+.flowers {
+    margin-top: 20px;
+    grid-area: flowers;
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+#demo {
+    grid-area: lengths;
+}
+
+.lengths {
+    display: flex;
+    justify-content: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: input;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    height: fit-content;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: x-large;
+    background-color: lightpink;
+    font-family: "Comic Sans MS", "Comic Sans";
+}
+
+button {
+    padding: 10px;
+    background-color: pink;
+    border-radius: 20px;
+    font-size: larger;
+    font-family: "Comic Sans MS", "Comic Sans";
+    color: black;
+}

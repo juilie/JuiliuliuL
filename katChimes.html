@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" href="katChimes.css">
+    <title>Kat's Chimes</title>
+</head>
+
 <body>
+    <div class="readable-section">
+        <div class="grid-class">
+            <div class="flowers">
+                <img src="./abeja.gif" />
+                <img src="./abeja.gif" />
+                <img src="./abeja.gif" />
+                <img src="./abeja.gif" />
+                <img src="./abeja.gif" />
+            </div>
+            <div class="inputs">
+                <!-- <img src="./abeja.gif" /> -->
+                <form style="margin-right:10px;" id="frm1" action="/action_page.php">
+                    <p>Longest Chime Length: </p><input style="width: 50px;" type="number" name="fname" value="12">
+                </form>
+<br>
+                <button style="height: fit-content;" onclick="myFunction()">Get Chime lengths</button>
+                <!-- <img src="./abeja.gif" /> -->
+            </div>
 
-    <form id="frm1" action="/action_page.php">
-        Longest Chime Length: <input type="number" name="fname" value="12"><br>
-    </form>
 
-    <button onclick="myFunction()">Get Ukrainian Dorian lengths</button>
-
-    <p id="demo"></p>
-
+            <div class="lengths">
+                <p id="demo"></p>
+            </div>
+        </div>
+    </div>
     <script>
         function myFunction() {
             var x = document.getElementById("frm1");
@@ -37,7 +58,7 @@
             ]
 
             for (let i = 0; i < proportions.length; i++) {
-                text += scaleDegs[i] +  ": " + String((length * proportions[i]).toFixed(4)) + "<br>";
+                text += scaleDegs[i] + ": " + String((length * proportions[i]).toFixed(4)) + "<br>";
             }
             document.getElementById("demo").innerHTML = text;
         }
