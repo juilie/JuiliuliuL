@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form id="frm1" action="/action_page.php">
+        Longest Chime Length: <input type="number" name="fname" value="12"><br>
+    </form>
+
+    <button onclick="myFunction()">Get Ukrainian Dorian lengths</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("frm1");
+            var text = "";
+            const length = Number(x.elements[0].value);
+            const proportions = [1,
+                .9428,
+                .9129,
+                .8433,
+                .8165,
+                .7746,
+                .7454,
+                .7071
+            ]
+
+            const scaleDegs = ["1",
+                "2",
+                "b3",
+                "#4",
+                "5",
+                "6",
+                "b7",
+                "8"
+            ]
+
+            for (let i = 0; i < proportions.length; i++) {
+                text += scaleDegs[i] +  ": " + String((length * proportions[i]).toFixed(4)) + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+
+</body>
+
+</html>
