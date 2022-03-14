@@ -7,34 +7,46 @@
 </head>
 
 <body>
-    <div class="readable-section">
-        <div class="grid-class">
-            <div class="flowers">
-                <img src="./abeja.gif" />
-                <img src="./abeja.gif" />
-                <img src="./abeja.gif" />
-                <img src="./abeja.gif" />
-                <img src="./abeja.gif" />
-            </div>
-            <div class="inputs">
-                <!-- <img src="./abeja.gif" /> -->
-                <form style="margin-right:10px;" id="frm1" action="/action_page.php">
-                    <p>Longest Chime Length: </p><input style="width: 50px;" type="number" name="fname" value="12">
-                </form>
-<br>
-                <button style="height: fit-content;" onclick="myFunction()">Get Chime lengths</button>
-                <!-- <img src="./abeja.gif" /> -->
-            </div>
 
-
-            <div class="lengths">
-                <p id="demo"></p>
-            </div>
-        </div>
+    <div class="header">
+        <header class="flowers">
+            <img class="chime-gif" src="./windchime.gif" />
+            <img class="flower-gif" src="./abeja.gif" />
+            <img class="chime-gif" src="./windchime.gif" />
+            <img class="flower-gif" src="./abeja.gif" />
+            <img class="chime-gif" src="./windchime.gif" />
+            <img class="flower-gif" src="./abeja.gif" />
+            <img class="chime-gif" src="./windchime.gif" />
+            <img class="flower-gif" src="./abeja.gif" />
+            <img class="chime-gif" src="./windchime.gif" />
+            <img class="flower-gif" src="./abeja.gif" />
+            <img class="chime-gif" src="./windchime.gif" />
+        </header>
+        <nav class="navbar">
+            <a href="#">About</a>
+            |
+            <a href="#">References</a>
+            |
+            <a href="#">Home</a>
+        </nav>
     </div>
+<div class="main">
+    <div class="inputs">
+        <form style="margin-right:10px;" id="length" action="myFunction()">
+            <label>Longest Chime Length: </label><input type="number" name="fname" value="12.0000" step=".0001">
+        </form>
+        <br>
+        <button style="height: fit-content;" onclick="myFunction()">Get Chime lengths</button>
+    </div>
+    <div class="lengths">
+        <p id="demo"></p>
+    </div>
+</div>
+
+
     <script>
         function myFunction() {
-            var x = document.getElementById("frm1");
+            var x = document.getElementById("length");
             var text = "";
             const length = Number(x.elements[0].value);
             const proportions = [1,
