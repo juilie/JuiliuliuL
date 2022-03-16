@@ -4,7 +4,6 @@ body {
     font-size: xx-large;
 }
 
-
 .flowers {
     margin-top: 20px;
     display: flex;
@@ -18,11 +17,6 @@ body {
     text-align: center;
 }
 
-.lengths {
-    display: flex;
-    justify-content: center;
-}
-
 .inputs {
     display: flex;
     justify-content: center;
@@ -31,11 +25,44 @@ body {
 }
 
 .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 10% 80%;
+    gap: 10px 10px;
+    padding: 10px;
+    grid-template-areas:
+        "length button"
+        "scale button"
+        "calculation calculation";
     background-image: url("papyrus.jpg");
     min-height: 600px;
     margin: 15px auto;
     width: 90vw;
     border-radius: 10px;
+}
+
+.lengths {
+    display: flex;
+    grid-area: calculation;
+    justify-content: center;
+}
+
+.scale-input {
+    grid-area: scale;
+    justify-content: center;
+}
+
+.length-input {
+    grid-area: length;
+    justify-content: center;
+}
+
+.submit-button {
+    height: fit-content;
+    grid-area: button;
+    align-self: center;
+    width: fit-content;
+    justify-self: center;
 }
 
 .navbar {
@@ -68,13 +95,13 @@ a:visited {
 
 @media (min-width: 1040px) {
     .main {
-      width: 80vw;
+        width: 80vw;
     }
 
     .header {
         width: 80vw;
     }
-  }
+}
 
 .flower-gif {
     width: 100px;
@@ -91,14 +118,28 @@ form {
     align-items: center;
 }
 
-input {
+.input {
     height: fit-content;
+    width: fit-content;
     margin-left: 10px;
     font-size: x-large;
     background-color: lightpink;
     font-family: "Comic Sans MS", "Comic Sans";
-    width: 112px;
     resize: horizontal;
+}
+
+.label {
+    font-size: 20pt;
+}
+
+@media (min-width: 1040px) {
+    .label {
+        font-size: x-large;
+    }
+}
+
+.input.length-input {
+    width: 112px;
 }
 
 button {
@@ -108,4 +149,12 @@ button {
     font-size: larger;
     font-family: "Comic Sans MS", "Comic Sans";
     color: black;
+}
+
+#demo {
+    margin: 0;
+}
+
+.dropdown {
+    background-color: pink;
 }

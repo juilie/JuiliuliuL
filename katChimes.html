@@ -30,47 +30,67 @@
             <a href="#">Home</a>
         </nav>
     </div>
-<div class="main">
-    <div class="inputs">
-        <form style="margin-right:10px;" id="length" action="myFunction()">
-            <label>Longest Chime Length: </label><input type="number" name="fname" value="12.0000" step=".0001">
+    <div class="main">
+        <form class="length-input" id="length" action="myFunction()">
+            <label class="label">Longest Chime Length: </label><input class="input length-input" type="number"
+                name="fname" value="12.0000" step=".0001">
+        </form>
+
+        <form id="tuning" class="scale-input">
+            <label class="label" for="scale">Scale or Chord:</label>
+            <select class="dropdown input" name="scale" id="scale">
+                <option value="major pentatonic">major pentatonic</option>
+                <option value="minor pentatonic">minor pentatonic</option>
+                <option value="major scale">major scale</option>
+                <option value="harmonic minor scale">harmonic minor scale</option>
+                <option value="natural minor scale">natural minor scale</option>
+                <option value="ukrainian dorian">ukrainian dorian</option>
+            </select>
         </form>
         <br>
-        <button style="height: fit-content;" onclick="myFunction()">Get Chime lengths</button>
+        <button class="submit-button" onclick="getLengths()">Get Chime lengths</button>
+        <div class="lengths">
+            <p id="demo"></p>
+        </div>
     </div>
-    <div class="lengths">
-        <p id="demo"></p>
-    </div>
-</div>
 
 
     <script>
-        function myFunction() {
-            var x = document.getElementById("length");
+        function getLengths() {
+            const scales = {
+                "ukrainian dorian": ["1", "2", "b3", "#4", "5", "6", "b7", "8"],
+                "major scale": ["1", "2", "3", "4", "5", "6", "7", "8"],
+                "natural minor scale": ["1", "2", "b3", "4", "5", "b6", "b7", "8"],
+                "harmonic minor scale": ["1", "2", "b3", "4", "5", "b6", "7", "8"],
+                "major pentatonic": ["1", "2", "3", "5", "6", "8"],
+                "minor pentatonic": ["1", "b3", "4", "5", "b7", "8"]
+            }
+            const length = Number(document.getElementById("length").elements[0].value);;
+            const tuning = scales[document.getElementById("tuning").elements[0].value];
             var text = "";
-            const length = Number(x.elements[0].value);
-            const proportions = [1,
-                .9428,
-                .9129,
-                .8433,
-                .8165,
-                .7746,
-                .7454,
-                .7071
-            ]
+            const proportions = {
+                "1": 1,
+                "#1": .9798,
+                "b2": .9798,
+                "2": .9428,
+                "#2": .9129,
+                "b3": .9129,
+                "3": .8944,
+                "4": .8660,
+                "#4": .8433,
+                "b5": .8433,
+                "5": .8165,
+                "#5": .7906,
+                "b6": .7906,
+                "6": .7746,
+                "º7": .7746,
+                "b7": .7454,
+                "7": .7303,
+                "8": .7071
+            }
 
-            const scaleDegs = ["1",
-                "2",
-                "b3",
-                "#4",
-                "5",
-                "6",
-                "b7",
-                "8"
-            ]
-
-            for (let i = 0; i < proportions.length; i++) {
-                text += scaleDegs[i] + ": " + String((length * proportions[i]).toFixed(4)) + "<br>";
+            for (let i = 0; i < tuning.length; i++) {
+                text += tuning[i] + ": " + String((length * proportions[tuning[i]]).toFixed(4)) + "<br>";
             }
             document.getElementById("demo").innerHTML = text;
         }
