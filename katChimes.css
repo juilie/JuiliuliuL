@@ -168,3 +168,13 @@ button {
 .dropdown {
     background-color: pink;
 }
+
+.footer {
+    /* background: url("./papyrus.jpg"); */
+    width: 80vw;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
