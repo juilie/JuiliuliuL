@@ -1,0 +1,180 @@
+body {
+    background-image: url("bowl.png");
+    font-family: "Comic Sans MS", "Comic Sans";
+    font-size: xx-large;
+}
+
+.flowers {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+.navbar {
+    font-size: medium;
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 50% 50% 100% 100%;
+    grid-template-rows: 10% 10% 80%;
+    gap: 10px 10px 10px;
+    grid-template-areas:
+        "length button about feedback"
+        "scale button about feedback"
+        "calculation calculation about feedback";
+    background-image: url("papyrus.jpg");
+    min-height: 600px;
+    margin: 15px auto;
+    width: 90vw;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about {
+    grid-area: about;
+    text-align: center;
+}
+
+.feedback {
+    grid-area: feedback;
+    text-align: center;
+}
+
+.lengths {
+    display: flex;
+    grid-area: calculation;
+    justify-content: center;
+}
+
+.scale-input {
+    grid-area: scale;
+    justify-content: center;
+}
+
+.length-input {
+    grid-area: length;
+    justify-content: center;
+}
+
+.submit-button {
+    height: fit-content;
+    grid-area: button;
+    align-self: center;
+    width: fit-content;
+    justify-self: center;
+}
+
+.navbar {
+    border: 5px outset rgb(190, 112, 11);
+    background-color: rgba(255, 217, 0, 0.294);
+    border-radius: 10px;
+    padding: 10px 5px;
+    width: fit-content;
+    text-align: center;
+    margin: 10px auto;
+}
+
+a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+.navbar a {
+    margin: 2px 10px;
+}
+
+.header {
+    background-image: url("papyrus.jpg");
+    width: 90vw;
+    justify-content: space-evenly;
+    margin: 10px auto;
+    padding-bottom: 8px;
+    border-radius: 10px;
+}
+
+@media (min-width: 1040px) {
+    .main {
+        width: 80vw;
+    }
+
+    .header {
+        width: 80vw;
+    }
+}
+
+.flower-gif {
+    width: 100px;
+    height: auto;
+}
+
+.chime-gif {
+    width: 50px;
+    height: auto;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    height: fit-content;
+    width: fit-content;
+    margin-left: 10px;
+    font-size: x-large;
+    background-color: lightpink;
+    font-family: "Comic Sans MS", "Comic Sans";
+    resize: horizontal;
+}
+
+.label {
+    font-size: 20pt;
+}
+
+@media (min-width: 1040px) {
+    .label {
+        font-size: x-large;
+    }
+}
+
+.input.length-input {
+    width: 112px;
+}
+
+button {
+    padding: 10px;
+    background-color: pink;
+    border-radius: 20px;
+    font-size: larger;
+    font-family: "Comic Sans MS", "Comic Sans";
+    color: black;
+}
+
+#demo {
+    margin: 0;
+}
+
+.dropdown {
+    background-color: pink;
+}
+
+.footer {
+    /* background: url("./papyrus.jpg"); */
+    width: 80vw;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
