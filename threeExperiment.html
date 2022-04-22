@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>The MotherPode</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="scripts/three.js"></script>
+    <script>
+        // The three main things! Scene, camera, render
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // renderer.setSize(window.innerWidth/4, window.innerHeight/4, false); //makes it low res!
+        document.body.appendChild(renderer.domElement); // This is a <canvas> element apparently?
+
+        // NOTE: for low res, which is not used to my knowledge yet !!
+        // If you wish to keep the size of your app but render it at a lower resolution, 
+        // you can do so by calling setSize with false as updateStyle (the third argument). 
+        // For example, setSize(window.innerWidth/2, window.innerHeight/2, false) 
+        // will render your app at half resolution, given that your <canvas> has 100% width and height.
+
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x00ff00
+        });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 2;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.005;
+            cube.rotation.z += 0.01;
+            cube
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+
+</body>
+
+</html>
