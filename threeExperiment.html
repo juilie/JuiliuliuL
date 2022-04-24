@@ -13,8 +13,11 @@
 </head>
 
 <body>
-    <script src="scripts/three.js"></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        // import  {FontLoader} from "https://unpkg.com/three@0.139.2/examples/jsm/loaders/FontLoader.js";
         // The three main things! Scene, camera, render
         const scene = new THREE.Scene();
         scene.background = new THREE.Color( 0x03f0fc );
@@ -27,6 +30,23 @@
         renderer.setSize(window.innerWidth/2, window.innerHeight/2, false); //makes it low res!
         document.body.appendChild(renderer.domElement); // This is a <canvas> element apparently?
 
+//         const loader = new FontLoader();
+// console.log(loader);
+//         loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+// 	const textGeometry = new TextGeometry( 'Hello three.js!', {
+// 		font: font,
+// 		size: 80,
+// 		height: 5,
+// 		curveSegments: 12,
+// 		bevelEnabled: true,
+// 		bevelThickness: 10,
+// 		bevelSize: 8,
+// 		bevelOffset: 0,
+// 		bevelSegments: 5
+// 	} );
+// } );
+
         // NOTE: for low res, which is not used to my knowledge yet !!
         // If you wish to keep the size of your app but render it at a lower resolution, 
         // you can do so by calling setSize with false as updateStyle (the third argument). 
@@ -35,7 +55,7 @@
 
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({
-            color: 0xff00f7
+            color: 0xffffff
         });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
@@ -50,20 +70,19 @@
         points.push(new THREE.Vector3(0, -2, 0));
         points.push(new THREE.Vector3(-2, 0, 0));
 
-
-        const pointst = [];
-        pointst.push(new THREE.Vector3(0, 0, -2));
-        pointst.push(new THREE.Vector3(0, 2, 0));
-        pointst.push(new THREE.Vector3(0, 0, 2));
-        pointst.push(new THREE.Vector3(0, -2, 0));
-        pointst.push(new THREE.Vector3(0, 0, -2));
-
         const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
         const line = new THREE.Line(lineGeometry, lineMaterial);
+        
+        const linetwo = new THREE.Line(lineGeometry, lineMaterial);
+        linetwo.rotation.y = 1.58;
+
+        const linethree = new THREE.Line(lineGeometry, lineMaterial);
+        linethree.rotation.z = .79
+
         scene.add(line);
-        const linetwoGeometry = new THREE.BufferGeometry().setFromPoints(pointst);
-        const linetwo = new THREE.Line(linetwoGeometry, lineMaterial);
         scene.add(linetwo);
+        scene.add(linethree);
+        // scene.add(textGeometry);
 
 
 
@@ -75,6 +94,9 @@
             line.rotation.x += 0.03;
             linetwo.rotation.y += 0.03
             // line.rotation.y += 0.013;
+            // linethree.rotation.z += 0.03;
+            linethree.rotation.y += 0.03;
+            linethree.rotation.x += 0.03;
 
         
             cube
@@ -82,8 +104,9 @@
         }
         animate();
     </script>
+
     <body>
 
-</body>
+    </body>
 
 </html>

@@ -1,0 +1,30 @@
+body {
+    background-image: url("./assets/pode.png");
+    background-repeat:no-repeat;
+    background-size:100% 100vh;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    background-color: white;
+    width: fit-content;
+    padding: 20px;
+    margin-top: 36vh;
+    border: double black 5px;
+    line-height: 25px;
+    text-align: center;
+    transition: all .5s;
+}
+
+.links:hover {
+    transform: scale(2) rotate(360deg);
+    transition: all .4s;
+}
+
+
