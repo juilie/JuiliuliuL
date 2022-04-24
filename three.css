@@ -1,0 +1,12 @@
+canvas {
+    z-index: -1;
+    position: absolute;
+}
+
+p {
+    color: white;
+    font-size: 30pt;
+}
+
+body {
+background-image: url("./fun.png");}

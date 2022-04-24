@@ -8,6 +8,8 @@
             margin: 0;
         }
     </style>
+    <link rel="stylesheet" href="three.css">
+
 </head>
 
 <body>
@@ -15,10 +17,14 @@
     <script>
         // The three main things! Scene, camera, render
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-        const renderer = new THREE.WebGLRenderer();
+        scene.background = new THREE.Color( 0x03f0fc );
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+        camera.position.set(0, 0, 15);
+        camera.lookAt(0, 0, 0);
+        const renderer = new THREE.WebGLRenderer(); // {alpha:true} for transparency
+        // renderer.setClearColorHex( 0xffffff, 1 ); // assumes black background
         renderer.setSize(window.innerWidth, window.innerHeight);
-        // renderer.setSize(window.innerWidth/4, window.innerHeight/4, false); //makes it low res!
+        renderer.setSize(window.innerWidth/2, window.innerHeight/2, false); //makes it low res!
         document.body.appendChild(renderer.domElement); // This is a <canvas> element apparently?
 
         // NOTE: for low res, which is not used to my knowledge yet !!
@@ -29,23 +35,54 @@
 
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({
-            color: 0x00ff00
+            color: 0xff00f7
         });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
+        //create a blue LineBasicMaterial
+        const lineMaterial = new THREE.LineDashedMaterial({
+            color: 0xffc7fd
+        });
+        const points = [];
+        points.push(new THREE.Vector3(-2, 0, 0));
+        points.push(new THREE.Vector3(0, 2, 0));
+        points.push(new THREE.Vector3(2, 0, 0));
+        points.push(new THREE.Vector3(0, -2, 0));
+        points.push(new THREE.Vector3(-2, 0, 0));
 
-        camera.position.z = 2;
+
+        const pointst = [];
+        pointst.push(new THREE.Vector3(0, 0, -2));
+        pointst.push(new THREE.Vector3(0, 2, 0));
+        pointst.push(new THREE.Vector3(0, 0, 2));
+        pointst.push(new THREE.Vector3(0, -2, 0));
+        pointst.push(new THREE.Vector3(0, 0, -2));
+
+        const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+        const line = new THREE.Line(lineGeometry, lineMaterial);
+        scene.add(line);
+        const linetwoGeometry = new THREE.BufferGeometry().setFromPoints(pointst);
+        const linetwo = new THREE.Line(linetwoGeometry, lineMaterial);
+        scene.add(linetwo);
+
+
 
         function animate() {
             requestAnimationFrame(animate);
             cube.rotation.x += 0.01;
-            cube.rotation.y += 0.005;
-            cube.rotation.z += 0.01;
+            cube.rotation.y += 0.01;
+
+            line.rotation.x += 0.03;
+            linetwo.rotation.y += 0.03
+            // line.rotation.y += 0.013;
+
+        
             cube
             renderer.render(scene, camera);
         }
         animate();
     </script>
+    <body>
 
 </body>
 
