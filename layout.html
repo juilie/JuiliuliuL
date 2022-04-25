@@ -1,0 +1,256 @@
+<style>
+    :root {
+        /* These variables exist so you can make quick and simple style changes without much CSS knowledge */
+
+        /* applies to all areas */
+        --font-family: sans-serif;
+        --font-size: 14px;
+        --line-height: 1.3em;
+        --font-color: black;
+        --link-color: #22506A;
+        --link-text-decoration: none;
+
+        /* main content (between sidebars) */
+        --content-padding: 25px;
+        --content-bg-color: #65CAFE;
+
+        /* header */
+        --header-height: 150px;
+        --header-background: url('https://pbs.twimg.com/media/EkTRaaMUwAAfh7I?format=jpg&name=large');
+        --header-margin-bottom: 0px;
+
+        /* sidebar */
+        --sidebar-margin: 10px;
+        --sidebar-width: 150px;
+        --sidebar-padding: 15px;
+        --sidebar-bg-color: #65CAFE;
+
+        /* footer */
+        --footer-height: 30px;
+        --footer-bg-color: #65CAFE;
+
+        /* navbar */
+        --navitems-alignment: center;
+        --space-between-navitems: 20px;
+        --navbar-margin-bottom: 10px;
+        --nav-bg-color: #65CAFE;
+
+        /* container */
+        --container-width: 800px;
+        --container-bg-color: #3DA2B7;
+
+        /* controls the gap between the content and the footer */
+        --row-gap: 5px;
+
+        /* To add scrollbars to your sidebars, just make the height a px value and change overflow to 'auto' */
+
+        --sidebar-height: 100%;
+        --sidebar-overflow: hidden;
+        --background-color: #3DA2B7;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        font-family: var(--font-family);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        color: var(--font-color);
+    }
+
+    body a {
+        color: var(--link-color);
+        font-weight: bold;
+        text-decoration: var(--link-text-decoration);
+    }
+
+    #main-container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+        background-color: var(--container-bg-color);
+    }
+
+    .flex {
+        display: flex;
+        margin-bottom: var(--row-gap);
+    }
+
+    .content-wrap {
+        margin-top: var(--content-margin-top);
+    }
+
+    #content-container {
+        width: 60%;
+        margin-bottom: var(--row-gap);
+        background-color: var(--content-bg-color);
+    }
+
+    #left-sidebar {
+        width: var(--sidebar-width);
+        margin-right: var(--sidebar-margin);
+        margin-bottom: var(--row-gap);
+        height: var(--sidebar-height);
+        overflow: var(--sidebar-overflow);
+        background-color: var(--sidebar-bg-color);
+    }
+
+    #right-sidebar {
+        width: var(--sidebar-width);
+        margin-left: var(--sidebar-margin);
+        margin-bottom: var(--row-gap);
+        height: var(--sidebar-height);
+        overflow: var(--sidebar-overflow);
+        background-color: var(--sidebar-bg-color);
+    }
+
+    #header-contained {
+        height: var(--header-height);
+        margin-bottom: var(--header-margin-bottom);
+        background-image: var(--header-background);
+        background-position: center center;
+    }
+
+    #footer {
+        height: var(--footer-height);
+        text-align: center;
+        color: var(--font-color);
+        background-color: var(--footer-bg-color);
+    }
+
+    #header-full {
+        display: none;
+        height: var(--header-height);
+        margin-bottom: var(--header-margin-bottom);
+        background-image: var(--header-background);
+        background-position: center center;
+    }
+
+    #navbar-contained {
+        margin-bottom: var(--row-gap)
+    }
+
+    #navbar-full {
+        display: none;
+    }
+
+    .nav {
+        margin-left: 0;
+        text-align: var(--navitems-alignment);
+        margin-top: 0;
+        margin-bottom: var(--navbar-margin-bottom);
+        padding-top: 1em;
+        padding-bottom: 1em;
+        background-color: var(--nav-bg-color);
+    }
+
+    .nav li {
+        display: inline-block;
+        padding-right: var(--space-between-navitems);
+    }
+
+    .wrapper {
+        padding: var(--content-padding);
+        padding-top: var(--sidebar-padding);
+    }
+
+    .sidebar-wrapper {
+        padding: var(--sidebar-padding);
+        height: var(--sidebar-height);
+        overflow: var(--sidebar-overflow);
+    }
+
+    .footer-wrapper {
+        padding: 5px;
+    }
+
+    /* To keep your site RESPONSIVE, make sure this variable matches the width for --container-width UNLESS --container-width is 100% - if it's 100%, you'll need to manually input a breakpoint. */
+    @media only screen and (max-width: 800px) {
+        .flex {
+            flex-wrap: wrap;
+        }
+
+        #left-sidebar {
+            width: 100%;
+            display: block;
+            order: 2;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        #right-sidebar {
+            width: 100%;
+            display: block;
+            order: 3;
+            margin-left: 0;
+        }
+
+        #content-container {
+            width: 100%;
+            display: block;
+            order: 1;
+            margin-bottom: 10px;
+        }
+
+    }
+</style>
+<div id="header-full"></div>
+<div id="navbar-full">
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</div>
+<div id="main-container">
+    <div id="header-contained"></div>
+    <div id="navbar-contained">
+        <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div class="content-wrap flex alignment">
+        <div id="left-sidebar">
+            <div class="sidebar-wrapper">Left Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque. Duis
+                at tellus at urna condimentum mattis pellentesque id. Mauris sit amet massa vitae tortor condimentum lacinia
+                quis vel. Sit amet est placerat in egestas erat imperdiet sed euismod. Erat nam at lectus urna duis
+                convallis convallis tellus id. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Urna et
+                pharetra pharetra massa massa ultricies mi.</div>
+        </div>
+        <div id="content-container">
+            <div class="wrapper">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque. Duis at tellus at urna
+                condimentum mattis pellentesque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Sit
+                amet est placerat in egestas erat imperdiet sed euismod. Erat nam at lectus urna duis convallis convallis
+                tellus id. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Urna et pharetra pharetra
+                massa massa ultricies mi. Semper viverra nam libero justo laoreet sit amet cursus sit. Quam lacus
+                suspendisse faucibus interdum posuere lorem. Quam quisque id diam vel quam elementum pulvinar. Venenatis
+                cras sed felis eget velit aliquet sagittis. Fringilla urna porttitor rhoncus dolor purus non enim. Eleifend
+                donec pretium vulputate sapien nec sagittis aliquam. Fames ac turpis egestas sed tempus urna et. Nisl vel
+                pretium lectus quam id leo in. Ornare arcu odio ut sem nulla pharetra diam. Dictum sit amet justo donec enim
+                diam vulputate ut. Et malesuada fames ac turpis egestas maecenas.</div>
+        </div>
+        <div id="right-sidebar">
+            <div class="sidebar-wrapper">Right Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque. Duis
+                at tellus at urna condimentum mattis pellentesque id. Mauris sit amet massa vitae tortor condimentum lacinia
+                quis vel. Sit amet est placerat in egestas erat imperdiet sed euismod. Erat nam at lectus urna duis
+                convallis convallis tellus id. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Urna et
+                pharetra pharetra massa massa ultricies mi.
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer-wrapper">footer</div>
+    </div>
+</div>
