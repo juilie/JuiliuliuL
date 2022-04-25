@@ -43,10 +43,10 @@
                     <Sphere radius='5' />
                 </Shape>
             </Transform>
-                        <Transform translation='10 5 10' scale="30 30 30" rotation="1 1 1 1">
-                <!-- How to load other X3D files -->
+                        <!-- <Transform translation='10 5 10' scale="30 30 30" rotation="1 1 1 1">
+                How to load other X3D files
                 <inline url='./acorn.x3d' />
-            </Transform>
+            </Transform> -->
             <Transform translation='0 10 0'>
                 <Shape>
                     <Text string='"Welcome"'>
