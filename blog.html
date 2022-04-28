@@ -1,0 +1,93 @@
+<html>
+<head>
+    <link rel="stylesheet" href="blog.css">
+    <title>juli's BlogiPode</title>
+</head>
+
+<body>
+    <script>
+        function hue(on, contentType) {
+            hoverEvent(on);
+            document.querySelector('#bg').style.filter = on ? "hue-rotate(45deg) drop-shadow(-13px 8px 4px #000)" :
+                "hue-rotate(0deg) drop-shadow(-13px 8px 4px #000)";
+            document.querySelector('#contentType').innerText = contentType ? contentType : "Hover post for insight"
+        }
+    </script>
+
+    <div class="container">
+        <aside class="left panel">
+            <h1 class="welcome">Welcome to my blog</h1>
+        </aside>
+
+        <main class="main-div">
+            <header class="nav">
+                <marquee><b>Status:</b> sensitive &nbsp&nbsp&nbsp&nbsp Status:</b> sensitive &nbsp&nbsp&nbsp&nbsp
+                    Status:</b> sensitive &nbsp&nbsp&nbsp&nbsp Status:</b> sensitive</marquee>
+            </header>
+
+  
+            <div class="blog-post words" onmouseover="hue(true, 'Words/Personal')" onmouseleave="hue(false)">
+                <h1>Visit here oft and I will you</h1>
+                <p>Wow! I started this page today and now it's 3am.<br><br> This Pode (PodeCentral blogipode) will be updated...semiregularly.....hopefully.
+                    If you're reading this, drop your blog in the livechat and I will follow yours. You should update regularly too. I want to try this to just see if <i>maybe</i>
+                    it's better or supplemental to social media. what would it be like if a critical mass of my irl friends had blogs like this pode right here??<br><br>
+                    Anyway here's some little snippets of stuff on my mind and life:<br>
+                    <ul style="line-height:30px;">
+                        <li>
+                            <a href="https://bluedish.bandcamp.com">Blue Dish</a> in Des Moines??
+                        </li>
+                        <li>
+                            <a href="https://thebookofshaders.com/">GLSL</a> shaders as website layout components ヽ(´ー｀)ノ
+                        </li>
+                        <li>
+                            Subletting in LA or Brooklyn this summer ?..(any1 subletting? 👉👈)
+                        </li>
+                        <li>
+                            Maybe touring with <a href="https://www.youtube.com/watch?v=YpHujMb2jZ4">Deer Scout</a> in September?
+                        </li>
+                        <li>
+                            The People's Coalition of Tandy <a href="https://pcotandy.org">pcotandy.org</a>
+                        </li>
+                        <li>
+                            Actually enjoying walks and listening to podcasts
+                        </li>
+                    </ul>
+                    There's bad stuff too - I don't know how I will or won't share the sad and bad things - a shadowpode? we'll see. For now, refer to the left column to understand the content of each pode before reading Goodnight<3
+                    <br><br><br>... juili</p>
+            </div>
+
+
+
+
+        </main>
+
+        <aside class="right panel" id="test">
+            <h1 style="margin-bottom:15px;">Map of Contents:</h1>
+            <canvas id="bg"></canvas>
+            <h1 id="contentType">Hover post for insight</h1>
+            <div class="legend">
+                <p><b style="background-color: blue;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Events</p>
+                <p><b style="background-color: fuchsia" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Link Dump</p>
+                <p><b style="background-color: green" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Tutorial</p>
+                <p><b style="background-color: goldenrod" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                    Words/Personal</p>
+            </div>
+            <div class="livechat-header">
+                Livechat<img style="transform: rotate(90deg) scale(.5);" src="./assets/arrowball.gif">
+            </div>
+            <iframe src="https://www3.cbox.ws/box/?boxid=3516295&boxtag=m8DaUe" width="90%" height="450"
+                allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0"
+                scrolling="auto"></iframe>
+        </aside>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="blog.js"></script>
+
+</body>
+</html>
