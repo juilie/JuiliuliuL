@@ -24,7 +24,7 @@
         const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
         camera.position.set(0, 0, 15);
         camera.lookAt(0, 0, 0);
-        const renderer = new THREE.WebGLRenderer(); // {alpha:true} for transparency
+        const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg')}); // {alpha:true} for transparency
         // renderer.setClearColorHex( 0xffffff, 1 ); // assumes black background
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setSize(window.innerWidth/2, window.innerHeight/2, false); //makes it low res!
@@ -106,6 +106,7 @@
     </script>
 
     <body>
+        <canvas id="bg" width="100%"></canvas>
 
     </body>
 
