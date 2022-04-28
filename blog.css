@@ -173,9 +173,11 @@ canvas {
     width: 60%;
     height: 100%;
     justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
     overflow: scroll;
-    /* -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%); */
+    -webkit-mask-image: linear-gradient(to bottom, black 95%, rgba(0, 128, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, black 95%, rgba(0, 128, 0, 0) 100% 100%);
 }
 
 .container {
@@ -190,18 +192,20 @@ canvas {
     width: 55%;
     height: fit-content;
     background-color: rgb(191, 251, 145);
-    margin: 25px auto;
+    margin: 40px auto;
     padding: 0px 30px;
     -webkit-animation: 3s ease 1.5s backwards fadein;
     animation: 3s ease 1.5s backwards fadein;
     font-family: basiic;
     transform: scale(1);
     transition: transform .3s ease-out;
+    z-index: 1;
 }
 
 .blog-post:hover {
     transform: scale(1.2);
     transition: transform .3s ease-out;
+    z-index: 3;
  }
 
 .blog-post h1 {
