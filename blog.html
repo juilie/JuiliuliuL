@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="blog.css">
     <title>juli's BlogiPode</title>
@@ -11,6 +12,7 @@
             document.querySelector('#bg').style.filter = on ? "hue-rotate(45deg) drop-shadow(-13px 8px 4px #000)" :
                 "hue-rotate(0deg) drop-shadow(-13px 8px 4px #000)";
             document.querySelector('#contentType').innerText = contentType ? contentType : "Hover post for insight"
+            document.querySelector('#mobileContentType').innerText = contentType ? contentType : "Hover post for insight"
         }
     </script>
 
@@ -21,29 +23,35 @@
 
         <main class="main-div">
             <header class="nav">
-                <marquee><b>Status:</b> sleep deprived &nbsp&nbsp&nbsp&nbsp Status:</b> sleep deprived &nbsp&nbsp&nbsp&nbsp
+                <marquee><b>Status:</b> sleep deprived &nbsp&nbsp&nbsp&nbsp Status:</b> sleep deprived
+                    &nbsp&nbsp&nbsp&nbsp
                     Status:</b> sleep deprived &nbsp&nbsp&nbsp&nbsp Status:</b> sleep deprived</marquee>
             </header>
 
-  
+
             <div class="blog-post words" onmouseover="hue(true, 'Words/Personal')" onmouseleave="hue(false)">
                 <h1>Visit here oft and I will you</h1>
-                <p>Wow! I started this page today and now it's 3am.<br><br> This Pode (PodeCentral blogipode) will be updated...semiregularly.....hopefully.
-                    If you're reading this, drop your blog in the livechat and I will follow yours. You should update regularly too. I want to try this to just see if <i>maybe</i>
-                    it's better or supplemental to social media. what would it be like if a critical mass of my irl friends had blogs like this pode right here??<br><br>
+                <p>Wow! I started this page today and now it's 3am.<br><br> This Pode (PodeCentral blogipode) will be
+                    updated...semiregularly.....hopefully.
+                    If you're reading this, drop your blog in the livechat and I will follow yours. You should update
+                    regularly too. I want to try this to just see if <i>maybe</i>
+                    it's better or supplemental to social media. what would it be like if a critical mass of my irl
+                    friends had blogs like this pode right here??<br><br>
                     Anyway here's some little snippets of stuff on my mind and life:<br>
                     <ul style="line-height:30px;">
                         <li>
                             <a href="https://bluedish.bandcamp.com">Blue Dish</a> in Des Moines??
                         </li>
                         <li>
-                            <a href="https://thebookofshaders.com/">GLSL</a> shaders as website layout components ヽ(´ー｀)ノ
+                            <a href="https://thebookofshaders.com/">GLSL</a> shaders as website layout components
+                            ヽ(´ー｀)ノ
                         </li>
                         <li>
                             Subletting in LA or Brooklyn this summer ?..(any1 subletting? 👉👈)
                         </li>
                         <li>
-                            Maybe touring with <a href="https://www.youtube.com/watch?v=YpHujMb2jZ4">Deer Scout</a> in September?
+                            Maybe touring with <a href="https://www.youtube.com/watch?v=YpHujMb2jZ4">Deer Scout</a> in
+                            September?
                         </li>
                         <li>
                             The People's Coalition of Tandy <a href="https://pcotandy.org">pcotandy.org</a>
@@ -52,30 +60,52 @@
                             Actually enjoying walks and listening to podcasts
                         </li>
                     </ul>
-                    There's bad stuff too - I don't know how I will or won't share the sad and bad things - a shadowpode? we'll see. 
-                    For now, refer to the left column to understand the content of each pode before reading Goodnight ♥</p>
-                    <div class="signature">
-                        <p style="border: 1px outset; padding: 2px 5px;">... juili</p> 
-                        <p style="margin-left: auto; border: 1px dashed; padding: 2px;">April 28, 2022</p>
-                    </div>
+                    There's bad stuff too - I don't know how I will or won't share the sad and bad things - a
+                    shadowpode? we'll see.
+                    For now, refer to the left column to understand the content of each pode before reading Goodnight ♥
+                </p>
+                <div class="signature">
+                    <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+                    <p style="margin-left: auto; border: 1px dashed; padding: 2px;">April 28, 2022</p>
+                </div>
             </div>
+            
 
 
-
-
+        <div class="fake-mobile-footer">hello</div>
         </main>
 
         <aside class="right panel" id="test">
-            <h1 style="margin-bottom:15px;">Map of Contents:</h1>
+            <div class="content-map">
+            <h1 class="content-map-header">Map of Contents:</h1>
+            <h1 id="mobileContentType">Tap post for insight</h1>
             <canvas id="bg"></canvas>
             <h1 id="contentType">Hover post for insight</h1>
-            <div class="legend">
-                <p><b style="background-color: blue;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Events</p>
-                <p><b style="background-color: fuchsia" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Link Dump</p>
-                <p><b style="background-color: green" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;= Tutorial</p>
-                <p><b style="background-color: goldenrod" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
-                    Words/Personal</p>
             </div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="legend">
+                            <p><b style="background-color: blue;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                Music</p>
+                            <p><b style="background-color: red" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                Link Dump</p>
+                            <p><b style="background-color: green" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                Tutorial</p>
+                                <p><b style="background-color: fuchsia;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                    Events</p>
+                                    <p><b style="background-color: goldenrod" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                        Words/Personal</p>
+                        </div>
+                    </td>
+                    <!-- <td>
+                        <div class="legend">
+                            <p><b style="background-color: goldenrod" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                                Words/Personal</p>
+                        </div>
+                    </td> -->
+                </tr>
+            </table>
             <div class="livechat-header">
                 Livechat<img style="transform: rotate(90deg) scale(.5);" src="./assets/arrowball.gif">
             </div>
@@ -86,12 +116,11 @@
     </div>
 
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
         integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="blog.js"></script>
 
 </body>
+
 </html>
