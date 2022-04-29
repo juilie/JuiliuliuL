@@ -31,7 +31,7 @@ body {
     }
 
     100% {
-        margin-top: 95vh;
+        margin-top: 90vh;
     }
 }
 
@@ -47,12 +47,13 @@ body {
 }
 
 .left {
-    animation: slide-from-left 1s ease-out;
+    animation: slide-from-left 1s ease-out backwards;
+    animation-delay: .2s;
 }
 
 .panel.right {
     animation: slide-from-right 1s ease-out backwards;
-    animation-delay:1s ;
+    animation-delay:1.2s;
     display: inline;
 }
 
@@ -127,8 +128,8 @@ canvas {
 }
 
 .welcome {
-    animation: beep 5s linear infinite alternate;
-
+    animation: beep 5s linear infinite alternate backwards;
+    animation-delay: 4s;
 }
 
 @keyframes fadein {
@@ -190,6 +191,7 @@ canvas {
     padding: 0px 30px;
     -webkit-animation: 3s ease 1.5s backwards fadein;
     animation: 3s ease 1.5s backwards fadein;
+    /* animation-delay: .2s; */
     font-family: basiic;
     transform: scale(1);
     transition: transform .3s ease-out;
@@ -322,7 +324,7 @@ margin-left: 0;
 
     .panel.right {
         animation: mobile-up 2s ease-out backwards;
-        animation-delay: .5s;
+        animation-delay: .7s;
         width: 100%;
         position: fixed;
         align-self: flex-end;
