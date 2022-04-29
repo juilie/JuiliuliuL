@@ -51,8 +51,8 @@ body {
 }
 
 .panel.right {
-    -webkit-animation: 1s ease-in 0s normal forwards slide-from-right;
-    animation: 1s ease-in 0s normal forwards slide-from-right;
+    animation: slide-from-right 1s ease-out backwards;
+    animation-delay:1s ;
     display: inline;
 }
 
@@ -79,16 +79,6 @@ canvas {
 @keyframes slide-from-right {
     0% {
         opacity: 0%;
-        transform: translateX(100%);
-    }
-
-    50% {
-        opacity: 0%;
-        transform: translateX(100%);
-    }
-
-    51% {
-        opacity: 100%;
         transform: translateX(100%);
     }
 
@@ -144,11 +134,11 @@ canvas {
 @keyframes fadein {
     0% {
         opacity: 0;
-        transform: rotate(0deg) scale(0.1);
+        transform:  scale(0.1);
     }
 
     50% {
-        transform: rotate(0deg) scale(0.3);
+        transform:scale(0.3);
     }
 
     100% {
@@ -160,12 +150,16 @@ canvas {
 @-webkit-keyframes fadein {
     0% {
         opacity: 0;
-        transform: rotate(360deg);
+        transform:  scale(0.1);
+    }
+
+    50% {
+        transform:scale(0.3);
     }
 
     100% {
         opacity: 1;
-        transform: rotate(0deg);
+        transform: scale(1);
     }
 }
 
