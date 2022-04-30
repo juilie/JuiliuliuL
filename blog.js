@@ -66,13 +66,11 @@ function setupWorld() {
     const far = 100;
 
     const geometry = new THREE.TorusKnotGeometry(4.0, 4.0, 19, 10, 4, 2);
-    console.log("did this happen?");
+
     z.junk.torus = new THREE.Mesh(geometry, material);
-    // z.junk.torus.position.y = 1.8
     z.three.scene.add(z.junk.torus);
     z.three.scene.add(z.three.light);
     z.three.scene.add(z.three.ambientLight);
-    console.log("setup");
 }
 
 function onWindowResize() {
