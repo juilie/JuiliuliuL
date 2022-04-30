@@ -1,0 +1,15 @@
+.pot {
+    width: 250px;
+    height: 250px;
+    border: 2px pink outset;
+}
+
+html {
+    background-image: url('./assets/pink.jpg');
+    background-size: 200px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
