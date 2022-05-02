@@ -39,7 +39,7 @@ canvas{
 #particles-js{
   width: 100%;
   height: 100%;
-  background-image: url("./assets/podedoge.png");
+  background-image: url("./assets/podedoge-min.png");
   /* filter: sepia(); */
   background-repeat:no-repeat;
   background-size:100% 100vh;
