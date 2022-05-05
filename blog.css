@@ -218,10 +218,20 @@ canvas {
     /* margin-top: -5px; */
     margin-bottom: 0px;
 }
-
+.blog-post:last-of-type {
+    margin-bottom: 1000px;
+}
 .words {
     border-color: goldenrod;
     outline-color: goldenrod;
+}
+
+.music {
+    border-left-color: red ;
+    border-top-color: yellow;
+    border-right-color: green;
+    border-bottom-color: blue;
+    outline-color: blue;  
 }
 
 .legend {

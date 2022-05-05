@@ -17,6 +17,8 @@
                 case "Link Dump":
                     hueRotate=246;
                     grayscale=.9;
+                case "Music":
+                    hueRotate=180;
                 default:
                     break;
             }
@@ -35,10 +37,34 @@
 
         <main class="main-div">
             <header class="nav">
-                <marquee><b>Status:</b> sleep debt &nbsp&nbsp&nbsp&nbsp Status:</b> sleep debt
+                <marquee><b>Status:</b> inspired &nbsp&nbsp&nbsp&nbsp Status:</b> inspire
                     &nbsp&nbsp&nbsp&nbsp
-                    Status:</b> sleep debt &nbsp&nbsp&nbsp&nbsp Status:</b> sleep debt</marquee>
+                    Status:</b> inspired &nbsp&nbsp&nbsp&nbsp Status:</b> inspired</marquee>
             </header>
+
+            <div class="blog-post music" onmouseover="hue(true, 'Music')" onmouseleave="hue(false)">
+                <h1>The song about barricades</h1>
+                <p>
+                    I don't listen to "historical" music much, but my dear friend <a href="https://soundcloud.com/tobias-haus">Tobias Haus</a> sent me 
+                    a video of a duet (Harpsichord and Theorbo) playing <a href="https://www.youtube.com/watch?v=DzoFKG7ITRg&ab_channel=WarnerClassics">"Les Baricades Mïstérieuses"</a> 
+                    (The Mysterious Barricades) by François Couperin. (Check out the <a href="https://www.youtube.com/watch?v=DzoFKG7ITRg&ab_channel=WarnerClassics">video</a> it's great)<br><br>
+                    Sometimes historical performance just hits deep (҂◡_◡)<br><br>
+                    Toby and I will be performing it for friends this Friday - I'll try to tape and post here. The song is typically a solo piece, but
+                    Jean Rondeau & Thomas Dunford arranged/embellished it so the theorbo is playing some nice harmonies<br><br>
+                    Since I think this is their original take, I couldn't find music - so I transcribed the theorbo part for guitar. I believe all of the notes are correct. I took some...liberties with the rhythmic notation. 
+                    If you play along with the video I think it will be clear what's going on<br><br>
+                    So here it is: A guitar transcription of Thomas Dunford's theorbo part of "Les Baricades Mïstérieuses" by Couperin.<br>
+                </p>
+                <a href="./assets//barricades.pdf" download>Click here to download<br><br></a>
+
+                    <iframe src="./assets/barricades.pdf" style="margin:0 auto;"> </iframe></a> 
+
+                <div class="signature">
+                    <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+                    <p style="margin-left: auto; border: 1px dashed; padding: 2px;">May 4, 2022</p>
+                </div>
+            </div>
+
             <div class="blog-post link-dump" onmouseover="hue(true, 'Link Dump')" onmouseleave="hue(false)">
                 <h1>Link Dump: Indie web and more :)</h1>
                 <p>
@@ -121,7 +147,7 @@
             
 
 
-        <div class="fake-mobile-footer">hello</div>
+        <div class="fake-mobile-footer"></div>
         </main>
 
         <aside class="right panel" id="test">
@@ -137,7 +163,7 @@
                         <div class="legend">
                             <p><b style="background-color: blue;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Music</p>
-                            <p><b style="background-color: lavender" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                            <p><b style="background-color: silver" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Link Dump</p>
                             <p><b style="background-color: green" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Tutorial</p>
