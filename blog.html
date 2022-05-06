@@ -7,8 +7,23 @@
 <body>
     <script>
         function hue(on, contentType) {
+
+            var hueRotate=0;
+            var grayscale=0;
+            switch (contentType) {
+                case "Words/Personal":
+                    hueRotate=45;
+                    break;
+                case "Link Dump":
+                    hueRotate=246;
+                    grayscale=.9;
+                case "Music":
+                    hueRotate=180;
+                default:
+                    break;
+            }
             hoverEvent(on);
-            document.querySelector('#bg').style.filter = on ? "hue-rotate(45deg) drop-shadow(-13px 8px 4px #000)" :
+            document.querySelector('#bg').style.filter = on ? `hue-rotate(${hueRotate}deg) grayscale(${grayscale}) drop-shadow(-13px 8px 4px #000)` :
                 "hue-rotate(0deg) drop-shadow(-13px 8px 4px #000)";
             document.querySelector('#contentType').innerText = contentType ? contentType : "Hover post for insight"
             document.querySelector('#mobileContentType').innerText = contentType ? contentType : "Hover post for insight"
@@ -22,11 +37,72 @@
 
         <main class="main-div">
             <header class="nav">
-                <marquee><b>Status:</b> working a lot &nbsp&nbsp&nbsp&nbsp Status:</b> working a lot
+                <marquee><b>Status:</b> embarrased &nbsp&nbsp&nbsp&nbsp Status:</b> inspembarrasedire
                     &nbsp&nbsp&nbsp&nbsp
-                    Status:</b> working a lot &nbsp&nbsp&nbsp&nbsp Status:</b> working a lot</marquee>
+                    Status:</b> embarrased &nbsp&nbsp&nbsp&nbsp Status:</b> embarrased</marquee>
             </header>
 
+            <div class="blog-post music" onmouseover="hue(true, 'Music')" onmouseleave="hue(false)">
+                <h1>The song about barricades</h1>
+                <p>
+                    I don't listen to "historical" music much, but my dear friend <a href="https://soundcloud.com/tobias-haus">Tobias Haus</a> sent me 
+                    a video of a duet (Harpsichord and Theorbo) playing <a href="https://www.youtube.com/watch?v=DzoFKG7ITRg&ab_channel=WarnerClassics">"Les Baricades Mïstérieuses"</a> 
+                    (The Mysterious Barricades) by François Couperin. (Check out the <a href="https://www.youtube.com/watch?v=DzoFKG7ITRg&ab_channel=WarnerClassics">video</a> it's great)<br><br>
+                    Sometimes historical performance just hits deep (҂◡_◡)<br><br>
+                    Toby and I will be performing it for friends this Friday - I'll try to tape and post here. The song is typically a solo piece, but
+                    Jean Rondeau & Thomas Dunford arranged/embellished it so the theorbo is playing some nice harmonies<br><br>
+                    Since I think this is their original take, I couldn't find music - so I transcribed the theorbo part for guitar. I believe all of the notes are correct. I took some...liberties with the rhythmic notation. 
+                    If you play along with the video I think it will be clear what's going on<br><br>
+                    So here it is: A guitar transcription of Thomas Dunford's theorbo part of "Les Baricades Mïstérieuses" by Couperin.<br>
+                </p>
+                <a href="./assets//barricades.pdf" download>Click here to download<br><br></a>
+
+                    <iframe src="./assets/barricades.pdf" style="margin:0 auto;"> </iframe></a> 
+
+                <div class="signature">
+                    <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+                    <p style="margin-left: auto; border: 1px dashed; padding: 2px;">May 4, 2022</p>
+                </div>
+            </div>
+
+            <div class="blog-post link-dump" onmouseover="hue(true, 'Link Dump')" onmouseleave="hue(false)">
+                <h1>Link Dump: Indie web and more :)</h1>
+                <p>
+                    Today a community in my periphery came into clearer sight for me. The IndieWeb is a term used for 
+                    multiple things, sometimes for the <a href="https://yesterweb.org/">Yesterweb</a> - but it turns out there is 
+                    a consolidated community called the <a href="https://indieweb.org/">IndieWeb</a>. They seem more aligned as technologists
+                    whereas the Yesterweb is focused on early web aesthetics and teaching non-programmers how to make websites. It's like web3 but for and by the people!
+                    I still have more to say, but I'm trying to keep these short for now - I'm excited by both communities and their interplay :) <br><br>
+                    Link dump (some of these i haven't read all of and don't agree with all of)
+                    <ul style="line-height:30px;">
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=X3SrZuH00GQ&ab_channel=JamstackTV">Indie Web talk</a>
+                        </li>
+                        <li>
+                            <a href="https://adactio.com/">adactio</a> - somewhere in here is a tool to post your blog on all platforms but link back to your website...according to the talk above
+                            ヽ(´ー｀)ノ
+                        </li>
+                        <li>
+                            <a href="https://www.emilygorcenski.com/post/angelheaded-hipsters-burning-for-the-ancient-heavenly-connection/">Angelheaded Hipsters Burning for the Ancient Heavenly Connection</a>
+                            I burn for the heavenly connection. I like how this talks about twitter as a town square. Bring back town squares!                       
+                        </li>
+                        <li>
+                            <a href="https://indieweb.org/Webmention">Webmentions</a>
+                        </li>
+                        <li>
+                            <a href="https://fuzzywobble.com/projects/deep_space_settlers/">Space Catan</a> - fuzzy wobble has some neat stuff
+                        </li>
+                        <li>
+                             Apparently you can just like...buy a <a href="https://www.instructables.com/90s-Payphone-Boombox-Hack/">payphone</a>?
+                        </li>
+                    </ul>
+                    catching up on sleep slowly...Goodnight ♥
+                </p>
+                <div class="signature">
+                    <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+                    <p style="margin-left: auto; border: 1px dashed; padding: 2px;">May 3, 2022</p>
+                </div>
+            </div>
 
             <div class="blog-post words" onmouseover="hue(true, 'Words/Personal')" onmouseleave="hue(false)">
                 <h1>Visit here oft and I will you</h1>
@@ -71,7 +147,7 @@
             
 
 
-        <div class="fake-mobile-footer">hello</div>
+        <div class="fake-mobile-footer"></div>
         </main>
 
         <aside class="right panel" id="test">
@@ -87,7 +163,7 @@
                         <div class="legend">
                             <p><b style="background-color: blue;" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Music</p>
-                            <p><b style="background-color: red" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
+                            <p><b style="background-color: silver" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Link Dump</p>
                             <p><b style="background-color: green" class="swatch">&nbsp;&nbsp;&nbsp;&nbsp;</b>&nbsp;=
                                 Tutorial</p>
