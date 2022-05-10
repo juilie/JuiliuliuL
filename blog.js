@@ -16,8 +16,6 @@ z.three.ambientLight = new THREE.AmbientLight(0x000022);
 z.three.textureLoad = new THREE.TextureLoader();
 let rotationSpeed = .01;
 
-// z.images = document.getElementById('textures').querySelectorAll('img');
-
 z.audio = {};
 z.junk = {};
 
@@ -58,7 +56,6 @@ function setupWorld() {
         emissive: 0x8c2317,
         shininess: 10,
         wireframe: false,
-        // map: loader.load('https://i.imgur.com/pAvB7f1.jpeg')
     });
 
     const color = 0xFFFFFF; // white
@@ -80,26 +77,12 @@ function onWindowResize() {
 }
 
 function init() {
-    //Events
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    //z.images.forEach((image) => image.addEventListener('mouseover', (event) => hoverEvent(image.src)));
     z.three.camera.position.z = 25;
     setupWorld();
     animate();
 }
-// renderer.setSize(document.querySelector('#test').clientWidth, .75*document.querySelector('#test').clientWidth);
-
-// renderer.setSize(document.querySelector('#test').clientWidth/2, .75*document.querySelector('#test').clientWidth/2, false); //makes it low res!
-// document.body.appendChild(renderer.domElement); // This is a <canvas> element apparently?
-
-// function animate() {
-//     requestAnimationFrame(animate);
-//     cube.rotation.x += 0.01;
-//     cube.rotation.y += 0.01;
-
-//     renderer.render(scene, camera);
-// }
 window.addEventListener('DOMContentLoaded', (e) => {
     init();
 });

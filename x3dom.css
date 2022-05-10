@@ -211,3 +211,14 @@ x3d:hover,
     color: #fff;
     font-size: 14px;
 }
+
+body {
+    margin: 0;
+}
+
+h1 {
+    background: none;
+    position: absolute;
+    z-index: 10;
+    margin-left: 10px;
+}

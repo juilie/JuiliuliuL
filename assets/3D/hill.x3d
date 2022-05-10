@@ -16,7 +16,7 @@
 					<Shape>
 						<Appearance>
 							<ImageTexture DEF="IM_texture_png"
-							              url='"grass.jpg"'
+							              url='"../images/water.jpg"'
 							              />
 							<TextureTransform 
 							                  translation="0.000000 0.000000"

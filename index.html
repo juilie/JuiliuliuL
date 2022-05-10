@@ -3,14 +3,27 @@
 <head>
     <script src="x3dom.js"></script>
     <link rel="stylesheet" href="x3dom.css">
+    <script>
+        let seconds = 15;
+        function redirect() {
+            if (seconds === 0) {
+                window.location = "https://juilie.github.io/JuiliuliuL/particleHome"
+            }
+            
+            document.querySelector('#redirect').innerText = `Redirect in ${seconds}s`;
+            seconds--;
+        }
+        setInterval(redirect, 1000);
+    </script>
 </head>
 
 <body>
-    <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='demo.x3d'/></scene></x3d>
+    <h1 id="redirect">Redirect in 15s</h1>
+    <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/intro.x3d'/></scene></x3d>
 </body>
 <script>
-    function txtDisplay(message){
-        window.location.href = "https://juilie.github.io/JuiliuliuL/home";
+    function goToHomepage(){
+        window.location.href = "https://juilie.github.io/JuiliuliuL/particleHome";
     }
 </script>
 </html>

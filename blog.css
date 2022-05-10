@@ -1,20 +1,20 @@
 @font-face {
     font-family: TandyOS;
-    src: url('./assets/TandyOS.ttf');
+    src: url('./assets/fonts/TandyOS.ttf');
 }
 
 @font-face {
     font-family: heart;
-    src: url('./assets/heartfont.ttf');
+    src: url('./assets/fonts/heartfont.ttf');
 }
 
 @font-face {
     font-family: basiic;
-    src: url('./assets/basiic.ttf');
+    src: url('./assets/fonts/basiic.ttf');
 }
 
 html {
-    background-image: url("./assets/citywtrees-min.png");
+    background-image: url("./assets/images/citywtrees-min.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgb(244, 255, 236);
@@ -53,7 +53,7 @@ body {
 
 .panel.right {
     animation: slide-from-right .5s linear backwards;
-    animation-delay: 1.3s;
+    animation-delay: .6s;
     display: inline;
 }
 

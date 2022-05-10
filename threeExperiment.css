@@ -9,4 +9,5 @@ p {
 }
 
 body {
-background-image: url("./fun.png");}
+    margin: 0;
+}
