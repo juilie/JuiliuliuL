@@ -34,8 +34,102 @@ canvas {
 #particles-js {
   width: 100%;
   height: 100%;
-  background-image: url("./assets/images/podedoge-min.png");
+  background-image: url("./assets/images/pode-min.png");
   background-repeat:no-repeat;
   background-size:100% 100vh;
 }
 
+.links {
+  background-color: white;
+  width: fit-content;
+  padding: 20px;
+  margin-top: 36vh;
+  border: double black 5px;
+  color: black;
+  line-height: 25px;
+  text-align: center;
+  transition: all .5s;
+}
+
+.links:hover {
+  transform: scale(2) rotate(360deg);
+  transition: all .4s;
+}
+
+.links:hover button {
+  /* transform: rotate(-360deg);
+  transition: all .4s;
+  transition-delay: .3s; */
+  transition: box-shadow 1s ease, transform 1s ease;
+  transform: scale(1.02);
+  transition-delay: .2s;
+  box-shadow: 3px 3px 5px black;
+}
+
+.links button {
+  width: 100%;
+  font-size: large;
+  padding: 5px 2px;
+  margin:5px 0px;
+}
+
+#blogipode button:hover {
+  background-color: rgb(90, 168, 90);
+  box-shadow: 3px 3px 5px rgb(44, 86, 44);
+
+  transition: box-shadow .2s linear;
+  transition-delay: 0s;
+}
+
+#music button:hover {
+  background-color: blue;
+  color: white;
+  box-shadow: 3px 3px 5px rgb(0, 0, 126);
+
+  transition: box-shadow .2s linear;
+  transition-delay: 0s;
+}
+
+#websites button:hover {
+  background-color: pink;
+  box-shadow: 3px 3px 5px rgb(100, 76, 80);
+
+  transition: box-shadow .2s linear;
+  transition-delay: 0s;
+}
+
+#art button:hover {
+  background-color: purple;
+  color: white;
+  box-shadow: 3px 3px 5px rgb(64, 0, 64);
+
+  transition: box-shadow .2s linear;
+  transition-delay: 0s;
+}
+
+#morningwords button:hover {
+  background-color: goldenrod;
+  box-shadow: 3px 3px 5px rgb(138, 105, 20);
+
+  transition: box-shadow .2s linear;
+  transition-delay: 0s;
+}
+
+@keyframes mobile-button {
+  from {}
+  to {  transform: scale(1.02);
+    box-shadow: 3px 3px 5px black;}
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .links:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .links button {
+    animation: mobile-button 1s forwards ease;
+    animation-delay: .6s;
+  }
+}

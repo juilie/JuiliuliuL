@@ -11,48 +11,19 @@
     <link rel="stylesheet" media="screen" href="particleHome.css">
 </head>
 
-<style>
-    .links {
-        background-color: white;
-        width: fit-content;
-        padding: 20px;
-        margin-top: 36vh;
-        border: double black 5px;
-        color: black;
-        line-height: 25px;
-        text-align: center;
-        transition: all .5s;
-        color: -webkit-link;
-        cursor: pointer;
-        text-decoration: underline;
-        border-radius: 10px;
-    }
-
-    .links:hover {
-        transform: scale(2) rotate(360deg);
-        transition: all .4s;
-    }
-</style>
-
 <body>
 
     <!-- particles.js container -->
     <div id="particles-js"></div>
     <div
-        style="background-image: url('./assets/images/pode-min.png'); filter: invert(); position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 50%;">
-    </div>
-    <div
         style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: flex; justify-content: center;">
         <div class="container">
             <div class="links">
-                <a href="blog.html">BlogiPode</a><br>
-                <a href="./websites.html">Website Catalog</a><br>
-                <a href="music.html">Music</a><br>
-                <a href="https://www.windchimecalculator.org/">Kat's Chimes</a><br>
-                <a href="shaders.html">Shader Graveyard</a><br>
-                <a href="home.html">Get rid of these particles!</a><br>
-                <a href="threeExperiment.html">ThreeDee Page</a><br>
-                <a href="morningwords.html">Morning Words</a> <br>
+                <a href="blog.html" id="blogipode"><button>BlogiPode</button></a><br>
+                <a href="./websites.html" id="websites"><button>Websites</button></a><br>
+                <a href="music.html" id="music"><button>Music</button></a><br>
+                <a href="art.html" id="art"><button>Art</button></a><br>
+                <a href="morningwords.html" id="morningwords"><button>Morning Words</button></a> <br>
             </div>
         </div>
     </div>
