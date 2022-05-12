@@ -1,0 +1,30 @@
+body {
+    background-color: #70ad6f;
+}
+
+#test {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    /* position: absolute; */
+}
+
+#bg {
+    width: 150px;
+    height: 150px;
+    margin-top: 12px;
+    margin-left: 27px;
+    filter: drop-shadow(-13px 8px 4px #000);
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    text-decoration: none; 
+    font-size: large;
+}
+
+a {
+    text-decoration: none;
+}

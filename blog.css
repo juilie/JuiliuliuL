@@ -64,7 +64,6 @@ body {
 canvas {
     z-index: 2;
     filter: drop-shadow(-13px 8px 4px #000);
-
 }
 
 @keyframes slide-from-left {
