@@ -14,10 +14,9 @@
 <body>
 
     <!-- particles.js container -->
-    <div id="particles-js"></div>
-    <div
-        style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: flex; justify-content: center;">
-        <div class="container">
+    <div id="particles-js" style="position: absolute; z-index: -1;"></div>
+    <div class="container">
+        <main>
             <div class="links">
                 <a href="blog.html" id="blogipode"><button>BlogiPode</button></a><br>
                 <a href="./websites.html" id="websites"><button>Websites</button></a><br>
@@ -25,13 +24,14 @@
                 <a href="art.html" id="art"><button>Art</button></a><br>
                 <a href="morningwords.html" id="morningwords"><button>Morning Words</button></a> <br>
             </div>
-        </div>
+            <div id="tandyWebring">
+                <script type="text/javascript" src="https://webring.pcotandy.org/variables.js"></script>
+                <script type="text/javascript" src="https://webring.pcotandy.org/webring.js"></script>
+                </div>
+            </main>
     </div>
     </div>
-    <div id="tandyWebring">
-        <script type="text/javascript" src="https://webring.pcotandy.org/variables.js"></script>
-        <script type="text/javascript" src="https://webring.pcotandy.org/webring.js"></script>
-        </div>
+
     <script src="./scripts/particles.js"></script>
     <script src="particleHome.js"></script>
 </body>
