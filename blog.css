@@ -228,6 +228,11 @@ canvas {
     outline-color: blue;  
 }
 
+.tutorial {
+    border-color: green;
+    outline-color: green;
+}
+
 .legend {
     line-height: 24px;
     font-weight: bold;
