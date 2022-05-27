@@ -230,6 +230,7 @@ canvas {
 
 .tutorial {
     border-color: green;
+    outline-color: green;
 }
 
 .legend {
