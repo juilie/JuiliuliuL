@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Doomer Crypto Boy</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-image: url("./assets/images/water.jpg");
+  filter: grayscale(100%);
+}
+main video {
+  /* This will make it stack on top of the ::before */
+  position: relative;
+}
+
+    </style>
+</head>
+<body>
+    <main>
+        <video controls autoplay>
+            <source src="assets/doomerwave.mp4" type="video/mp4">
+            This browser does not display the video tag.
+          </video>
+    </main>
+
+</body>
+
+</html>
