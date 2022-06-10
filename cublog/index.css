@@ -7,9 +7,7 @@
 body {
     min-height: 100vh;
     background: #050505;
-    /* background-image: url("../stars6.webp"); */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
 }
 
 .cube {
@@ -23,8 +21,13 @@ body {
 }
 
 @keyframes cube {
-    from { transform: rotateX(-30deg) rotateY(0deg); }
-    to { transform: rotateX(-30deg) rotateY(360deg); }
+    from {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
 }
 
 .cube div {
@@ -93,17 +96,17 @@ body {
     0 0 500px rgba(0,255,0,1) */
 }
 
-.cube-pink .top::before{
+.cube-pink .top::before {
     background: rgb(255, 107, 243);
     /* box-shadow: 0 0 120px rgba(255, 107, 243,0.2),
     0 0 200px rgba(255, 107, 243,0.4),
     0 0 300px rgba(255, 107, 243,0.6),
     0 0 400px rgba(255, 107, 243,0.8),
     0 0 500px rgba(255, 107, 243,1) */
-    
+
 }
 
-.cube-blue .top::before{
+.cube-blue .top::before {
     background: rgb(1, 33, 215);
     /* box-shadow: 0 0 120px rgba(1, 33, 215,0.2),
     0 0 200px rgba(1, 33, 215,0.4),
@@ -111,6 +114,7 @@ body {
     0 0 400px rgba(1, 33, 215,0.8),
     0 0 500px rgba(1, 33, 215,1) */
 }
+
 .cube-wrapper.one {
     /* float: right; */
     position: absolute;
@@ -126,6 +130,7 @@ body {
     margin-right: 50px;
     transform: scale(.3);
 }
+
 .cube-wrapper.three {
     position: absolute;
     /* float: right; */
@@ -135,9 +140,7 @@ body {
 
 .cube-map {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 20vh;
+    left: 40vw;
     z-index: -1;
 }

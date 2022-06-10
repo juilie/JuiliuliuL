@@ -1,0 +1,75 @@
+canvas {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events:none;
+}
+
+.swatch {
+  width: 27px;
+  height: 27px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  transition: transform .2s linear;
+}
+
+@keyframes fade {
+  from {
+    outline-color: rgba(1, 1, 1, 0);
+  }
+
+  to {
+    outline-color: rgba(.7, .7, .7, 1);
+
+  }
+}
+
+.swatch.selected {
+  outline: 2px solid black;
+  outline-offset: 2px;
+  margin: 0px;
+  transform: rotate(45deg);
+  transition: transform .2s linear;
+}
+
+.swatch:hover {
+  outline: 1px solid rgba(.7, .7, .7, 1);
+  outline-offset: 1px;
+  margin: 0px;
+  animation: fade .5s ease-out;
+}
+
+.swatch.selected:hover {
+  outline: 2px solid black;
+  outline-offset: 2px;
+  animation: none;
+}
+
+.color-swatch-picker {
+  margin: 10px auto;
+  width: fit-content;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.color-box {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border: 5px ridge #999999;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

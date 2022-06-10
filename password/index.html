@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let faceNum=0;
+        function select(e, hexColor) {
+            const all = e.parentElement.children;
+
+            for (i in all) {
+                if (all[i].classList?.contains("selected")) {
+                    all[i].classList.remove("selected");
+                }
+            }
+            e.classList.add("selected");
+            // const colorbox = document.querySelector(".color-box");
+            // colorbox.style.backgroundColor = e.style.backgroundColor;
+
+            const rgba2hex = (rgba) => `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}`
+
+const hex = parseInt(rgba2hex(e.style.backgroundColor).replace(/^#/, ''), 16);
+            updateFaceColor(hex, faceNum);
+            faceNum++
+        }
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg" width="100%"></canvas>
+
+    <main>
+        <h1>Enter passcode</h1>
+        <div class="color-box">
+        </div>
+        <div class="color-swatch-picker">
+            <button class="swatch" id="swatch" onclick="select(this)" style="  background-color: #ffc0cb;">
+            </button>
+            <button class="swatch" onclick="select(this)" style="  background-color: #9999FF;">
+            </button>
+            <button class="swatch" onclick="select(this)" style="  background-color: #FF9999;">
+            </button>
+            <button class="swatch" onclick="select(this)" style="  background-color: #99FF99;">
+            </button>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"
+    integrity="sha512-bzjaf85dHTL4H0BvkAJ/Jbvxqf1rDj+jVpCNe3oxQj/RXSnkx1HnKhqIcmMWghxEAbXsYgddrc38saWpltlkug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+// The three main things! Scene, camera, render
+let rotateSpeed = 0;
+let canvas = document.getElementById('bg');
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+camera.position.set(0, 0, 7);
+camera.lookAt(0, 0, );
+
+const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'), alpha: true}); // {alpha:true} for transparency
+// renderer.setClearColorHex( 0xffffff, 1 ); // assumes black background
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+document.body.appendChild(renderer.domElement); // This is a <canvas> element
+
+
+const geometry = new THREE.ConeGeometry( 1, 2, 4 );
+geometry.faces[4].color = 0x000000;
+geometry.faces[5].color = 0x000000;
+geometry.faces[6].color = 0x000000;
+geometry.faces[7].color = 0x000000;
+
+
+const material = new THREE.MeshBasicMaterial( {vertexColors: THREE.FaceColors} );
+const cone = new THREE.Mesh( geometry, material );
+
+cone.rotation.x=1.57;
+cone.rotation.y=.78;
+cone.rotation.z=0;
+scene.add( cone );
+
+function updateFaceColor(color, face){
+    if(face < 3){
+        geometry.faces[face].color.setHex( color );
+        geometry.colorsNeedUpdate = true;
+    }
+    else if(face ===3){
+        geometry.faces[face].color.setHex( color );
+        geometry.colorsNeedUpdate = true;
+        rotateSpeed = .01;
+    }
+    else{
+        return;
+    }
+
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+    cone.rotation.x -= rotateSpeed;
+}
+function onWindowResize() {
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+}
+window.addEventListener('resize', onWindowResize);
+animate();
