@@ -43,7 +43,7 @@ function updateFaceColor(color, face) {
         geometry.colorsNeedUpdate = true;
         // cone.rotation.y += .785398;
         setTimeout(() => {
-            rotateSpeed = .03;
+            rotateSpeed = 1;
         }, 1300);
 
     } else {
@@ -55,9 +55,13 @@ function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
     if (!(cone.rotation.x <= -1.5708)) {
-        cone.rotation.x -= rotateSpeed;
+        if(cone.rotation.y < 3.92699) {
+            cone.rotation.y += rotateSpeed*.09;
+        }
+        cone.rotation.x -= rotateSpeed * .04;
     } else if (cone.position.z <= 5) {
         cone.position.z += .05;
+
     } else {
         scene.remove(cone);
     }
