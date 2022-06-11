@@ -59,11 +59,33 @@ canvas {
   gap: 15px;
 }
 
+.color-swatch-picker.unlocked {
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
+h1.unlocked {
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
 .color-box {
   margin: 0 auto;
   width: 200px;
   height: 200px;
-  border: 5px ridge #999999;
+  border: 10px ridge #999999;
+}
+
+.color-box.unlocked {
+  transform: rotate(45deg);
+  transition: transform .7s linear;
+  transition-delay: 0.2s;
+animation: fadeAway .2s 1.2s linear forwards;
+}
+
+@keyframes fadeAway {
+  from { opacity: 100%}
+  to { opacity: 0; }
 }
 
 main {
@@ -72,4 +94,14 @@ main {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+main.unlocked {
+  background-color: black;
+  transition: background-color .4s linear;
+  transition-delay: 4.3s;
+}
+
+body {
+  margin: 0;
 }
