@@ -1,0 +1,25 @@
+.left {
+    width: 15%;
+    height: 100vh;
+    background-color: brown;
+}
+
+.right {
+    width: 15%;
+    height: 100vh;
+    background-color: brown;
+}
+
+main {
+    width: 70%;
+    height: 100vh;
+    background-color: pink;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}

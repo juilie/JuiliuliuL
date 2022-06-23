@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #050505;
+    background-image: url('./balloon.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.message {
+    border: 5px ridge red;
+    color: black;
+    max-width: 700px;
+    /* margin: 10px auto; */
+    background-color: wheat;
+    padding: 20px;
+}
+
+.cube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    animation: cube 15s linear infinite forwards;
+
+}
+
+@keyframes cube {
+    from {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 60pt;
+    background: linear-gradient(#151515, #00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.cube-pink div span {
+    background: linear-gradient(#151515, rgb(255, 107, 243));
+}
+
+.cube-blue div span {
+    background: linear-gradient(#151515, rgb(1, 33, 215));
+}
+
+.cube div span h1 {
+    transform: translateZ(50px);
+    filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.cube .top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #222;
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+.cube .top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: #0f0;
+    transform: translateZ(-400px);
+    filter: blur(20px);
+    /* box-shadow: 0 0 120px rgba(0,255,0,0.2),
+    0 0 200px rgba(0,255,0,0.4),
+    0 0 300px rgba(0,255,0,0.6),
+    0 0 400px rgba(0,255,0,0.8),
+    0 0 500px rgba(0,255,0,1) */
+}
+
+.cube-pink .top::before {
+    background: rgb(255, 107, 243);
+    /* box-shadow: 0 0 120px rgba(255, 107, 243,0.2),
+    0 0 200px rgba(255, 107, 243,0.4),
+    0 0 300px rgba(255, 107, 243,0.6),
+    0 0 400px rgba(255, 107, 243,0.8),
+    0 0 500px rgba(255, 107, 243,1) */
+
+}
+
+.cube-blue .top::before {
+    background: rgb(1, 33, 215);
+    /* box-shadow: 0 0 120px rgba(1, 33, 215,0.2),
+    0 0 200px rgba(1, 33, 215,0.4),
+    0 0 300px rgba(1, 33, 215,0.6),
+    0 0 400px rgba(1, 33, 215,0.8),
+    0 0 500px rgba(1, 33, 215,1) */
+}
+
+.cube-wrapper.one {
+    /* float: right; */
+    position: absolute;
+    margin-right: 50px;
+    top: 50px;
+    transform: scale(.4);
+}
+
+.cube-wrapper.two {
+    position: absolute;
+
+    /* float: right; */
+    margin-right: 50px;
+    transform: scale(.3);
+}
+
+.cube-wrapper.three {
+    position: absolute;
+    /* float: right; */
+    transform: scale(.2);
+}
+
+
+.cube-map {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    z-index: -1;
+}
