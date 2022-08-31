@@ -3,7 +3,7 @@
  * @author mr.doob / http://mrdoob.com/
  */
 
- const Detector = {
+Detector = {
 
 	canvas : !! window.CanvasRenderingContext2D,
 	webgl : ( function () { try { return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' ); } catch( e ) { return false; } } )(),
