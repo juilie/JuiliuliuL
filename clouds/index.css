@@ -1,0 +1,130 @@
+:root {
+    --width: 250px;
+    --height: 250px;
+    --depth: 30px;
+    --border-width: 10px;
+}
+
+body {
+    /* background-image: url(../assets/images/pink.jpg); */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 50vw;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    /* background-color: rgba(191, 255, 168, 0.391); */
+    padding: 50px;
+    /* border: 10px ridge rgb(42, 67, 165); */
+    margin-top: 50px;
+}
+
+.cube.contact p {
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+.cube.contact:hover p {
+    opacity: 1;
+    transition: opacity 2s linear;
+    transition-delay: 1s;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    font-size: 30px;
+    /* background-color: lightgreen; */
+        background-color: rgba(191, 255, 168, 0.391);
+
+        border: 10px ridge rgb(42, 67, 165);
+
+}
+
+.scene {
+    perspective: 600px;
+    width: var(--width);
+    height: var(--height);
+    transition: transform .75s ease-in-out;
+}
+
+.cube {
+    transform-style: preserve-3d;
+    position: relative;
+    transition: transform .75s ease-in-out;
+}
+
+.scene:hover .cube {
+    transform: rotateY(180deg);
+    transition: transform .75s ease-in-out;
+}
+
+.scene:hover {
+    transform: translateX(calc((var(--border-width) * 2 + 2px)));
+    transition: transform .75s ease-in-out;
+}
+
+.cube_face {
+    position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(116, 56, 3);
+    border: var(--border-width) solid transparent;
+    border-image: url(../assets/images/border.png) 30 round;
+}
+
+.cube_face h2 {
+    font-size: 26pt;
+}
+
+.cube_face.front {
+    width: var(--width);
+    height: var(--height);
+    transform: translate3d(0, 0, calc(var(--depth) / 2));
+}
+
+.cube_face.right {
+    width: var(--depth);
+    height: var(--height);
+    transform: rotateY(90deg) translate3d(0, 0, calc(var(--width) - var(--depth) / 2));
+}
+
+.cube_face.left {
+    width: var(--depth);
+    height: var(--height);
+    transform: rotateY(-90deg) translate3d(0, 0, calc(var(--depth) / 2));
+}
+
+.cube_face.top {
+    height: var(--depth);
+    width: var(--width);
+    transform: rotateX(90deg) translate3d(0, 0, calc(var(--depth) / 2));
+}
+
+.cube_face.bottom {
+    height: var(--depth);
+    width: var(--width);
+    transform: rotateX(-90deg) translate3d(0, 0, calc(var(--width) - var(--depth) / 2));
+}
+
+.cube_face.back {
+    transform: rotateY(180deg) translate3d(0, 0, calc(var(--depth) / 2));
+    width: var(--width);
+    height: var(--height);
+}
+
+.pot {
+    width: 250px;
+    height: 250px;
+}
