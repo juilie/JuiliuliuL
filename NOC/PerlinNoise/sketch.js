@@ -1,8 +1,12 @@
 var DIAMETER_SLIDER
 var MULTIPLIER_SLIDER
+var isMobile = screen.width <= 480;
 
 function setup() {
-  var canvas = createCanvas(displayWidth, displayHeight/2);
+  if(isMobile) {     
+    pixelDensity(1);
+}
+  var canvas = createCanvas(Math.min(400, displayWidth), displayHeight/2);
   canvas.parent(document.querySelector("#canvas-wrapper"));
 
   DIAMETER_SLIDER = document.querySelector("#diameterSlider");
