@@ -5,6 +5,8 @@ function setup() {
   y = innerHeight / 2;
   pixelDensity(1);
   // frameRate(240);
+  detailSlider = createSlider(1, 8, 4, 1);
+  falloffSlider = createSlider(0, 1, 0.5, 0.01);
 }
 let randomNumber
 let STROKE_WEIGHT = 2
@@ -13,6 +15,8 @@ let increment = 0.006
 let timer = 0;
 
 function draw() {
+  noiseDetail(detailSlider.value(), falloffSlider.value());
+
   var yoff = 0 + timer/2;
 
   loadPixels();
