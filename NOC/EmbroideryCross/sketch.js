@@ -2,7 +2,7 @@ function preload() {}
 
 let ribbons = []
 let dimension = 15;
-let images = ['./Embroidery/ukraine1.png','./Embroidery/embroider2.png', './Embroidery/emb3.png']
+let images = ['./Embroidery/ukraine1.png','./Embroidery/embroider2.png', './Embroidery/emb3.png', './Embroidery/blue.png']
 
 function setup() {
   createCanvas(innerWidth, innerHeight);
@@ -11,7 +11,7 @@ function setup() {
 
 
   for (let i = 0; i < 100; i++) {
-    ribbons[i] = new ribbon(images[floor(random(0,3))], random(0,100), random(0, height));
+    ribbons[i] = new ribbon(images[floor(random(0,4))], random(0,100), random(0, height));
   }
 }
 
