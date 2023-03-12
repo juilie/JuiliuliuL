@@ -1,4 +1,19 @@
 main {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: hue-rotate(90deg);
+    padding: 20px;
+}
+
+html, body {
+    background-color: rgb(0, 0, 0);
+    background-image: url('./assets/images/arrowball.gif');
+    margin: 0;
+}
+
+main > iframe {
+    border: 10px ridge gray;
 }
