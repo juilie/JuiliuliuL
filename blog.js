@@ -49,13 +49,13 @@ function setupWorld() {
     // const loader = new THREE.TextureLoader();
     var material = new THREE.MeshPhongMaterial({
         // light
-        specular: 0xD76531,
+        specular: "blue",
         // intermediate
-        color: 0xef8834,
+        color: "blue",
         // dark
-        emissive: 0x8c2317,
-        shininess: 10,
-        wireframe: false,
+        emissive: "teal",
+        shininess: 100,
+        wireframe: true,
     });
 
     const color = 0xFFFFFF; // white

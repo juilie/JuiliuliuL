@@ -19,7 +19,7 @@ function setup() {
 
 function draw() {
   // console.log("draw started")
-  background(150,200,255, 30);
+  background(136, 75, 181, 30);
 
   for (let i = 0; i < ribbons.length; i++) {
     ribbons[i].update()
