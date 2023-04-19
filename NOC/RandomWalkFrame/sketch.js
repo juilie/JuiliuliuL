@@ -1,7 +1,6 @@
 const one = (sketch) => {
   let BORDER_WIDTH = 50;
   let NUM_OF_SNAKES = 20;
-  // let colorList = ['#11393B', '#194431', '#89B173', '#F0E6AB', '#F0D17F'];
   let colorList = ['#8C5C40', '#4D4E3E', '#5C7B78', '#63A7A6', '#5CB9AD'];
   let snakeArray = [];
 
