@@ -8,7 +8,6 @@
   <title>Sketch</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
-
   <script src="../libraries/p5.min.js"></script>
 </head>
 
@@ -16,6 +15,23 @@
   <main>
     <div id="embroidery"></div>
     <div id="tree"></div>
+    <div class="controls closed">
+      <div class="control-group misc" id="misc">
+
+      <div class="control-group leaves" id="leaves">
+
+      </div>
+      <div class="control-group branches" id="branches">
+
+      </div>
+      <div class="control-group animations" id="animations">
+
+      </div>
+
+      </div>
+      <div class="control-toggle"><button
+              onclick="console.log(this.parentElement.parentElement.classList.toggle('closed'))">Open</button></div>
+  </div>
   </main>
   <script src="sketch.js"></script>
 </body>
