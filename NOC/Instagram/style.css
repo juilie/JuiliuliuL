@@ -9,8 +9,8 @@ body {
     Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     "Helvetica Neue", sans-serif;
 
-    text-align: center;
-    color:white;
+  text-align: center;
+  color: white;
 }
 
 canvas {
@@ -30,12 +30,12 @@ canvas {
   color: black;
   padding: 20px 0px;
   background-color: #bebebe;
-    border: ridge 5px purple;
+  border: ridge 5px purple;
 }
 
-input {
+/* input {
   width: 100%;
-}
+} */
 
 .sliders>div {
   display: flex;
@@ -52,7 +52,7 @@ input {
 }
 
 #tree {
-  z-index:999;
+  z-index: 999;
   width: 100%;
 }
 
@@ -82,48 +82,128 @@ main {
   height: auto;
   background-color: rgba(74, 74, 74, 0.638);
   position: absolute;
-  right: 0;
+  right: 10px;
+  /* padding: 10px; */
   top: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 10px;
   height: auto;
-  transition: gap .5s ease;
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all .5s ease;
   z-index: 9999;
+  padding-bottom: 0;
 }
 
 .controls.closed {
   gap: 0px;
-  transition: gap .5s ease;
+  transition: all .5s ease;
   overflow: hidden;
+  padding-top: 0;
 }
 
 .controls .control-group {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  max-height: 100vh;
   background-color: rgba(74, 74, 74, 0.638);
-  transition: height .5s ease;
+  transition: max-height .3s ease-out;
+  padding: 10px;
 }
 
-.controls.closed .control-group {
+.controls.closed .control-group,
+.control-group.closed {
   width: 100%;
-  height: 0px;
+  max-height: 0px;
   background-color: rgba(74, 74, 74, 0.638);
-  transition: height .5s ease;
+  transition: max-height .01s ease-in;
+  padding: 0;
+  overflow: hidden;
+}
+
+.controls.closed .control-group-header {
+  height: 0;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.control-group > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+
+h2 {
+  margin: 0;
+  text-align: left;
+}
+
+.control-group-header {
+  height: fit-content;
+  cursor: pointer;
+  transition: all .5s;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  gap: 10%;
+  padding: 10px
+}
+
+.controls.closed .control-group-header::before {
+  max-height: 0;
+}
+
+.controls.closed .control-group-header {
+  max-height: 0;
+  overflow: hidden;
+  display: none;
+}
+.control-group-header::before {
+  content: "▾";
+  display: inline-block;
+  font-family: lil-gui;
+  padding-right: 2px;
+  padding-left: 10px;
+}
+
+.control-group-header.closed::before {
+  content: "▸";
+}
+
+.control-group-header:hover {
+  background-color: rgba(74, 74, 74, 0.82);
 }
 
 .control-toggle {
   width: 100%;
   height: 20px;
-  background-color: rgba(74, 74, 74, 0.638);
+  background-color: rgb(176, 0, 0);
+  padding: 10px;
 }
 
 @media only screen and (max-width: 1000px) {
-  .controls{
+  .controls {
     bottom: 0;
+    right: 0;
     top: unset;
     width: 100vw;
     max-height: 50%;
-    overflow: scroll;
+    overflow-y: scroll;
+  }
+
+  .control-toggle {
+    position: sticky;
+    bottom: 0;
   }
 }

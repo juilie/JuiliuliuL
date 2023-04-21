@@ -86,14 +86,8 @@ const treeCanvas = (sketch) => {
   var EGG_MODE = false;
   var EGG_MODE_BOX;
 
-
   var THREE_D_MODE = false;
   var THREE_D_MODE_BOX;
-  var THREE_D_BRANCHES = false;
-  var THREE_D_BRANCHES_BOX;
-  var THREE_D_LEAVES = false;
-  var THREE_D_LEAVES_BOX;
-
   var LEAF_COLOR_PICKER;
   var LEAF_OUTLINE_PICKER;
   var BRANCH_COLOR_PICKER;
@@ -102,21 +96,21 @@ const treeCanvas = (sketch) => {
   var BRANCH_LENGTH;
 
   var LEAF_SIZE;
+  var LEAF_SIZE_X;
+  var LEAF_SIZE_Y;
+  var LEAF_SIZE_Z;
 
   var SPINNING = true;
   var SPINNING_BOX;
-  var CONTROLS = [];
-
 
   sketch.setup = () => {
-
-
+    var isMobile = screen.width <= 480;
     let leavesContainer = document.querySelector('#leaves')
     let branchesContainer = document.querySelector('#branches')
     let animationsContainer = document.querySelector('#animations')
     let miscContainer = document.querySelector('#misc')
 
-    renderer = sketch.createCanvas(sketch.windowWidth / 2, sketch.windowHeight / 2, sketch.WEBGL);
+    renderer = isMobile ? sketch.createCanvas(sketch.windowWidth - 30, sketch.windowHeight / 1.5, sketch.WEBGL) : sketch.createCanvas(sketch.windowWidth / 2, sketch.windowHeight / 2, sketch.WEBGL);
     renderer.drawingContext.disable(renderer.drawingContext.DEPTH_TEST);
     sketch.angleMode(sketch.DEGREES)
     sketch.background('black');
@@ -139,14 +133,6 @@ const treeCanvas = (sketch) => {
     SPINNING_BOX.changed(() => {
       SPINNING = SPINNING_BOX.checked()
     })
-    THREE_D_BRANCHES_BOX = sketch.createCheckbox('3D Branches', false).parent(branchesContainer);
-    THREE_D_BRANCHES_BOX.changed(() => {
-      THREE_D_BRANCHES = THREE_D_BRANCHES_BOX.checked()
-    })
-    THREE_D_LEAVES_BOX = sketch.createCheckbox('3D Leaves', false).parent(leavesContainer);
-    THREE_D_LEAVES_BOX.changed(() => {
-      THREE_D_LEAVES = THREE_D_LEAVES_BOX.checked()
-    })
     TREE_SWITCHING_BOX = sketch.createCheckbox('Tree Switching', false).parent(animationsContainer);
     TREE_SWITCHING_BOX.changed(() => {
       TREE_SWITCHING = TREE_SWITCHING_BOX.checked()
@@ -159,7 +145,10 @@ const treeCanvas = (sketch) => {
     HIDE_BRANCHES = sketch.createCheckbox('HIDE BRANCHES', false).parent(branchesContainer);
     SWAY_MODE = sketch.createCheckbox('Sway Mode', false).parent(animationsContainer);
     SWAY_MODE_SLIDER = sketch.createSlider(0, 5, 2).parent(animationsContainer);
-    LEAF_SIZE = sketch.createSlider(0, 180, 0).parent(leavesContainer);
+    LEAF_SIZE = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Size').parent(leavesContainer));
+    LEAF_SIZE_Y = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Length').parent(leavesContainer));
+    LEAF_SIZE_X = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Width').parent(leavesContainer));
+    LEAF_SIZE_Z = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Depth').parent(leavesContainer));
 
     LEAF_COLOR = sketch.color('green')
     LEAF_COLOR_PICKER = sketch.createColorPicker(sketch.color('green')).parent(leavesContainer)
@@ -167,21 +156,15 @@ const treeCanvas = (sketch) => {
     LEAF_OUTLINE_PICKER = sketch.createColorPicker(sketch.color(70, 40, 20)).parent(leavesContainer)
 
     BRANCH_COLOR = sketch.color('brown')
-    BRANCH_COLOR_PICKER = sketch.createColorPicker(sketch.color('brown')).parent(branchesContainer)
-    BRANCH_RADIUS = sketch.createSlider(0, 180, 0).parent(branchesContainer);
-    BRANCH_LENGTH = sketch.createSlider(0, 180, 0).parent(branchesContainer);
+    BRANCH_COLOR_PICKER = sketch.createColorPicker(sketch.color('brown')).parent(sketch.createDiv('Branch Color').parent(branchesContainer))
+    BRANCH_RADIUS = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Branch Radius').parent(branchesContainer));
+    BRANCH_LENGTH = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Branch Length').parent(branchesContainer));
 
-    BRANCH_TEXTURE = sketch.createRadio().parent(branchesContainer);
+    BRANCH_TEXTURE = sketch.createRadio().parent(sketch.createDiv('Branch Texture').parent(branchesContainer));
     BRANCH_TEXTURE.option('', 'none');
     BRANCH_TEXTURE.option('sketch.texture(images[sketch.floor(sketch.random(0, images.length))]);', 'embroidery');
     BRANCH_TEXTURE.option('sketch.texture(barks[0]);', 'bark');
     BRANCH_TEXTURE.selected('');
-
-    CONTROLS = [EGG_MODE_BOX, THREE_D_MODE_BOX, SPINNING_BOX, THREE_D_BRANCHES_BOX, THREE_D_LEAVES_BOX,
-      TREE_SWITCHING_BOX, LEAF_COLOR_PICKER, LEAF_OUTLINE_PICKER, BRANCH_COLOR_PICKER, ROTATION_RANGE_SLIDER, ROTATION_MODIFIER_SLIDER, ROTATION_WAVE_BOX,
-      SWAY_MODE, SWAY_MODE_SLIDER, BRANCH_RADIUS, HIDE_BRANCHES, LEAF_SIZE,
-      SWAY_MODE, SWAY_MODE_SLIDER, BRANCH_LENGTH, HIDE_BRANCHES, LEAF_SIZE,
-    ]
   }
 
   let images = [];
@@ -193,7 +176,6 @@ const treeCanvas = (sketch) => {
   }
 
   sketch.draw = () => {
-    // 3D MODE
 
     if (THREE_D_MODE) {
       renderer.drawingContext.enable(renderer.drawingContext.DEPTH_TEST);
@@ -234,9 +216,16 @@ const treeCanvas = (sketch) => {
       var swayFunction = SWAY_MODE.checked() ? sketch.map(sketch.sin(sketch.frameCount), -1, 1, -SWAY_MODE_SLIDER.value(), SWAY_MODE_SLIDER.value()) : 0;
       sketch.strokeWeight(sketch.map(len, 10, 100, 1, 15));
       sketch.stroke(BRANCH_COLOR_PICKER.color());
+      sketch.noStroke();
+      sketch.noFill()
       HIDE_BRANCHES.checked() && sketch.strokeWeight(0);
-      sketch.fill('brown')
-      sketch.line(0, 0, 0, -len);
+      sketch.fill(BRANCH_COLOR_PICKER.color())
+      // sketch.line(0, 0, 0, -len);
+      sketch.translate(0, -len / 2, 0)
+      eval(BRANCH_TEXTURE.value());
+      !HIDE_BRANCHES.checked() && sketch.cylinder(sketch.map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())
+      sketch.translate(0, len / 2, 0)
+
       sketch.translate(0, -len);
       sketch.rotate((sketch.random(-20, -20 - ROTATION_RANGE_SLIDER.value())) + ROTATION_MODIFIER_SLIDER.value() + sinFunction + swayFunction);
       branch(len * sketch.random(...branchLengthRange))
@@ -256,8 +245,9 @@ const treeCanvas = (sketch) => {
       } else {
         sketch.beginShape()
         // noStroke()
-        sketch.strokeWeight(.1)
+        sketch.strokeWeight(0)
         sketch.stroke('brown')
+        sketch.noStroke()
         sketch.fill(r, g, b, 100)
         sketch.ellipsoid(5, 10, 2);
         sketch.endShape(sketch.CLOSE)
@@ -273,15 +263,15 @@ const treeCanvas = (sketch) => {
     var sinFunction = ROTATION_WAVE || !animation_complete ? sketch.map(sketch.sin(sketch.frameCount), -1, 1, 0, 360) : 0;
     animation_complete = sinFunction === 0 || sinFunction === 360 ? true : false;
 
-      sketch.translate(0, -len / 2, 0)
+    sketch.translate(0, -len / 2, 0)
 
-      sketch.beginShape()
-      sketch.strokeWeight(0);
-      !HIDE_BRANCHES.checked() && sketch.cylinder(sketch.map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())
-      sketch.fill(BRANCH_COLOR_PICKER.color())
-      eval(BRANCH_TEXTURE.value());
-      sketch.endShape(sketch.CLOSE)
-      sketch.translate(0, len / 2, 0)
+    sketch.beginShape()
+    sketch.strokeWeight(0);
+    !HIDE_BRANCHES.checked() && sketch.cylinder(sketch.map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())
+    sketch.fill(BRANCH_COLOR_PICKER.color())
+    eval(BRANCH_TEXTURE.value());
+    sketch.endShape(sketch.CLOSE)
+    sketch.translate(0, len / 2, 0)
 
     sketch.translate(0, -len, 0)
 
@@ -306,19 +296,19 @@ const treeCanvas = (sketch) => {
         sketch.noStroke()
         sketch.fill('red')
         sketch.texture(images[sketch.floor(sketch.random(0, images.length))])
-        sketch.ellipsoid(2.5 + LEAF_SIZE.value(), 3 + LEAF_SIZE.value(), 3 + LEAF_SIZE.value());
+        sketch.ellipsoid(2.5 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 3 + LEAF_SIZE_Y.value() + LEAF_SIZE.value(), 3 + LEAF_SIZE_Z.value() + LEAF_SIZE.value());
         sketch.endShape(sketch.CLOSE)
       } else {
         sketch.beginShape()
         sketch.noStroke()
         sketch.strokeWeight(.1)
         sketch.fill(r, g, b, 150)
-        sketch.ellipsoid(3.3 + LEAF_SIZE.value(), 5.8 + LEAF_SIZE.value(), 1.8 + LEAF_SIZE.value());
+        sketch.ellipsoid(3.3 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 5.8 + LEAF_SIZE_Y.value() + LEAF_SIZE.value(), 1.8 + LEAF_SIZE_Z.value() + LEAF_SIZE.value());
         sketch.endShape(sketch.CLOSE)
 
         sketch.push();
         sketch.fill(LEAF_OUTLINE_PICKER.color());
-        sketch.ellipsoid(3.5, 6.1, 1.5);
+        sketch.ellipsoid(3.5 + LEAF_SIZE.value(), 6.1 + LEAF_SIZE.value(), 1);
         sketch.pop();
       }
     }
