@@ -142,7 +142,7 @@ const treeCanvas = (sketch) => {
       ROTATION_WAVE = ROTATION_WAVE_BOX.checked()
     })
 
-    HIDE_BRANCHES = sketch.createCheckbox('HIDE BRANCHES', false).parent(branchesContainer);
+    HIDE_BRANCHES = sketch.createCheckbox('Hide Branches', false).parent(branchesContainer);
     SWAY_MODE = sketch.createCheckbox('Sway Mode', false).parent(animationsContainer);
     SWAY_MODE_SLIDER = sketch.createSlider(0, 5, 2).parent(animationsContainer);
     LEAF_SIZE = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Size').parent(leavesContainer));
@@ -151,16 +151,16 @@ const treeCanvas = (sketch) => {
     LEAF_SIZE_Z = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Depth').parent(leavesContainer));
 
     LEAF_COLOR = sketch.color('green')
-    LEAF_COLOR_PICKER = sketch.createColorPicker(sketch.color('green')).parent(leavesContainer)
+    LEAF_COLOR_PICKER = sketch.createColorPicker(sketch.color('green')).parent(sketch.createDiv('Leaf Color').parent((leavesContainer)));
 
-    LEAF_OUTLINE_PICKER = sketch.createColorPicker(sketch.color(70, 40, 20)).parent(leavesContainer)
+    LEAF_OUTLINE_PICKER = sketch.createColorPicker(sketch.color(70, 40, 20)).parent(sketch.createDiv('Leaf Outline Color').parent((leavesContainer)));
 
     BRANCH_COLOR = sketch.color('brown')
     BRANCH_COLOR_PICKER = sketch.createColorPicker(sketch.color('brown')).parent(sketch.createDiv('Branch Color').parent(branchesContainer))
     BRANCH_RADIUS = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Branch Radius').parent(branchesContainer));
     BRANCH_LENGTH = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Branch Length').parent(branchesContainer));
 
-    BRANCH_TEXTURE = sketch.createRadio().parent(sketch.createDiv('Branch Texture').parent(branchesContainer));
+    BRANCH_TEXTURE = sketch.createRadio().parent(sketch.createDiv('Branch Texture').id('radio').parent(branchesContainer));
     BRANCH_TEXTURE.option('', 'none');
     BRANCH_TEXTURE.option('sketch.texture(images[sketch.floor(sketch.random(0, images.length))]);', 'embroidery');
     BRANCH_TEXTURE.option('sketch.texture(barks[0]);', 'bark');

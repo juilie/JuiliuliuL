@@ -13,9 +13,14 @@
 
 <body>
   <main>
+
     <div id="embroidery"></div>
     <div id="tree"></div>
     <div class="controls closed">
+      <div class="control-toggle" role="button"
+        onclick="this.parentElement.classList.toggle('closed'); this.innerText = this.parentElement.classList.contains('closed') ? 'Open Controls': 'Close Controls';">
+        Open
+        Controls</div>
       <div onclick="document.querySelector('#misc').classList.toggle('closed'); this.classList.toggle('closed')"
         class="control-group-header closed" role="button">
         <h2>Miscellaneous</h2>
@@ -44,11 +49,6 @@
       </div>
       <div class="control-group animations closed" id="animations">
       </div>
-
-
-      <div class="control-toggle"><button
-          onclick="this.parentElement.parentElement.classList.toggle('closed'); this.innerText = this.parentElement.parentElement.classList.contains('closed') ? 'Open Controls': 'Close Controls';">Open
-          Controls</button></div>
     </div>
   </main>
   <script src="sketch.js"></script>
