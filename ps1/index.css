@@ -94,8 +94,8 @@ a {
 }
 
 .random {
-    color: rgb(104, 104, 2);
-    /* color: #6683a5; */
+    /* color: rgb(104, 104, 2); */
+    color: #6683a5;
     text-decoration: none;
     font-size: 50px;
     line-height: 110%;
@@ -110,7 +110,6 @@ a {
     animation-duration: 1.75s;
     animation: blurless 1.2s ease backwards;
     color: #e0e0e0;
-
 }
 
 a:hover,
