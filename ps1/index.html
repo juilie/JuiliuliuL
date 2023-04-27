@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./index.css">
     <title>julipode</title>
 </head>
+
 <body>
     <script src="./transitions.js"></script>
     <div id="wrapper">
@@ -15,12 +17,14 @@
             <label class="title">WELCOME</label>
             <!-- <p>Kick! Punch! It's all in the mind.</p> -->
             <div class="nav-container">
-                <a tabindex="1" href="../blog.html" id="blogipode">BlogiPode</a><br>
-                <a  tabindex="2" href="../music.html" id="music">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Music</a><br>
+                <a tabindex="1" href="../blog.html">BlogiPode</a><br>
+                <span onclick="transition(this,3)" class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Music</span><br>
                 <!-- <button></button> -->
                 <a href="../websites.html" id="websites">&nbsp;&nbsp;&nbsp;&nbsp;&nbspWebsites</a><br>
-                <a href="../art.html" id="art">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Art</a><br>
-                <span onclick="transition(this,1)" class="css-link"  style="text-align: right; margin-left: auto;">Contact&nbsp;</span> <br>
+                <span onclick="transition(this,2)"
+                    class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends</span><br>
+                <span onclick="transition(this,1)" class="css-link"
+                    style="text-align: right; margin-left: auto;">Contact&nbsp;</span> <br>
             </div>
         </div>
 
@@ -30,11 +34,100 @@
             <div class="nav-container">
                 <span>juli at pcotandy dot net</span>
                 <a href="https://www.instagram.com/julipode">Instagram</a>
-                <span onclick="transition(this,0)">Back</span>
+                <span class="back-button" onclick="transition(this,0)">Back</span>
             </div>
         </div>
-        
+
+        <div class="container" id="friends">
+            <label class="title">FRIENDS</label>
+            <!-- <p>Kick! Punch! It's all in the mind.</p> -->
+            <div class="nav-container">
+                <span
+                    style="font-size: 16pt; color: white; font-family: test">*order
+                    randomized</span>
+
+                <span class="back-button" onclick="transition(this,0)">Back</span>
+                <ul style="list-style-type: none">
+                    <li><a href="https://katarinamazur.com/">Katarina Mazur</a> <br></li>
+                    <li><a href="https://suneinyneeenan.github.io/Enhydrax/">elie mh</a> <br></li>
+                    <li><a href="https://kotc.life/">Ko T.C.</a><br></li>
+                    <li><a href="https://ruthgarbus.bandcamp.com/">Ruth Garbus</a> <br></li>
+                    <li><a href="https://chrisweisman.bandcamp.com/">Chris Weisman</a> <br></li>
+                    <li><a href="https://phoebe.digital/">Phoebe Frances</a> <br></li>
+                    <li><a href="https://www.dembling.net/">Andrew Dembling</a> <br></li>
+                    <li><a href="https://www.rileynwong.com/">Riley Wong</a> <br></li>
+                    <li><a href="https://www.instagram.com/awksymoron/">Awksymoron</a> <br></li>
+                    <li><a href="https://deerscout.bandcamp.com/">Deer Scout</a> <br></li>
+                    <li><a href="https://bluedish.bandcamp.com">BLUE DISH</a> <br></li>
+                    <li><a href="https://bebemachete.bandcamp.com/">Bebè Machete</a> <br></li>
+                    <li><a href="https://psychicsidekick.bandcamp.com/">Omeed Goodarzi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container" id="music">
+            <label class="title">MUSIC</label>
+            <!-- <p>Kick! Punch! It's all in the mind.</p> -->
+
+            <div class="nav-container music-container">
+                <span class="back-button" style="min-height: 40px;" onclick="transition(this,0)">Back</span>
+
+                <div style="background-color: aliceblue; padding: 5px; border: 10px ridge pink; width: fit-content;">
+                    Guitar feature on Kurt Weisman's 'Be Nice to Your Song'
+                    <iframe style="border: 0; width: 50%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3896465194/size=small/bgcol=ffffff/linkcol=0687f5/track=284776719/transparent=true/" seamless><a href="https://kurtweisman.bandcamp.com/album/be-nice-to-your-song">Be Nice to Your Song by Kurt Weisman</a></iframe>
+                </div>
+                <iframe style=" width: 350px; height: 470px;"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=3296724051/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                    seamless><a href="https://tandy.bandcamp.com/album/into-the-blue">Into the Blue by BLUE DISH</a></iframe>
+                <iframe style=" width: 350px; height: 470px;"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=1085694813/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track=3436814776/transparent=true/"
+                    seamless><a
+                        href="https://tandy.bandcamp.com/album/30th-anniversary-gm-smoidi-light-zrainbow-spectrume-2022-general-midi-competition">30th
+                        Anniversary GM Smoidi Light ZRainbow Spectrume 2022 General Midi Competition by Opus
+                        Impetus</a></iframe>
+                <iframe style=" width: 350px; height: 588px;"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=26285068/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+                    seamless><a href="https://bluedish.bandcamp.com/album/out-of-the-blue">Out of the Blue by BLUE
+                        DISH</a></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4iej2w-6rL0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PCtKdTO6_ns"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/b8fBXZ5t5Cg"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/T_g3pOBB6p4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8rQZ_A2bak0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <iframe style=" width: 350px; height: 470px;"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=1176289747/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                    seamless><a href="https://grassdancer.bandcamp.com/album/grassdancer-ost">Grassdancer OST by
+                        Humphrey</a></iframe>
+            </div>
+        </div>
+        <script>
+            var ul = document.querySelector('ul');
+            for (var i = ul.children.length; i >= 0; i--) {
+                ul.appendChild(ul.children[Math.random() * i | 0]);
+            }
+        </script>
     </div>
+
     <script src="./index.js"></script>
 </body>
+
 </html>
+
+
+
+

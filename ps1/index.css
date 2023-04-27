@@ -74,11 +74,25 @@ body {
     width: 50%;
     height: fit-content;
     z-index: 9999;
-    height: 300px;
+    min-height: 300px;
+    max-height: 80%;
     display: none;
 }
 
+.music-container {
+    height: 80vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+gap: 25px;
+        background-image: linear-gradient(#0D2289, #06093B);
+    outline: 1px solid #c6c6c6;
+    border: 2px solid #fff;
+    margin: 10px;
+        border-radius: 8px;
 
+}
 
 a {
     color: #ff0;
@@ -112,8 +126,14 @@ a {
     color: #e0e0e0;
 }
 
+.back-button {
+    user-select: none;
+    cursor: pointer;
+}
+
 a:hover,
-.css-link:hover {
+.css-link:hover,
+.back-button:hover {
     color: whitesmoke;
 }
 
@@ -136,12 +156,22 @@ button {
     font-family: test;
 }
 
-.container.active.transition-in .title{
+.container.active.transition-in .title {
     animation-delay: 0s;
     animation-duration: .35s;
     animation-timing-function: ease-out;
 }
-.container.active.transition-in span, .container.active.transition-in a{
+
+.container.active.transition-in .music-container{
+    animation: gallery-blur .25s ease-out forwards;
+}
+
+.container.active.transition-out .music-container {
+    animation: gallery-blurverse .25s ease-out forwards;
+}
+
+.container.active.transition-in span,
+.container.active.transition-in a {
     animation-delay: 0s;
     animation-duration: .45s;
 }
@@ -159,6 +189,41 @@ button {
 
 .css-link {
     cursor: pointer;
+}
+
+@keyframes gallery-blur {
+    0% {
+        filter: blur(20px);
+        transform: scale(1.02);
+        opacity: 0;
+    }
+
+    50%{
+        opacity: .2;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+        transform: scale(1);
+        
+    }
+}
+
+@keyframes gallery-blurverse {
+    0% {
+        filter: blur(0px);
+        opacity: 1;
+        
+    }
+
+    50%{
+        opacity: .8;
+    }
+    100% {
+        filter: blur(20px);
+        transform: scale(1.02);
+        opacity: 0;
+    }
 }
 
 @keyframes blur {
@@ -273,7 +338,11 @@ button {
         letter-spacing: 0;
         opacity: 1;
     }
-90%{opacity: 1;}
+
+    90% {
+        opacity: 1;
+    }
+
     100% {
         letter-spacing: 100px;
         filter: blur(20px);
