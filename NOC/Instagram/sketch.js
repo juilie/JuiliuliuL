@@ -86,7 +86,7 @@ const treeCanvas = (sketch) => {
   var EGG_MODE = false;
   var EGG_MODE_BOX;
 
-  var THREE_D_MODE = false;
+  var THREE_D_MODE = true;
   var THREE_D_MODE_BOX;
   var LEAF_COLOR_PICKER;
   var LEAF_OUTLINE_PICKER;
@@ -125,7 +125,7 @@ const treeCanvas = (sketch) => {
     EGG_MODE_BOX.changed(() => {
       EGG_MODE = EGG_MODE_BOX.checked()
     })
-    THREE_D_MODE_BOX = sketch.createCheckbox('3D Mode', false).parent(miscContainer);
+    THREE_D_MODE_BOX = sketch.createCheckbox('3D Mode', true).parent(miscContainer);
     THREE_D_MODE_BOX.changed(() => {
       THREE_D_MODE = THREE_D_MODE_BOX.checked()
     })
@@ -183,7 +183,7 @@ const treeCanvas = (sketch) => {
 
       sketch.randomSeed(1)
 
-      sketch.translate(0, (sketch.height / 3), sketch.height / 6)
+      sketch.translate(0, (sketch.height / 3.5), sketch.height / 6)
       SPINNING && sketch.rotateY(sketch.frameCount)
       three_branch(treeLength)
       if (sketch.millis() < MINUTES_TO_FULL_SIZE) {
@@ -198,7 +198,7 @@ const treeCanvas = (sketch) => {
 
         !TREE_SWITCHING && sketch.randomSeed(100);
         sketch.background('black');
-        sketch.translate(0, sketch.height / 2.5)
+        sketch.translate(0, sketch.height / 2, -100)
 
         branch(treeLength);
 
@@ -281,7 +281,7 @@ const treeCanvas = (sketch) => {
 
         sketch.push()
         sketch.rotateZ(sketch.random(20, 30 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value() + sinFunction)
-        three_branch(len * sketch.random(.6, .7))
+        three_branch(len * .68)
         sketch.pop()
       }
     } else {
