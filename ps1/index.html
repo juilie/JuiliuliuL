@@ -17,12 +17,12 @@
             <label class="title">WELCOME</label>
             <!-- <p>Kick! Punch! It's all in the mind.</p> -->
             <div class="nav-container">
-                <a tabindex="1" href="../blog.html">BlogiPode</a><br>
-                <span onclick="transition(this,3)" class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Music</span><br>
+                <span onclick="transition(this,3)" class="css-link">Music</span><br>
                 <!-- <button></button> -->
                 <span onclick="transition(this,4)" class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Websites</span><br>
                 <span onclick=" transition(this,2)"
-                    class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends</span><br>
+                class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends</span><br>
+                <a href="../blog.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BlogiPode</a><br>
                 <span onclick="transition(this,1)" class="css-link"
                     style="text-align: right; margin-left: auto;">Contact&nbsp;</span> <br>
             </div>
@@ -32,9 +32,13 @@
             <label class="title">CONTACT</label>
             <!-- <p>Kick! Punch! It's all in the mind.</p> -->
             <div class="nav-container">
-                <span>juli at pcotandy dot net</span>
-                <a href="https://www.instagram.com/julipode">Instagram</a>
                 <span class="back-button" onclick="transition(this,0)">Back</span>
+                <ul>
+                    <li>
+                        <div style="display: flex;align-items: center;"> <span>Email:&nbsp;</span><code style="background-color: gray; width: fit-content; padding: 5px; font-weight: bold;">juli at pcotandy dot net</code></div>
+                    </li>
+                     <li><a href="https://www.instagram.com/julipode">Instagram</a></li>
+                </ul>
             </div>
         </div>
 
@@ -46,7 +50,7 @@
                     randomized on load</span>
 
                 <span class="back-button" onclick="transition(this,0)">Back</span>
-                <ul style="list-style-type: none">
+                <ul>
                     <li><a href="https://katarinamazur.com/">Katarina Mazur</a> <br></li>
                     <li><a href="https://suneinyneeenan.github.io/Enhydrax/">elie mh</a> <br></li>
                     <li><a href="https://kotc.life/">Ko T.C.</a><br></li>
@@ -157,22 +161,25 @@
 
                 <div class="music-scroll-container">
                     <div class="music-entry">  
-                        blahbkwj wkashfrbdwlahjsef ewrhsefb2owejlhs d                      
+                        co-webmain @ pcotandy. code and design                    
                         <iframe class="pot" scrolling="no" src="https://the-people-s-coalition-of-tandy.github.io/PCoTandy/webgarden">
                         </iframe>
                     </div><br><br>
 
                     <div class="music-entry">
+                        i follow my whimsies where they take me
                         <iframe class="pot" scrolling="no" src="https://www.windchimecalculator.org/webgarden">
                         </iframe>
                     </div><br><br>
 
                     <div class="music-entry">
+                        one day i'm going to create a blog ecosystem for the 2x20s that will save us all
                         <iframe class="pot" scrolling="no" src="../webgarden.html">
                         </iframe>
                     </div><br><br>
 
                     <div class="music-entry">
+                        a social network version of this practice tool is wip somewhere...
                         <iframe class="pot" scrolling="no" src="https://juilie.github.io/GoodrickGame/webgarden">
                         </iframe>
                     </div><br><br>
@@ -181,7 +188,7 @@
             </div>
         </div>
         <script>
-            var ul = document.querySelector('ul');
+            var ul = document.querySelector('#friends ul');
             for (var i = ul.children.length; i >= 0; i--) {
                 ul.appendChild(ul.children[Math.random() * i | 0]);
             }
