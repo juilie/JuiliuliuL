@@ -79,15 +79,76 @@ body {
     display: none;
 }
 
-.music-container {
+.nav-container.music-container {
     height: 65vh;
-    /* overflow-y: scroll; */
-    display: block;
     flex-direction: column;
-    flex-shrink: 0;
-    gap: 25px;
+    align-items: flex-start;
     background-image: linear-gradient(#ebc0005f, #261f0253);
     border: 2px solid #cdcdcd;
+    /* border: 2px solid #8e0078; */
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#websites .nav-container.music-container {
+        border: 2px solid #8e0078;
+        background-image: linear-gradient(#d400eb5f, #261f0253);
+}
+
+#websites.window-style::before {
+    background-color: #8e0078;
+}
+
+.music-container > * {
+    padding: 15px;
+    padding-bottom: 0;
+}
+
+.music-container .back-button {
+    /* margin-top: 10px; */
+}
+
+.container.active.transition-in .music-container {
+    animation: slide-open .3s ease backwards;
+    animation-delay: .1s;
+}
+
+.container.active.transition-out .music-container {
+    animation: slide-close .25s ease-in forwards;
+    /* animation-delay: .2s; */
+}
+
+.container.active.transition-in .music-scroll-container {
+    animation: gallery-blur .3s ease backwards;
+    animation-delay: .3s;
+}
+
+.container.active.transition-out .music-scroll-container {
+    animation: gallery-blurverse .2s ease forwards;
+    /* animation-delay: .5s; */
+}
+
+.window-style.container.active.transition-in {
+    animation: gallery-blur .1s ease forwards;
+}
+.window-style.container.active.transition-out {
+    animation: gallery-blurverse .1s ease forwards;
+    animation-delay: .3s;
+}
+
+
+@keyframes slide-open {
+
+    from {height: 0;}
+    to {height: 65vh;}
+}
+
+@keyframes slide-close {
+
+    from {height: 65vh;}
+    to {height: 0;}
 }
 
 .music-container::before {
@@ -104,12 +165,13 @@ body {
     pointer-events: none;
 }
 
-#music::before {
+.window-style::before {
     content: ' ';
     width: calc(100%x);
     height: 10px;
     display: block;
     background-color: #cdcdcd;
+    /* background-color: #8e0078; */
     position: relative;
     margin-bottom: 6px;
     clip-path: polygon(0 100%, 100% 100%, 100% 0, 80% 0, calc(80% - 6px) 100%, 30% 100%, calc(30% - 6px) 0, 6px 0);
@@ -183,13 +245,6 @@ button {
     animation-timing-function: ease-out;
 }
 
-.container.active.transition-in .music-container {
-    animation: gallery-blur .25s ease-out forwards;
-}
-
-.container.active.transition-out .music-container {
-    animation: gallery-blurverse .25s ease-out forwards;
-}
 
 .container.active.transition-in span,
 .container.active.transition-in a {
@@ -402,6 +457,49 @@ ul {
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
 }
 
+.pot {
+    width: 250px;
+    height: 250px;
+    border: 5px rgb(249, 129, 221) outset;
+}
+
+.music-entry {
+    background-color: rgba(47, 96, 25, 0.57);
+    padding: 5px;
+    border: 4px outset rgb(197, 193, 187);
+    width: fit-content;
+    font-family: test;
+    color: white;
+    padding: 10px;
+    /* margin: 0 auto ; */
+
+}
+#websites .music-scroll-container {
+    border-color: #8e0078;
+}
+.music-scroll-container {
+    overflow: scroll;
+    border: 1px dotted white;
+    mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
+    width: calc(100% - 30px);
+}
+
+#websites .music-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #003e5f;
+}
+
+#websites .music-scroll-container {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 40px;
+}
 
 /* a::before {
         content: '';
@@ -424,26 +522,3 @@ ul {
     z-index: 0;
     pointer-events: none;
 } */
-
-.pot {
-    width: 250px;
-    height: 250px;
-    border: 2px pink outset;
-}
-
-.music-entry {
-    background-color: rgba(47, 96, 25, 0.57);
-    padding: 5px;
-    border: 4px outset rgb(197, 193, 187);
-    width: fit-content;
-    font-family: test;
-    color: white;
-    padding: 10px;
-    margin: 0 auto ;
-
-}
-.music-scroll-container {
-    height: 90%;
-overflow: scroll;
-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
-}
