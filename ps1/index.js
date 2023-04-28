@@ -1,6 +1,8 @@
 let words = ['aquatipode', 'julipode', 'coalition', 'access', 'pode central', 'podiverse', 'blogipode', 'welcome', 'blue dish',
-    'fediverse', 'pcotandy', 'webmain', 'brattleboro', 'decrentraleyes', 'sumj', 'sunpode', 'wisdomoc', 'half moon', 'middleoak', 'middlemoon',
-    'opus impetus', 'synchip', 'julite', 'insight', 'juiliul', 'idle hour', 'tandy', 'yamaha slg', 'web services', 'music', 'contact'
+    'fediverse', 'pcotandy', 'webmain', 'brattleboro', 'decentralize', 'sumj', 'sunpode', 'wisdomoc', 'half moon', 'middleoak', 'middlemoon',
+    'opus impetus', 'synchip', 'julite', 'insight', 'juiliul', 'idle hour', 'tandy', 'yamaha slg', 'web services', 'music', 'contact', 'javascript',
+    'html', 'css', 'nano', 'tandypod', 'deep blue', 'deeno+me', 'activitypub', 'cybre.space', 'cybernetics', 'webring', 'resonance', 'resound', 'arrange',
+    'balearic', 'classical', 'jazz', 'easy listening', 'research', 'study'
 ]
 
 let wrapper = document.querySelector('#wrapper');
