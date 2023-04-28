@@ -400,7 +400,7 @@ code {
 
 @media only screen and (max-width: 1000px) {
     .container {
-        width: 85%;
+        width: 95%;
     }
 
     .music-entry iframe {
