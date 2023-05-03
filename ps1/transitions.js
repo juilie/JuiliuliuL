@@ -9,8 +9,62 @@ function mobileAndTabletCheck() {
 var isMobile = mobileAndTabletCheck();
 var websitesLoaded = false;
 var musicLoaded = false;
+var root = document.querySelector(':root');
 
 function transition(e, page) {
+    // Cloud mode
+
+    switch (page) {
+        case 0:
+            root.style.setProperty('--bg-color', '#00000f');
+            root.style.setProperty('--link-color', '#ff0');
+            root.style.setProperty('--text-fx-color', '#f6f6f6');
+            root.style.setProperty('--mouse-text-color', '#6683a5');
+            root.style.setProperty('--link-hover-color', '#fff');
+            root.style.setProperty('--title-color', '#e7e7e7');
+            root.style.setProperty('--title-shadow', '#000');
+            root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
+
+            setTimeout(() => {
+                root.style.setProperty('--blend-mode', 'color-dodge');
+            }, 500);
+            break;
+
+        case 1:
+            root.style.setProperty('--bg-color', '#a5b7ff');
+            root.style.setProperty('--link-color', '#fff');
+            root.style.setProperty('--text-fx-color', '#e8e8e8');
+            root.style.setProperty('--mouse-text-color', '#fff');
+            root.style.setProperty('--link-hover-color', '#040000');
+            root.style.setProperty('--title-color', '#000');
+            root.style.setProperty('--title-shadow', '#fff');
+            root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
+            root.style.setProperty('--blend-mode', 'soft-light');
+            break;
+
+        case 2:
+
+        case 1:
+            root.style.setProperty('--bg-color', '#ffdbf1');
+            root.style.setProperty('--link-color', '#ff00d7');
+            root.style.setProperty('--text-fx-color', '#1edfff');
+            root.style.setProperty('--mouse-text-color', '#ff00cb');
+            root.style.setProperty('--link-hover-color', '#000');
+            root.style.setProperty('--title-color', '#000');
+            root.style.setProperty('--title-shadow', '#fff');
+            root.style.setProperty('--blend-mode', 'soft-light');
+
+            setTimeout(() => {
+                root.style.setProperty('--bg-image', 'url("../assets/images/water2.gif")');
+            }, 500);
+
+            break;
+
+        default:
+            break;
+    }
+
+
     e.parentElement.parentElement.classList.add('transition-out');
     const pages = [document.getElementById('home'), document.getElementById('contact'), document.getElementById('friends'), document.getElementById('music'), document.getElementById('websites')]
 
@@ -22,6 +76,7 @@ function transition(e, page) {
         pages[page].classList.add('transition-in')
         pages[page].classList.add('active')
         if (page === 3 && !musicLoaded || page === 4 && !websitesLoaded) {
+
             console.log("entered")
             let iframes = pages[page].getElementsByTagName('iframe')
 

@@ -42,9 +42,9 @@ if (!isMobile) {
             wrapper.appendChild(x)
             setTimeout(() => {
                 x.remove()
-            }, 2000);
-        }, 10);
-    }, 3000);
+            }, 1000);
+        }, 5);
+    }, 500);
 }
 
 setTimeout(() => {
@@ -65,4 +65,9 @@ setTimeout(() => {
         }, Math.random * 10000);
 
     }, 200);
-}, 2000);
+}, 500);
+
+
+
+
+// var rs = getComputedStyle(r);
