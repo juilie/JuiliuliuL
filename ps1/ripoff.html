@@ -220,7 +220,7 @@ function init () {
   camera.position.z = 500
 
   scene = new THREE.Scene()
-  scene.fog = new THREE.FogExp2(0x000088, 0.001)
+  scene.fog = new THREE.FogExp2(0x0000ff, 0.001)
 
   const geometry = new THREE.BufferGeometry()
   const vertices = []
@@ -261,7 +261,7 @@ function init () {
 
   const particles = new THREE.Points(geometry, material)
   scene.add(particles)
-
+//   scene.background = new THREE.Color( 0x94e4ff );
   renderer = new THREE.WebGLRenderer()
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
