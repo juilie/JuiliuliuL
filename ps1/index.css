@@ -75,7 +75,9 @@ PINK THEME
  */
 }
 
-
+.container span.header-text {
+    color: var(--title-color);
+}
 
 
 
@@ -250,7 +252,6 @@ body {
 
 a {
     color: var(--link-color);
-    transition: .5s color .01s ease;
     text-decoration: none;
     font-size: 24pt;
     line-height: 110%;
@@ -260,6 +261,11 @@ a {
     overflow: hidden;
     width: fit-content;
     font-family: test;
+}
+
+.container.active.transition-out a,
+.container.active.transition-out span {
+    transition: 1s color .01s ease;
 }
 
 .random {
@@ -306,7 +312,6 @@ button {
 
 .container span {
     color: var(--link-color);
-    transition: .5s color .01s ease;
     text-decoration: none;
     font-size: 24pt;
     line-height: 110%;
@@ -562,7 +567,7 @@ code {
 .music-entry {
     background-color: rgba(47, 96, 25, 0.57);
     padding: 5px;
-    border: 4px outset rgb(197, 193, 187);
+    border: 4px inset rgb(197, 193, 187);
     width: fit-content;
     font-family: test;
     color: white;
@@ -571,16 +576,11 @@ code {
 
 }
 
-#websites .music-scroll-container {
-    border-color: #8e0078;
-}
-
 .music-scroll-container {
     overflow: scroll;
     border: 1px dotted white;
     mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
     width: calc(100% - 30px);
-    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -600,9 +600,15 @@ code {
 #websites .music-scroll-container {
     flex-direction: row;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     padding-bottom: 40px;
+    border-color: #8e0078;
+}
+
+canvas {
+    position: absolute;
 }
 
 /* a::before {

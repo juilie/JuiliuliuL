@@ -34,12 +34,15 @@ function transition(e, page) {
             root.style.setProperty('--bg-color', '#a5b7ff');
             root.style.setProperty('--link-color', '#fff');
             root.style.setProperty('--text-fx-color', '#e8e8e8');
-            root.style.setProperty('--mouse-text-color', '#fff');
             root.style.setProperty('--link-hover-color', '#040000');
             root.style.setProperty('--title-color', '#000');
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
             root.style.setProperty('--blend-mode', 'soft-light');
+            
+            setTimeout(() => {
+                root.style.setProperty('--mouse-text-color', '#fff');
+            }, 250);
             break;
 
         case 2:
@@ -48,14 +51,14 @@ function transition(e, page) {
             root.style.setProperty('--bg-color', '#ffdbf1');
             root.style.setProperty('--link-color', '#ff00d7');
             root.style.setProperty('--text-fx-color', '#1edfff');
-            root.style.setProperty('--mouse-text-color', '#ff00cb');
             root.style.setProperty('--link-hover-color', '#000');
             root.style.setProperty('--title-color', '#000');
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--blend-mode', 'soft-light');
-
+            
             setTimeout(() => {
                 root.style.setProperty('--bg-image', 'url("../assets/images/water2.gif")');
+                root.style.setProperty('--mouse-text-color', '#ff00cb');
             }, 500);
 
             break;
