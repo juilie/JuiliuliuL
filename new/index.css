@@ -609,7 +609,8 @@ code {
 
 canvas {
     position: absolute;
-    opacity: .15;
+    opacity: 0;
+    transition: opacity .5s ease;
 }
 
 /* a::before {

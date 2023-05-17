@@ -24,14 +24,17 @@ function transition(e, page) {
             root.style.setProperty('--title-color', '#e7e7e7');
             root.style.setProperty('--title-shadow', '#000');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
-
+            
             setTimeout(() => {
                 root.style.setProperty('--blend-mode', 'color-dodge');
             }, 500);
+
             break;
 
         case 1:
-            root.style.setProperty('--bg-color', '#a5b7ff');
+            // case 4:
+            // root.style.setProperty('--bg-color', '#a5b7ff');
+            root.style.setProperty('--bg-color', '#6888ff');
             root.style.setProperty('--link-color', '#fff');
             root.style.setProperty('--text-fx-color', '#e8e8e8');
             root.style.setProperty('--link-hover-color', '#040000');
@@ -39,15 +42,13 @@ function transition(e, page) {
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
             root.style.setProperty('--blend-mode', 'soft-light');
-            
+
             setTimeout(() => {
                 root.style.setProperty('--mouse-text-color', '#fff');
             }, 250);
             break;
 
         case 2:
-
-        case 1:
             root.style.setProperty('--bg-color', '#ffdbf1');
             root.style.setProperty('--link-color', '#ff00d7');
             root.style.setProperty('--text-fx-color', '#1edfff');
@@ -55,12 +56,43 @@ function transition(e, page) {
             root.style.setProperty('--title-color', '#000');
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--blend-mode', 'soft-light');
-            
+
             setTimeout(() => {
                 root.style.setProperty('--bg-image', 'url("../assets/images/water2.gif")');
-                root.style.setProperty('--mouse-text-color', '#ff00cb');
+                root.style.setProperty('--mouse-text-color', '#adffff');
             }, 500);
 
+            break;
+
+        case 3:
+            root.style.setProperty('--bg-color', '#152400');
+            root.style.setProperty('--link-color', '#36cc00');
+            root.style.setProperty('--text-fx-color', '#df0000');
+            root.style.setProperty('--link-hover-color', '#fff');
+            root.style.setProperty('--title-color', '#fff');
+            root.style.setProperty('--title-shadow', '#235721');
+            root.style.setProperty('--blend-mode', 'soft-light');
+
+            setTimeout(() => {
+                root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
+                root.style.setProperty('--mouse-text-color', '#686765');
+            }, 500);
+
+            break;
+
+        case 4:
+            root.style.setProperty('--bg-color', '#15000e');
+            root.style.setProperty('--link-color', '#ff0');
+            root.style.setProperty('--text-fx-color', '#f6f6f6');
+            root.style.setProperty('--mouse-text-color', '#000');
+            root.style.setProperty('--link-hover-color', '#fff');
+            root.style.setProperty('--title-color', '#e7e7e7');
+            root.style.setProperty('--title-shadow', '#000');
+            root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
+
+            setTimeout(() => {
+                root.style.setProperty('--blend-mode', 'color-dodge');
+            }, 500);
             break;
 
         default:

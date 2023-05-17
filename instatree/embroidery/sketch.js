@@ -4,7 +4,7 @@ const embroideryCanvas = (sketch) => {
   var isMobile = screen.width <= 480;
   var img;
 
-  let images = ['../EmbroideryCross/Embroidery/vert/1.png', '../EmbroideryCross/Embroidery/vert/2.png', '../EmbroideryCross/Embroidery/vert/3.png', '../EmbroideryCross/Embroidery/vert/blue.png', '../EmbroideryCross/Embroidery/vert/blue.png']
+  let images = ['./Embroidery/vert/1.png', './Embroidery/vert/2.png', './Embroidery/vert/3.png', './Embroidery/vert/blue.png', './Embroidery/vert/blue.png']
 
   sketch.setup = () => {
     if (isMobile) {
@@ -23,7 +23,7 @@ const embroideryCanvas = (sketch) => {
   }
 
   sketch.preload = () => {
-    img = sketch.loadImage("../EmbroideryCross/Embroidery/ukraine1.png")
+    img = sketch.loadImage("./Embroidery/ukraine1.png")
   }
 
   sketch.draw = () => {

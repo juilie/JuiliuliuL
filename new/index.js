@@ -43,7 +43,7 @@ if (!isMobile) {
             setTimeout(() => {
                 x.remove()
             }, 1000);
-        }, 5);
+        }, );
     }, 500);
 }
 

@@ -4,7 +4,7 @@ const embroideryCanvas = (sketch) => {
   var isMobile = screen.width <= 480;
   var img;
 
-  let images = ['../EmbroideryCross/Embroidery/vert/1.png', '../EmbroideryCross/Embroidery/vert/2.png', '../EmbroideryCross/Embroidery/vert/3.png', '../EmbroideryCross/Embroidery/vert/blue.png']
+  let images = ['./Embroidery/vert/1.png', './Embroidery/vert/2.png', './Embroidery/vert/3.png', './Embroidery/vert/blue.png']
 
   sketch.setup = () => {
     if (isMobile) {
@@ -23,7 +23,7 @@ const embroideryCanvas = (sketch) => {
   }
 
   sketch.preload = () => {
-    img = sketch.loadImage("../EmbroideryCross/Embroidery/ukraine1.png")
+    img = sketch.loadImage("./Embroidery/ukraine1.png")
   }
 
   sketch.draw = () => {
@@ -111,6 +111,7 @@ const treeCanvas = (sketch) => {
     let branchesContainer = document.querySelector('#branches')
     let animationsContainer = document.querySelector('#animations')
     let miscContainer = document.querySelector('#misc')
+    let cameraContainer = document.querySelector('#camera')
 
     renderer = isMobile ? sketch.createCanvas(sketch.windowWidth - 30, sketch.windowHeight / 1.5, sketch.WEBGL) : sketch.createCanvas(sketch.windowWidth / 2, sketch.windowHeight / 2, sketch.WEBGL);
     renderer.drawingContext.disable(renderer.drawingContext.DEPTH_TEST);
@@ -119,9 +120,8 @@ const treeCanvas = (sketch) => {
 
     sketch.frameRate(60)
 
-    ROTATION_RANGE_SLIDER = sketch.createSlider(0, 1000, 20).parent(animationsContainer);
-    ROTATION_MODIFIER_SLIDER = sketch.createSlider(0, 360, 0).parent(animationsContainer);
-
+    ROTATION_RANGE_SLIDER = sketch.createSlider(0, 1000, 20).parent(sketch.createDiv('Rotate Range').parent(animationsContainer));
+    ROTATION_MODIFIER_SLIDER = sketch.createSlider(0, 360, 0).parent(sketch.createDiv('Rotate Mod').parent(animationsContainer));
 
     EGG_MODE_BOX = sketch.createCheckbox('Egg Mode', false).parent(miscContainer);
     EGG_MODE_BOX.changed(() => {
@@ -131,11 +131,11 @@ const treeCanvas = (sketch) => {
     THREE_D_MODE_BOX.changed(() => {
       THREE_D_MODE = THREE_D_MODE_BOX.checked()
     })
-    SPINNING_BOX = sketch.createCheckbox('Spinning', true).parent(animationsContainer);
+    SPINNING_BOX = sketch.createCheckbox('Spinning (3D Only)', true).parent(animationsContainer);
     SPINNING_BOX.changed(() => {
       SPINNING = SPINNING_BOX.checked()
     })
-    TREE_SWITCHING_BOX = sketch.createCheckbox('Tree Switching', false).parent(animationsContainer);
+    TREE_SWITCHING_BOX = sketch.createCheckbox('Tree Switching (2D only)', false).parent(animationsContainer);
     TREE_SWITCHING_BOX.changed(() => {
       TREE_SWITCHING = TREE_SWITCHING_BOX.checked()
     })
@@ -145,8 +145,9 @@ const treeCanvas = (sketch) => {
     })
 
     HIDE_BRANCHES = sketch.createCheckbox('Hide Branches', false).parent(branchesContainer);
-    SWAY_MODE = sketch.createCheckbox('Sway Mode', false).parent(animationsContainer);
-    SWAY_MODE_SLIDER = sketch.createSlider(0, 5, 2).parent(animationsContainer);
+    SWAY_MODE = sketch.createCheckbox('Sway Mode (2D Only)', false).parent(animationsContainer);
+    SWAY_MODE_SLIDER = sketch.createSlider(0, 5, 2).parent(sketch.createDiv('Sway Amount').parent(animationsContainer));
+
     LEAF_SIZE = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Size').parent(leavesContainer));
     LEAF_SIZE_Y = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Length').parent(leavesContainer));
     LEAF_SIZE_X = sketch.createSlider(0, 180, 0).parent(sketch.createDiv('Leaf Width').parent(leavesContainer));
@@ -167,6 +168,10 @@ const treeCanvas = (sketch) => {
     BRANCH_TEXTURE.option('sketch.texture(images[sketch.floor(sketch.random(0, images.length))]);', 'embroidery');
     BRANCH_TEXTURE.option('sketch.texture(barks[0]);', 'bark');
     BRANCH_TEXTURE.selected('');
+
+    CAMERA_X = sketch.createSlider(-sketch.width/2, sketch.width/2, 0).parent(sketch.createDiv('X').parent(cameraContainer));
+    CAMERA_Y = sketch.createSlider(-sketch.height/2,sketch.height/2,0).parent(sketch.createDiv('Y').parent(cameraContainer));
+    CAMERA_Z = sketch.createSlider(-sketch.width/2,sketch.width/2,0).parent(sketch.createDiv('Z').parent(cameraContainer));
   }
 
   let images = [];
@@ -185,7 +190,8 @@ const treeCanvas = (sketch) => {
 
       sketch.randomSeed(1)
 
-      sketch.translate(0, (sketch.height / 3.5), sketch.height / 6)
+      // Camera Position
+      sketch.translate(0 + CAMERA_X.value(), (sketch.height/6 + CAMERA_Y.value()), sketch.height/4 + CAMERA_Z.value())
       SPINNING && sketch.rotateY(sketch.frameCount)
       three_branch(treeLength)
       if (sketch.millis() < MINUTES_TO_FULL_SIZE) {
@@ -200,7 +206,7 @@ const treeCanvas = (sketch) => {
 
         !TREE_SWITCHING && sketch.randomSeed(100);
         sketch.background('black');
-        sketch.translate(0, sketch.height / 2, -100)
+        sketch.translate(0 + CAMERA_X.value(), (sketch.height/6 + CAMERA_Y.value()), sketch.height/4 + CAMERA_Z.value())
 
         branch(treeLength);
 
