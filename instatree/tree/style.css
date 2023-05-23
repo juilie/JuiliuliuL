@@ -215,6 +215,12 @@ h2 {
   align-items: flex-start;
 }
 
+#textureWrapper, #shapeWrapper, #leafShapeWrapper {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
 @media only screen and (max-width: 1000px) {
   .controls {
     bottom: 0;

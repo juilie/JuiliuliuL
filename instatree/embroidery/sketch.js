@@ -26,6 +26,10 @@ const embroideryCanvas = (sketch) => {
     img = sketch.loadImage("./Embroidery/ukraine1.png")
   }
 
+ sketch.windowResized = () => {
+    sketch.resizeCanvas(windowWidth, windowHeight);
+  }
+
   sketch.draw = () => {
     sketch.background('black')
     yOffset += 0.005;

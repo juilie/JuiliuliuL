@@ -31,6 +31,15 @@ var LEAF_COLOR_PICKER;
 var LEAF_OUTLINE_PICKER;
 var BRANCH_COLOR_PICKER;
 var BRANCH_TEXTURE = '';
+var branchShapeFunctions = [
+  'cylinder(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())',
+  'box(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())',
+  'sphere(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value())',
+  'ellipsoid(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())',
+  'torus(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())'
+];
+var BRANCH_SHAPE='0';
+
 var BRANCH_RADIUS;
 var BRANCH_LENGTH;
 
@@ -39,8 +48,22 @@ var LEAF_SIZE_X;
 var LEAF_SIZE_Y;
 var LEAF_SIZE_Z;
 
-var SPINNING = true;
+var leafShapeFunctions = [
+  'cylinder(3.3 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 5.8 + LEAF_SIZE_Y.value() + LEAF_SIZE.value())',
+  'box(3.3 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 5.8 + LEAF_SIZE_Y.value() + LEAF_SIZE.value(), 1.8 + LEAF_SIZE_Z.value() + LEAF_SIZE.value())',
+  'sphere(3.3 + LEAF_SIZE.value())',
+  'ellipsoid(3.3 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 5.8 + LEAF_SIZE_Y.value() + LEAF_SIZE.value(), 1.8 + LEAF_SIZE_Z.value() + LEAF_SIZE.value())',
+];
+var LEAF_SHAPE='3';
+
+var SPINNING;
 var SPINNING_BOX;
+
+var CAMERA_X;
+var CAMERA_Y;
+var CAMERA_Z;
+
+var RANDOMIZE_VARIABLES;
 
 function setup() {
   var isMobile = screen.width <= 480;
@@ -61,26 +84,15 @@ function setup() {
   ROTATION_RANGE_SLIDER = createSlider(0, 1000, 20).parent(createDiv('Rotate Range').parent(animationsContainer));
   ROTATION_MODIFIER_SLIDER = createSlider(0, 360, 0).parent(createDiv('Rotate Mod').parent(animationsContainer));
 
-  EGG_MODE_BOX = createCheckbox('Egg Mode', false).parent(miscContainer);
-  EGG_MODE_BOX.changed(() => {
-    EGG_MODE = EGG_MODE_BOX.checked()
-  })
-  THREE_D_MODE_BOX = createCheckbox('3D Mode', true).parent(miscContainer);
-  THREE_D_MODE_BOX.changed(() => {
-    THREE_D_MODE = THREE_D_MODE_BOX.checked()
-  })
-  SPINNING_BOX = createCheckbox('Spinning (3D Only)', true).parent(animationsContainer);
-  SPINNING_BOX.changed(() => {
-    SPINNING = SPINNING_BOX.checked()
-  })
-  TREE_SWITCHING_BOX = createCheckbox('Tree Switching (2D only)', false).parent(animationsContainer);
-  TREE_SWITCHING_BOX.changed(() => {
-    TREE_SWITCHING = TREE_SWITCHING_BOX.checked()
-  })
-  ROTATION_WAVE_BOX = createCheckbox('Rotation Wave', false).parent(animationsContainer);
-  ROTATION_WAVE_BOX.changed(() => {
-    ROTATION_WAVE = ROTATION_WAVE_BOX.checked()
-  })
+  EGG_MODE = createCheckbox('Egg Mode', false).parent(miscContainer);
+
+  THREE_D_MODE = createCheckbox('3D Mode', true).parent(miscContainer);
+
+  SPINNING = createCheckbox('Spinning (3D Only)', true).parent(animationsContainer);
+  TREE_SWITCHING = createCheckbox('Tree Switching (2D only)', false).parent(animationsContainer);
+
+  ROTATION_WAVE = createCheckbox('Rotation Wave', false).parent(animationsContainer);
+
 
   HIDE_BRANCHES = createCheckbox('Hide Branches', false).parent(branchesContainer);
   SWAY_MODE = createCheckbox('Sway Mode (2D Only)', false).parent(animationsContainer);
@@ -95,17 +107,50 @@ function setup() {
   LEAF_COLOR_PICKER = createColorPicker(color('green')).parent(createDiv('Leaf Color').parent((leavesContainer)));
 
   LEAF_OUTLINE_PICKER = createColorPicker(color(70, 40, 20)).parent(createDiv('Leaf Outline Color').parent((leavesContainer)));
+  const leafShapeWrapper = createDiv()
+  leafShapeWrapper.id ("leafShapeWrapper")
+  createP("Shape").parent(leavesContainer).style('text-decoration', 'underline');
+  LEAF_SHAPE = createRadio(leafShapeWrapper).parent(leavesContainer);
+  LEAF_SHAPE.option('0', 'cylinder', 'please');
+  LEAF_SHAPE.option('1', 'box');
+  LEAF_SHAPE.option('2', 'sphere');
+  LEAF_SHAPE.option('3', 'ellipsoid');
+  const leafShapeRadios = LEAF_SHAPE.elt.querySelectorAll('input')
+  for (let i = 0; i < leafShapeRadios.length; i++) {
+    leafShapeRadios[i].name = "leafShapeRadio";
+  }
+  LEAF_SHAPE.selected('3');
 
   BRANCH_COLOR = color('brown')
   BRANCH_COLOR_PICKER = createColorPicker(color('brown')).parent(createDiv('Branch Color').parent(branchesContainer))
   BRANCH_RADIUS = createSlider(0, 180, 0).parent(createDiv('Branch Radius').parent(branchesContainer));
   BRANCH_LENGTH = createSlider(-180, 180, 0).parent(createDiv('Branch Length').parent(branchesContainer));
 
-  BRANCH_TEXTURE = createRadio().parent(createDiv('Branch Texture').id('radio').parent(branchesContainer));
+
+  const textureWrapper = createDiv()
+  textureWrapper.id("textureWrapper")
+  const shapeWrapper = createDiv()
+  shapeWrapper.id ("shapeWrapper")
+
+  createP("Texture").parent(branchesContainer).style('text-decoration', 'underline');
+  BRANCH_TEXTURE = createRadio(textureWrapper).parent(branchesContainer);
   BRANCH_TEXTURE.option('', 'none');
   BRANCH_TEXTURE.option('texture(images[floor(random(0, images.length))]);', 'embroidery');
   BRANCH_TEXTURE.option('texture(barks[0]);', 'bark');
   BRANCH_TEXTURE.selected('');
+
+  createP("Shape").parent(branchesContainer).style('text-decoration', 'underline');
+  BRANCH_SHAPE = createRadio(shapeWrapper).parent(branchesContainer);
+  BRANCH_SHAPE.option('0', 'cylinder', 'please');
+  BRANCH_SHAPE.option('1', 'box');
+  BRANCH_SHAPE.option('2', 'sphere');
+  BRANCH_SHAPE.option('3', 'ellipsoid');
+  BRANCH_SHAPE.option('4', 'torus');
+  const shapeRadios = BRANCH_SHAPE.elt.querySelectorAll('input')
+  for (let i = 0; i < shapeRadios.length; i++) {
+    shapeRadios[i].name = "shapeRadio";
+  }
+  BRANCH_SHAPE.selected('0');
 
   CAMERA_X = createSlider(-width / 2, width / 2, 0).parent(createDiv('X').parent(cameraContainer));
   CAMERA_Y = createSlider(-height / 2, height / 2, 0).parent(createDiv('Y').parent(cameraContainer));
@@ -115,12 +160,38 @@ function setup() {
 
   let valueDisplayer = createP("5 second(s)").parent(exportContainer);
   EXPORT_SECONDS = createSlider(1, 60, 4).parent(createDiv('Seconds').parent(exportContainer));
-  EXPORT_SECONDS.input(()=>{valueDisplayer.html(EXPORT_SECONDS.value() + " second(s)")})
+  EXPORT_SECONDS.input(() => {
+    valueDisplayer.html(EXPORT_SECONDS.value() + " second(s)")
+  })
   SAVE_BUTTON = createButton('Save to gif', '5', 'number').parent(exportContainer);
 
   SAVE_BUTTON.mousePressed(() => {
-    saveGif('mySketch', Number(EXPORT_SECONDS.value()));
+    saveGif('treeGif', Number(EXPORT_SECONDS.value()));
   });
+
+  var RANDOMIZE_VARIABLES = {
+    sliders: [ROTATION_MODIFIER_SLIDER, ROTATION_RANGE_SLIDER, BRANCH_RADIUS, BRANCH_LENGTH, LEAF_SIZE_X, LEAF_SIZE_Y, LEAF_SIZE_Z,
+      CAMERA_X, CAMERA_Y, CAMERA_Z
+    ],
+    
+    checkboxes: [EGG_MODE, THREE_D_MODE, HIDE_BRANCHES, SPINNING, ROTATION_WAVE, TREE_SWITCHING]
+    
+    };
+
+  // RANDOMIZE_BUTTON = createButton('Randomize', '5', 'number').parent(exportContainer);
+
+  // RANDOMIZE_BUTTON.mousePressed(() => {
+  //   for (let i = 0; i < RANDOMIZE_VARIABLES.sliders.length; i++) {
+  //     const slider = RANDOMIZE_VARIABLES.sliders[i];
+  //     randomSeed(frameCount**i)
+  //     slider.value(random(slider.elt.min, slider.elt.max))
+  //   }
+  //   for (let i = 0; i < RANDOMIZE_VARIABLES.checkboxes.length; i++) {
+  //     const checkbox = RANDOMIZE_VARIABLES.checkboxes[i];
+  //     randomSeed(frameCount**i)
+  //     checkbox.checked(floor(random(0,2)) ? true : false)
+  //   }
+  // });
 
 }
 
@@ -132,10 +203,13 @@ function preload() {
   barks = [loadImage('./textures/bark1.jpg')]
 }
 
-function draw() {
-  
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
-  if (THREE_D_MODE) {
+function draw() {
+
+  if (THREE_D_MODE.checked()) {
     renderer.drawingContext.enable(renderer.drawingContext.DEPTH_TEST);
     background('black')
 
@@ -143,7 +217,7 @@ function draw() {
 
     // Camera Position
     translate(0 + CAMERA_X.value(), (height / 6 + CAMERA_Y.value()), height / 4 + CAMERA_Z.value())
-    SPINNING && rotateY(frameCount)
+    SPINNING.checked() && rotateY(frameCount)
     three_branch(treeLength)
     if (millis() < MINUTES_TO_FULL_SIZE) {
       treeLength = map(millis(), 0, MINUTES_TO_FULL_SIZE, 1, maxTreeLength);
@@ -155,7 +229,7 @@ function draw() {
     if (!(frameCount % TREES_PER_SEC)) {
       renderer.drawingContext.disable(renderer.drawingContext.DEPTH_TEST);
 
-      !TREE_SWITCHING && randomSeed(100);
+      !TREE_SWITCHING.checked() && randomSeed(100);
       background('black');
       translate(0 + CAMERA_X.value(), (height / 6 + CAMERA_Y.value()), height / 4 + CAMERA_Z.value())
 
@@ -171,7 +245,7 @@ function draw() {
 function branch(len) {
   push()
   if (len > 10) {
-    var sinFunction = ROTATION_WAVE ? map(sin(frameCount), -1, 1, 0, 360) : 0;
+    var sinFunction = ROTATION_WAVE.checked() ? map(sin(frameCount), -1, 1, 0, 360) : 0;
     var swayFunction = SWAY_MODE.checked() ? map(sin(frameCount), -1, 1, -SWAY_MODE_SLIDER.value(), SWAY_MODE_SLIDER.value()) : 0;
     strokeWeight(map(len, 10, 100, 1, 15));
     stroke(BRANCH_COLOR_PICKER.color());
@@ -182,7 +256,7 @@ function branch(len) {
     // line(0, 0, 0, -len);
     translate(0, -len / 2, 0)
     eval(BRANCH_TEXTURE.value());
-    !HIDE_BRANCHES.checked() && cylinder(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())
+    !HIDE_BRANCHES.checked() && eval(branchShapeFunctions[BRANCH_SHAPE.value()])
     translate(0, len / 2, 0)
 
     translate(0, -len);
@@ -198,7 +272,7 @@ function branch(len) {
     noStroke()
     beginShape()
 
-    if (EGG_MODE) {
+    if (EGG_MODE.checked()) {
       noFill()
       image(images[0], 0, 0, 20, 20)
     } else {
@@ -219,14 +293,14 @@ function branch(len) {
 var animation_complete = true;
 
 function three_branch(len) {
-  var sinFunction = ROTATION_WAVE || !animation_complete ? map(sin(frameCount), -1, 1, 0, 360) : 0;
+  var sinFunction = ROTATION_WAVE.checked() || !animation_complete ? map(sin(frameCount), -1, 1, 0, 360) : 0;
   animation_complete = sinFunction === 0 || sinFunction === 360 ? true : false;
 
   translate(0, -len / 2, 0)
 
   beginShape()
   strokeWeight(0);
-  !HIDE_BRANCHES.checked() && box(map(len, 10, 100, 0.5, 3.5) + BRANCH_RADIUS.value(), len + 2 + BRANCH_LENGTH.value())
+  !HIDE_BRANCHES.checked() && eval(branchShapeFunctions[BRANCH_SHAPE.value()])
   fill(BRANCH_COLOR_PICKER.color())
   eval(BRANCH_TEXTURE.value());
   endShape(CLOSE)
@@ -249,7 +323,7 @@ function three_branch(len) {
     var b = LEAF_COLOR_PICKER.color().levels[2] + random(-20, 20)
     fill(r, g, b, 150);
 
-    if (EGG_MODE) {
+    if (EGG_MODE.checked()) {
       // noFill()
       beginShape()
       noStroke()
@@ -262,7 +336,7 @@ function three_branch(len) {
       noStroke()
       strokeWeight(.1)
       fill(r, g, b, 150)
-      box(3.3 + LEAF_SIZE_X.value() + LEAF_SIZE.value(), 5.8 + LEAF_SIZE_Y.value() + LEAF_SIZE.value(), 1.8 + LEAF_SIZE_Z.value() + LEAF_SIZE.value());
+      eval(leafShapeFunctions[LEAF_SHAPE.value()])
       endShape(CLOSE)
 
       push();
@@ -271,6 +345,4 @@ function three_branch(len) {
       pop();
     }
   }
-
-
 }

@@ -182,6 +182,10 @@ const treeCanvas = (sketch) => {
     barks = [sketch.loadImage('./textures/bark1.jpg')]
   }
 
+  sketch.windowResized = () => {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+
   sketch.draw = () => {
 
     if (THREE_D_MODE) {
