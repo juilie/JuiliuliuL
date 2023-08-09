@@ -550,7 +550,7 @@ code {
     height: 50vh;
     overflow: scroll;
     padding-top: 10px;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
     list-style-type: none
 }
 
@@ -578,9 +578,11 @@ code {
 
 .music-scroll-container {
     overflow: scroll;
-    border: 1px dotted white;
+    border: 3px double rgba(255, 255, 255, 0.471);
     mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent 100%);
-    width: calc(100% - 30px);
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -634,3 +636,38 @@ canvas {
     z-index: 0;
     pointer-events: none;
 } */
+
+.music-entry-wrapper:nth-of-type(odd) hr:nth-of-type(2) {
+    width: 20%;
+}
+
+.music-entry-wrapper:nth-of-type(even) hr:first-of-type {
+    width: 20%;
+}
+
+.music-entry-wrapper hr {
+    height: 0px;
+    border-width: 2px;
+    border-style: dotted;
+    border-color: rgba(18, 166, 27, 0.64);
+    border-bottom: none;
+    width: 100%;
+}
+
+.music-entry-wrapper {
+    width: 100%;
+    /* background-color: #8e0078; */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.music-entry-title {
+    position: absolute;
+    top: 50%;
+    font-size: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+    transform: scale(1, .5);
+    color: wheat;
+    top: 24%;
+}

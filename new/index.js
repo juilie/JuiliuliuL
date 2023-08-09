@@ -29,23 +29,26 @@ function mobileAndTabletCheck() {
 
 isMobile = mobileAndTabletCheck();
 
-if (!isMobile) {
-    setTimeout(() => {
-        setInterval(() => {
-            let x = document.createElement('div');
-            x.style.position = "absolute";
-            x.style = `position: absolute; top: ${mousePos.y-60}px; left: ${mousePos.x}px;`;
-            x.innerText = words[Math.floor(Math.random() * words.length)];
-            x.style.fontSize = `${Math.random()*20+20}pt`
-            x.className = "random"
-            x.tabIndex = '-1'
-            wrapper.appendChild(x)
-            setTimeout(() => {
-                x.remove()
-            }, 1000);
-        }, );
-    }, 500);
-}
+// Creates blurred text effect that follows mouse
+// Commented out bc it lags badly on some computers
+
+// if (!isMobile) {
+//     setTimeout(() => {
+//         setInterval(() => {
+//             let x = document.createElement('div');
+//             x.style.position = "absolute";
+//             x.style = `position: absolute; top: ${mousePos.y-60}px; left: ${mousePos.x}px;`;
+//             x.innerText = words[Math.floor(Math.random() * words.length)];
+//             x.style.fontSize = `${Math.random()*20+20}pt`
+//             x.className = "random"
+//             x.tabIndex = '-1'
+//             wrapper.appendChild(x)
+//             setTimeout(() => {
+//                 x.remove()
+//             }, 1000);
+//         }, );
+//     }, 500);
+// }
 
 setTimeout(() => {
     setInterval(() => {
