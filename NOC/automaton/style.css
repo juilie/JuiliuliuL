@@ -1,0 +1,45 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  height: 100%;
+}
+@font-face {
+  font-family: TandyOS;
+  src: url('../../assets/fonts/TandyOS.ttf');
+}
+
+@font-face {
+  font-family: heart;
+  src: url('../../assets/fonts/heartfont.ttf');
+}
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  /* border: ridge purple 5px; */
+}
+
+.center {
+  z-index: 99999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(245, 151, 228);
+  font-size: 100pt;
+  margin: 0;
+  padding: 0;
+  font-family: heart;
+  animation: fadein 2s linear;
+}
+
+@keyframes fadein {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}

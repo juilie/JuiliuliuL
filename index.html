@@ -3,11 +3,12 @@
 <head>
     <script src="x3dom.js"></script>
     <link rel="stylesheet" href="x3dom.css">
+    <link rel="stylesheet" href="index.css">
     <script>
         let seconds = 15;
         function redirect() {
             if (seconds === 0) {
-                window.location = "https://juilie.github.io/JuiliuliuL/particleHome"
+                window.location = "/home"
             }
             
             document.querySelector('#redirect').innerText = `Redirect in ${seconds}s`;
@@ -19,11 +20,12 @@
 
 <body>
     <h1 id="redirect">Redirect in 15s</h1>
-    <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/intro.x3d'/></scene></x3d>
+<x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/intro.x3d'/></scene></x3d>
+<!-- <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/hand.x3d'/></scene></x3d> -->
 </body>
 <script>
     function goToHomepage(){
-        window.location.href = "https://juilie.github.io/JuiliuliuL/particleHome";
+        window.location.href = "/home";
     }
 </script>
 </html>

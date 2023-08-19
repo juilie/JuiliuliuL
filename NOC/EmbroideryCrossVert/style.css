@@ -6,3 +6,18 @@ html, body {
 canvas {
   display: block;
 }
+
+.center {
+  z-index: 99999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 70pt;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 2s ease;
+}

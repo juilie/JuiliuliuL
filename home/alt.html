@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet"s type="text/css" href="https://cdn.jsdelivr.net/gh/98mprice/PSone.css@master/PSone.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>julipode</title>
+</head>
+
+<body>
+    <script src="./transitions.js"></script>
+    <div id="wrapper">
+        <div class="container active" id="home">
+            <label class="title initial">WELCOME</label>
+            <!-- <p>Kick! Punch! It's all in the mind.</p> -->
+            <div class="nav-container">
+                <span onclick="transition(this,3)" class="css-link">Music</span><br>
+                <!-- <button></button> -->
+                <span onclick="transition(this,4)" class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Websites</span><br>
+                <span onclick=" transition(this,2)"
+                class="css-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends</span><br>
+                <a href="../blog.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BlogiPode</a><br>
+                <span onclick="transition(this,1); document.querySelector('canvas').style.opacity = 0.15;" class="css-link"
+                    style="text-align: right; margin-left: auto;">Contact&nbsp;</span> <br>
+            </div>
+        </div>
+
+        <div class="container" id="contact">
+            <label class="title">CONTACT</label>
+            <!-- <p>Kick! Punch! It's all in the mind.</p> -->
+            <div class="nav-container">
+                <span class="back-button" onclick="transition(this,0)">Back</span>
+                <ul>
+                    <li>
+                        <div style="display: flex;align-items: center;"> <span>Email:&nbsp;</span><code style="background-color: gray; width: fit-content; padding: 5px; font-weight: bold;">juli at pcotandy dot net</code></div>
+                    </li>
+                     <li><a href="https://www.instagram.com/julipode">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container" id="friends">
+            <label class="title">FRIENDS</label>
+            <!-- <p>Kick! Punch! It's all in the mind.</p> -->
+            <div class="nav-container">
+                <span class="header-text" style="font-size: 16pt; font-family: test">*order
+                    randomized on load</span>
+
+                <span class="back-button" onclick="transition(this,0)">Back</span>
+                <ul>
+                    <li><a href="https://katarinamazur.com/">Katarina Mazur</a> <br></li>
+                    <li><a href="https://suneinyneeenan.github.io/Enhydrax/">elie mh</a> <br></li>
+                    <li><a href="https://kotc.life/">Ko T.C.</a><br></li>
+                    <li><a href="https://ruthgarbus.bandcamp.com/">Ruth Garbus</a> <br></li>
+                    <li><a href="https://chrisweisman.bandcamp.com/">Chris Weisman</a> <br></li>
+                    <li><a href="https://phoebe.digital/">Phoebe Frances</a> <br></li>
+                    <li><a href="https://www.dembling.net/">Andrew Dembling</a> <br></li>
+                    <li><a href="https://www.rileynwong.com/">Riley Wong</a> <br></li>
+                    <li><a href="https://www.instagram.com/awksymoron/">Awksymoron</a> <br></li>
+                    <li><a href="https://deerscout.bandcamp.com/">Deer Scout</a> <br></li>
+                    <li><a href="https://bluedish.bandcamp.com">BLUE DISH</a> <br></li>
+                    <li><a href="https://www.mobeyirizarry.com/">Mobéy Lola Irizarry</a> <br></li>
+                    <li><a href="https://psychicsidekick.bandcamp.com/">Omeed Goodarzi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container window-style" id="music">
+            <label class="title">MUSIC</label>
+            <div class="nav-container music-container">
+                <span class="back-button" style="min-height: 40px;" onclick="transition(this,0)">Back</span>
+
+                <div class="music-scroll-container">
+                    <div class="music-entry">
+                        Guitar feature on 'How to Paint the Sky' by Kurt Weisman<br><br>
+                        <iframe style="border: 0; width: 400px; height: 120px;"
+                            src="https://bandcamp.com/EmbeddedPlayer/album=3896465194/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/track=284776719/transparent=true/"
+                            seamless><a href="https://kurtweisman.bandcamp.com/album/be-nice-to-your-song">Be Nice to Your
+                                Song by Kurt Weisman</a></iframe>
+                    </div>
+                    <br><br>
+                    <div class="music-entry">
+                        co-songwriter & guitar on the sophomore BLUE DISH album<br><br>
+                        <iframe style="border: 0; width: 400px; height: 274px;"
+                            src="https://bandcamp.com/EmbeddedPlayer/album=3296724051/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/"
+                            seamless><a href="https://tandy.bandcamp.com/album/into-the-blue">Into the Blue by BLUE
+                                DISH</a></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Cinematic prize for submission to the PCoT General MIDI competition<br><br>
+                        <iframe style="border: 0; width: 100%; height: 120px;"
+                            src="https://bandcamp.com/EmbeddedPlayer/album=1085694813/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/track=3436814776/transparent=true/"
+                            seamless><a
+                                href="https://tandy.bandcamp.com/album/30th-anniversary-gm-smoidi-light-zrainbow-spectrume-2022-general-midi-competition">30th
+                                Anniversary GM Smoidi Light ZRainbow Spectrume 2022 General Midi Competition by Opus
+                                Impetus</a></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Co-Songwriter & guitar on the debut BLUE DISH album<br><br>
+                        <iframe style="border: 0; width: 400px; height: 274px;"
+                            src="https://bandcamp.com/EmbeddedPlayer/album=26285068/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/"
+                            seamless><a href="https://bluedish.bandcamp.com/album/out-of-the-blue">Out of the Blue by BLUE
+                                DISH</a></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Live performance of American Fantasy @ 10 forward<br><br>
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4iej2w-6rL0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Live performance of Danza Brasilera @ 10 forward <br><br>
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PCtKdTO6_ns"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        American Fantasy performance for WOBC<br><br>
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/b8fBXZ5t5Cg"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Chopi performed live on WOBC<br><br>
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/T_g3pOBB6p4"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        BLUE DISH demo written and recorded by me <br><br>
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8rQZ_A2bak0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div><br><br>
+                    <div class="music-entry">
+                        Soundtrack, SFX, sound design for Grassdancer - featured at SXSW!<br><br>
+                        <iframe style="border: 0; width: 400px; height: 406px;"
+                            src="https://bandcamp.com/EmbeddedPlayer/album=1176289747/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/"
+                            seamless><a href="https://grassdancer.bandcamp.com/album/grassdancer-ost">Grassdancer OST by
+                                Humphrey</a></iframe>
+                    </div><br><br>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container window-style" id="websites">
+            <label class="title">WEBSITES</label>
+            <div class="nav-container music-container">
+                <span class="back-button" style="min-height: 40px;" onclick="transition(this,0)">Back</span>
+
+                <div class="music-scroll-container">
+                    <div class="music-entry">  
+                        co-webmain @ pcotandy. code and design                    
+                        <iframe class="pot" scrolling="no" src="https://the-people-s-coalition-of-tandy.github.io/PCoTandy/webgarden">
+                        </iframe>
+                    </div><br><br>
+
+                    <div class="music-entry">
+                        i follow my whimsies where they take me
+                        <iframe class="pot" scrolling="no" src="https://www.windchimecalculator.org/webgarden">
+                        </iframe>
+                    </div><br><br>
+
+                    <div class="music-entry">
+                        one day i'm going to create a blog ecosystem for the 2x20s that will save us all
+                        <iframe class="pot" scrolling="no" src="../webgarden.html">
+                        </iframe>
+                    </div><br><br>
+
+                    <div class="music-entry">
+                        a social network version of this practice tool is wip somewhere...
+                        <iframe class="pot" scrolling="no" src="https://juilie.github.io/GoodrickGame/webgarden">
+                        </iframe>
+                    </div><br><br>
+
+
+            </div>
+        </div>
+        <script>
+            var ul = document.querySelector('#friends ul');
+            for (var i = ul.children.length; i >= 0; i--) {
+                ul.appendChild(ul.children[Math.random() * i | 0]);
+            }
+        </script>
+    </div>
+
+    <script src="./index.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+    integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // examples
+// https://threejs.org/examples/?q=particle#webgl_points_billboards
+
+let camera
+let scene
+let renderer
+let material
+let mouseX = 0
+let mouseY = 0
+let windowHalfX = window.innerWidth / 2
+let windowHalfY = window.innerHeight / 2
+
+init()
+animate()
+
+function init () {
+  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 20000)
+  camera.position.z = 500
+
+  scene = new THREE.Scene()
+  scene.fog = new THREE.FogExp2(0x0000ff, 0.001)
+
+  const geometry = new THREE.BufferGeometry()
+  const vertices = []
+  const size = 2000
+  
+  for (let i = 0; i < 2000; i ++) {
+    const x = (Math.random() * size + Math.random() * size) / 2 - size / 2
+    const y = (Math.random() * size + Math.random() * size) / 2 - size / 2
+    const z = (Math.random() * size + Math.random() * size) / 2 - size / 2
+
+    vertices.push(x, y, z)
+  }
+  
+  for (let j = 0; j < 100; j++) {
+    const positionX = Math.random() * 3000 - 1500
+    const positionY = Math.random() * 3000 - 1500
+    const positionZ = Math.random() * 3000 - 1500
+    const r = Math.random() * 300 + 50
+
+    for (let i = 0; i < 20000; i++) {
+      const radian1 = Math.PI / Math.random() * 360
+      const radian2 = Math.PI / Math.random() * 360
+ 
+      let x = Math.cos(radian1) * Math.cos(radian2) * r + positionX
+      let y = Math.cos(radian1) * Math.sin(radian2) * r + positionY
+      let z = Math.sin(radian1) * r + positionZ
+
+      vertices.push(x, y, z)
+    }
+  }
+
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
+
+  material = new THREE.PointsMaterial({
+    size: 2,
+    color: 0xffffff,
+  })
+
+  const particles = new THREE.Points(geometry, material)
+  scene.add(particles)
+//   scene.background = new THREE.Color( 0x94e4ff );
+  renderer = new THREE.WebGLRenderer()
+  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+  document.body.appendChild(renderer.domElement)
+
+  document.body.style.touchAction = 'none'
+  document.body.addEventListener('pointermove', onPointerMove)
+  window.addEventListener('resize', onWindowResize)
+}
+
+function onWindowResize () {
+  windowHalfX = window.innerWidth / 2
+  windowHalfY = window.innerHeight / 2
+
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
+function onPointerMove (event) {
+  mouseX = event.clientX - windowHalfX 
+  mouseY = event.clientY - windowHalfY
+}
+
+function animate () {
+  requestAnimationFrame(animate)
+  render()
+}
+
+function render () {
+  camera.position.x += (mouseX * 4 - camera.position.x) * 0.02
+  camera.position.y += (-mouseY * 4 - camera.position.y) * 0.02
+  camera.lookAt(scene.position)
+  renderer.render(scene, camera)
+  scene.rotation.x += 0.001
+  scene.rotation.y += 0.002
+}
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- <div>
+    <iframe class="pot" src="https://the-people-s-coalition-of-tandy.github.io/PCoTandy/webgarden">
+
+    </iframe>
+
+    <iframe class="pot" src="https://www.windchimecalculator.org/webgarden">
+
+    </iframe>
+
+    <iframe class="pot" src="./webgarden.html">
+
+    </iframe>
+    <iframe class="pot" src="https://juilie.github.io/GoodrickGame/webgarden">
+
+    </iframe>
+</div> -->

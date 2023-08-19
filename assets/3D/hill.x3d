@@ -16,7 +16,7 @@
 					<Shape>
 						<Appearance>
 							<ImageTexture DEF="IM_texture_png"
-							              url='"../images/water.jpg"'
+							              url='"../textures/9.gif"'
 							              />
 							<TextureTransform 
 							                  translation="0.000000 0.000000"

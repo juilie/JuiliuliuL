@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sketch</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script> -->
+
+  <!-- <script language="javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js" type="text/javascript"></script>
+  <script type="module" src="./toneTest.js"></script>
+  <script src="../libraries/p5.min.js"></script>
+  <script src="../libraries/p5.sound.min.js"></script>
+  <script src="./midi.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js" type="text/javascript"></script>
+  <!-- <script src="../libraries/p5.min.js"></script> -->
+</head>
+
+<body>
+  <main>
+    <div class="controls closed">
+      <div class="control-toggle" role="button"
+        onclick="this.parentElement.classList.toggle('closed'); this.innerText = this.parentElement.classList.contains('closed') ? 'Open Controls': 'Close Controls';">
+        Open
+        Controls</div>
+      <div onclick="document.querySelector('#misc').classList.toggle('closed'); this.classList.toggle('closed')"
+        class="control-group-header closed" role="button">
+        <h2>Miscellaneous</h2>
+      </div>
+      <div class="control-group misc closed" id="misc">
+      </div>
+
+
+      <div onclick="document.querySelector('#leaves').classList.toggle('closed'); this.classList.toggle('closed')"
+        class="control-group-header closed" role="button">
+        <h2>Leaves</h2>
+      </div>
+      <div class="control-group leaves closed" id="leaves">
+      </div>
+
+      <div onclick="document.querySelector('#branches').classList.toggle('closed'); this.classList.toggle('closed')"
+        class="control-group-header closed" role="button">
+        <h2>Branches</h2>
+      </div>
+      <div class="control-group branches closed" id="branches">
+      </div>
+
+      <div onclick="document.querySelector('#camera').classList.toggle('closed'); this.classList.toggle('closed')"
+      class="control-group-header closed" role="button">
+      <h2>Camera</h2>
+    </div>
+    <div class="control-group branches closed" id="camera">
+    </div>
+
+      <div onclick="document.querySelector('#animations').classList.toggle('closed'); this.classList.toggle('closed')"
+        class="control-group-header closed" role="button">
+        <h2>Animations</h2>
+      </div>
+      <div class="control-group animations closed" id="animations">
+      </div>
+
+      <div onclick="document.querySelector('#export').classList.toggle('closed'); this.classList.toggle('closed')"
+      class="control-group-header closed" role="button">
+      <h2>Export</h2>
+    </div>
+    <div class="control-group branches closed" id="export">
+    </div>
+    </div>
+
+    
+
+  </main>
+  <!-- <script src="sketch.js"></script> -->
+</body>
+
+</html>

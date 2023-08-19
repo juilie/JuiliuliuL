@@ -310,7 +310,8 @@ function three_branch(len) {
   var sinFunction = ROTATION_WAVE.checked() || !animation_complete ? map(sin(frameCount), -1, 1, 0, 360) : 0;
   animation_complete = sinFunction === 0 || sinFunction === 360 ? true : false;
 
-  translate(0, -len / 2, 0)
+  translate(0, map(mouseY, 0, height, -len/2, -len/1.95), map(mouseX, 0, width, -5, 5))
+  rotateZ(map(mouseY, 0, height, -2, 2))
 
   beginShape()
   strokeWeight(0);
@@ -332,9 +333,11 @@ function three_branch(len) {
       pop()
     }
   } else {
-    var r = LEAF_COLOR_PICKER.color().levels[0] + random(-20, 20)
-    var g = LEAF_COLOR_PICKER.color().levels[1] + random(-20, 20)
-    var b = LEAF_COLOR_PICKER.color().levels[2] + random(-20, 20)
+    // var leaf_color_range = map(mouseX+mouseY, 0, width+height, 0, 255);
+    var leaf_color_range = 0;
+    var r = LEAF_COLOR_PICKER.color().levels[0] + random(-leaf_color_range, leaf_color_range)
+    var g = LEAF_COLOR_PICKER.color().levels[1] + random(-leaf_color_range, leaf_color_range)
+    var b = LEAF_COLOR_PICKER.color().levels[2] + random(-leaf_color_range, leaf_color_range)
     fill(r, g, b, 150);
 
     if (EGG_MODE.checked()) {
