@@ -5,6 +5,7 @@
     <Scene>
         <WorldInfo title='julipode' />
         <Background skyColor='0.871, 0.765, 0.89'/>
+        <!-- <Background skyColor='0.564, 0.156, 0.654'/> -->
         <!-- <Background skyColor='0.0, 0.0, 0.1'/> -->
         <!-- <Background skyColor='0.3, 0.4, 0.6'/> -->
 
