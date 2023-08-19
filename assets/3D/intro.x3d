@@ -69,8 +69,8 @@
         <OrientationInterpolator DEF='SPIN_ME' key='0.00 0.25 0.50 0.75 1.00'
             keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159 0 1 0 4.7123889 0 1 0 6.2831852' />
 
-        <!-- <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' /> -->
-        <!-- <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='WORLD' toField='rotation' /> -->
+        <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
+        <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='WORLD' toField='rotation' />
         
     </Scene>
 </X3D>

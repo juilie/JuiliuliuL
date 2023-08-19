@@ -364,7 +364,7 @@
     <!-- <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
         <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='BOX' toField='rotation' /> -->
 
-    <ROUTE fromNode='SLOW_TIMER' fromField='fraction_changed' toNode='SPIN_ME_SLOW' toField='set_fraction' />
-    <ROUTE fromNode='SPIN_ME_SLOW' fromField='value_changed' toNode='WORLD' toField='rotation' />
+    <!-- <ROUTE fromNode='SLOW_TIMER' fromField='fraction_changed' toNode='SPIN_ME_SLOW' toField='set_fraction' />
+    <ROUTE fromNode='SPIN_ME_SLOW' fromField='value_changed' toNode='WORLD' toField='rotation' /> -->
   </Scene>
 </X3D>
