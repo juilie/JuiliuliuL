@@ -298,7 +298,7 @@
       <Transform DEF="SPHERE" translation='2.0 3.0 0'>
         <Shape onclick="goToHomepage();">
           <Appearance>
-            <!-- <ImageTexture DEF="IM_texture_png" url='"../textures/7.jpg"'/> -->
+            <!-- <ImageTexture DEF="IM_texture_png" url='"../textures/6.jpg"'/> -->
             <ImageTexture DEF="IM_texture_png" url='"../textures/9.gif"'/>
             <Material diffuseColor='1.0 1.0 0.0' />
           </Appearance>
@@ -323,7 +323,7 @@
             <FontStyle family="Comic Sans" DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='0 0 0' />
+            <Material diffuseColor='1 1 1' />
           </Appearance>
         </Shape>
       </Transform>
@@ -334,7 +334,7 @@
             <FontStyle DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='0 0 0' />
+            <Material diffuseColor='1 1 1' />
           </Appearance>
         </Shape>
       </Transform>

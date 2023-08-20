@@ -4,10 +4,9 @@
     xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
     <Scene>
         <WorldInfo title='julipode' />
-        <Background skyColor='0.871, 0.765, 0.89'/>
-        <!-- <Background skyColor='0.564, 0.156, 0.654'/> -->
-        <!-- <Background skyColor='0.0, 0.0, 0.1'/> -->
-        <!-- <Background skyColor='0.3, 0.4, 0.6'/> -->
+        <!-- <Background skyColor='0.871, 0.765, 0.89'/> -->
+        <Background skyColor='0.1, 0.2, 0.3'/>
+        <!-- <Background skyColor='0.396, 0.8235, 0.9764'/> -->
 
         <Viewpoint position="0 8 120" orientation="0 0 0 0"
             centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description=""></Viewpoint>
@@ -24,8 +23,8 @@
                 <Shape>
                     <Box size='500 0.1 500' />
                     <Appearance>
-                        <ImageTexture url='../textures/5.JPG' />
-                        <!-- <ImageTexture url='../textures/7.jpg' /> -->
+                        <ImageTexture url='../textures/5.jpg' />
+                        <!-- <ImageTexture url='../textures/3.gif' /> -->
                     </Appearance>
                 </Shape>
                 
