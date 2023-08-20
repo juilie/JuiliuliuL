@@ -323,7 +323,7 @@
             <FontStyle family="Comic Sans" DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='1 1 1' />
+            <Material diffuseColor='0 0 0' />
           </Appearance>
         </Shape>
       </Transform>
@@ -334,7 +334,7 @@
             <FontStyle DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='1 1 1' />
+            <Material diffuseColor='0 0 0' />
           </Appearance>
         </Shape>
       </Transform>
