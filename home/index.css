@@ -4,18 +4,17 @@
 }
 
 @font-face {
-    font-family: sparkle;
-    src: url('../assets/fonts/vanchrome\ sparkle.otf');
-}
-
-@font-face {
-    font-family: test;
+    font-family: ps1;
     src: url('../assets/fonts/Play-Regular.ttf');
 }
 
-:root {
+@font-face {
+    font-family: TandyOS;
+    src: url('./assets/fonts/TandyOS.ttf');
+}
 
-    /* ps1 */
+:root {
+    /* default home style */
     --bg-color: #00000f;
     --link-color: #ff0;
     --text-fx-color: #f6f6f6;
@@ -25,54 +24,6 @@
     --title-shadow: black;
     --bg-image: url('../assets/images/water5.gif');
     --blend-mode: color-dodge;
-
-    /* 
-    CLOUD MODE
-    --bg-color: #a5b7ff;
---link-color: #fff;
---text-fx-color: #e8e8e8;
---mouse-text-color: #fff;
---link-hover-color: #040000;
---title-color: #000;
---title-shadow: #fff;
---bg-image: url('../assets/images/water5.gif');
---blend-mode: soft-light; */
-    /* 
-    blue dark wave
-    --bg-color: #001017;
-    --link-color: #ff0;
-    --text-fx-color: #f6f6f6;
-    --mouse-text-color: #d4d4d4;
-    --link-hover-color: #000;
-    --title-color: #e7e7e7;
-    --title-shadow: black;
-    --bg-image: url('../assets/images/water2.gif'); 
-    --blend-mode: soft-light;
-    */
-
-    /*
-    GREEN BLOOD THEME
-    --bg-color: #152400;
---link-color: #36cc00;
---text-fx-color: #df0000;
---mouse-text-color: #00c61f;
---link-hover-color: #fff;
---title-color: #fff;
---title-shadow: #235721;
---bg-image: url('../assets/images/water5.gif'); 
---blend-mode: soft-light;
-*/
-
-    /*
-PINK THEME
- --bg-color: #ffdbf1;
---link-color: #ff00d7;
---text-fx-color: #1edfff;
---mouse-text-color: #ff00cb;
---link-hover-color: #000;
- --bg-image: url('../assets/images/water2.gif');
- --blend-mode: soft-light;
- */
 }
 
 .container span.header-text {
@@ -258,7 +209,7 @@ body {
     animation-delay: .75s;
     overflow: hidden;
     width: fit-content;
-    font-family: test;
+    font-family: ps1;
 }
 
 .container.active.transition-out a,
@@ -267,7 +218,6 @@ body {
 }
 
 .random {
-    /* color: rgb(104, 104, 2); */
     color: var(--mouse-text-color);
     transition: .25s color .25s ease;
     text-decoration: none;
@@ -297,7 +247,6 @@ a:hover,
 .css-link:hover,
 .back-button:hover {
     color: var(--link-hover-color);
-    /* transition: .25s color .25s ease; */
     transition-duration: 0s;
     transition-delay: 0s;
 }
@@ -312,7 +261,7 @@ a:hover,
     animation-delay: .75s;
     overflow: hidden;
     width: fit-content;
-    font-family: test;
+    font-family: ps1;
 }
 
 code {
@@ -399,7 +348,6 @@ code {
 
     80% {
         transform: scale(1);
-        /* opacity: 1; */
     }
 
     100% {
@@ -421,7 +369,6 @@ code {
 
     80% {
         transform: scale(1);
-        /* opacity: 1; */
     }
 
     100% {
@@ -449,7 +396,6 @@ code {
     90% {
         filter: blur(0px);
         transform: scale(1);
-        /* opacity: 0; */
     }
 }
 
@@ -472,13 +418,16 @@ code {
     65% {
         filter: blur(0px);
         transform: scale(1);
-        /* opacity: 0; */
     }
 }
 
 @media only screen and (max-width: 1000px) {
     .container {
         width: 95%;
+    }
+
+    .nav-container.music-container {
+        height: 85vh;
     }
 
     #music .music-entry iframe {
@@ -529,7 +478,6 @@ code {
     height: 100%;
     width: 100%;
     font-family: "ffvii";
-    /* background-color: #020208; */
     overflow-x: hidden;
     overflow-y: hidden;
     display: flex;
@@ -568,8 +516,6 @@ code {
     cursor: pointer;
 }
 
-div.pot {}
-
 .pot img {
     width: 250px;
     height: 250px;
@@ -584,10 +530,9 @@ div.pot {}
     padding: 5px;
     border: 4px inset rgb(197, 193, 187);
     width: fit-content;
-    font-family: test;
+    font-family: ps1;
     color: white;
     padding: 10px;
-    /* margin: 0 auto ; */
 }
 
 .music-scroll-container {
@@ -625,16 +570,6 @@ div.pot {}
     background-color: #003e5f;
 }
 
-/* #websites .music-entry:nth-of-type(3n) {
-    background-color: #003e5f;
-}
-#websites .music-entry:nth-of-type(3n+1) {
-    background-color: #a84d6e;
-}
-#websites .music-entry:nth-of-type(3n+2) {
-    background-color: #4d88a8;
-} */
-
 #websites .music-scroll-container {
     flex-direction: row;
     display: flex;
@@ -670,7 +605,6 @@ canvas {
 
 .music-entry-wrapper {
     width: 100%;
-    /* background-color: #8e0078; */
     display: flex;
     align-items: center;
     position: relative;
