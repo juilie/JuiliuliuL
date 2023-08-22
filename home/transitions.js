@@ -14,6 +14,7 @@ var root = document.querySelector(':root');
 function transition(e, page) {
 
     switch (page) {
+        // Home
         case 0:
             root.style.setProperty('--bg-color', '#00000f');
             root.style.setProperty('--link-color', '#ff0');
@@ -22,6 +23,7 @@ function transition(e, page) {
             root.style.setProperty('--link-hover-color', '#fff');
             root.style.setProperty('--title-color', '#e7e7e7');
             root.style.setProperty('--title-shadow', '#000');
+            root.style.setProperty('--chiron-visible', 'flex');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
 
             setTimeout(() => {
@@ -39,6 +41,8 @@ function transition(e, page) {
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
             root.style.setProperty('--blend-mode', 'soft-light');
+            root.style.setProperty('--chiron-visible', 'none');
+
 
             setTimeout(() => {
                 root.style.setProperty('--mouse-text-color', '#fff');
@@ -53,6 +57,7 @@ function transition(e, page) {
             root.style.setProperty('--title-color', '#000');
             root.style.setProperty('--title-shadow', '#fff');
             root.style.setProperty('--blend-mode', 'soft-light');
+            root.style.setProperty('--chiron-visible', 'none');
 
             setTimeout(() => {
                 root.style.setProperty('--bg-image', 'url("../assets/images/water2.gif")');
@@ -69,6 +74,7 @@ function transition(e, page) {
             root.style.setProperty('--title-color', '#fff');
             root.style.setProperty('--title-shadow', '#235721');
             root.style.setProperty('--blend-mode', 'soft-light');
+            root.style.setProperty('--chiron-visible', 'none');
 
             setTimeout(() => {
                 root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
@@ -86,6 +92,7 @@ function transition(e, page) {
             root.style.setProperty('--title-color', '#e7e7e7');
             root.style.setProperty('--title-shadow', '#000');
             root.style.setProperty('--bg-image', 'url("../assets/images/water5.gif")');
+            root.style.setProperty('--chiron-visible', 'none');
 
             setTimeout(() => {
                 root.style.setProperty('--blend-mode', 'color-dodge');

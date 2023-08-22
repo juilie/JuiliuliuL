@@ -24,13 +24,12 @@
     --title-shadow: black;
     --bg-image: url('../assets/images/water5.gif');
     --blend-mode: color-dodge;
+    --chiron-visible: flex
 }
 
 .container span.header-text {
     color: var(--title-color);
 }
-
-
 
 .container.active {
     display: flex;
@@ -54,6 +53,62 @@ body {
     background-image: var(--bg-image);
     background-blend-mode: var(--blend-mode);
     background-size: cover;
+}
+
+.type {
+    width: fit-content;
+}
+
+.type div {
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: normal;
+    margin-top: -15px;
+    animation: typing 1s steps(10, end) 2.75s backwards;
+    width: fit-content;
+    color: rgb(122, 125, 51);
+}
+
+.type:first-of-type div {
+    animation: typing 1s steps(60, end) 2.75s backwards;
+    width: fit-content;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+.chiron {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: var(--chiron-visible);
+    color: rgba(251, 255, 0, 0.599);
+    background-color: rgba(198, 0, 0, 0.122);
+    font-size: 24pt;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    animation: chiron 1s ease 2s backwards
+}
+
+@keyframes chiron {
+    from {
+        max-height: 0;
+        padding: 0;
+    }
+
+    to {
+        max-height: 50px;
+        padding: 5;
+    }
 }
 
 .nav-container {
