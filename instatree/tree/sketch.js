@@ -174,8 +174,6 @@ function setup() {
   CAMERA_Z = createSlider(-width * .5, width * .5, 0).parent(createDiv('Z').parent(cameraContainer));
 
 
-  // EXPORT_SECONDS.position(20, 65);
-
   let valueDisplayer = createP("5 second(s)").parent(exportContainer);
   EXPORT_SECONDS = createSlider(1, 60, 4).parent(createDiv('Seconds').parent(exportContainer));
   EXPORT_SECONDS.input(() => {
@@ -195,22 +193,6 @@ function setup() {
     checkboxes: [EGG_MODE, THREE_D_MODE, HIDE_BRANCHES, SPINNING, ROTATION_WAVE, TREE_SWITCHING]
 
   };
-
-  // RANDOMIZE_BUTTON = createButton('Randomize', '5', 'number').parent(exportContainer);
-
-  // RANDOMIZE_BUTTON.mousePressed(() => {
-  //   for (let i = 0; i < RANDOMIZE_VARIABLES.sliders.length; i++) {
-  //     const slider = RANDOMIZE_VARIABLES.sliders[i];
-  //     randomSeed(frameCount**i)
-  //     slider.value(random(slider.elt.min, slider.elt.max))
-  //   }
-  //   for (let i = 0; i < RANDOMIZE_VARIABLES.checkboxes.length; i++) {
-  //     const checkbox = RANDOMIZE_VARIABLES.checkboxes[i];
-  //     randomSeed(frameCount**i)
-  //     checkbox.checked(floor(random(0,2)) ? true : false)
-  //   }
-  // });
-
 }
 
 let images = [];
@@ -298,7 +280,6 @@ function branch(len) {
       image(images[0], 0, 0, 20, 20)
     } else {
       beginShape()
-      // noStroke()
       strokeWeight(0)
       stroke('brown')
       noStroke()
@@ -331,7 +312,6 @@ function three_branch(len) {
 
   if (len > 10) {
     for (let i = 0; i < 3; i++) {
-      // rotateY(random(100, 120 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value() + sinFunction + map(amplitude?.volNorm, 0, 1, 0, 10) );
       rotateY(random(100, 120 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value() + sinFunction);
 
       push()
@@ -346,7 +326,6 @@ function three_branch(len) {
     fill(r, g, b, 150);
 
     if (EGG_MODE.checked()) {
-      // noFill()
       beginShape()
       noStroke()
       fill('red')
@@ -364,7 +343,6 @@ function three_branch(len) {
 
       push();
       fill(LEAF_OUTLINE_PICKER.color());
-      // ellipsoid(3.5 + LEAF_SIZE.value(), 6.1 + LEAF_SIZE.value(), 1);
       pop();
     }
   }
