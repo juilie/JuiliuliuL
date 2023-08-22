@@ -3,7 +3,7 @@ var treeLength = 1;
 var maxTreeLength = 98;
 var MINUTES_TO_FULL_SIZE = .1;
 MINUTES_TO_FULL_SIZE = MINUTES_TO_FULL_SIZE * 60000
-let LEAF_TEXTURE = -1
+let LEAF_TEXTURE = '-1'
 let leafTextures = []
 
 var branchLengthRange = [.7, .9]
@@ -124,6 +124,23 @@ function setup() {
   LEAF_COLOR_PICKER = createColorPicker(color('green')).parent(createDiv('Leaf Color').parent((leavesContainer)));
 
   LEAF_OUTLINE_PICKER = createColorPicker(color(70, 40, 20)).parent(createDiv('Leaf Outline Color').parent((leavesContainer)));
+
+  const leafTextureWrapper = createDiv()
+  leafTextureWrapper.id("leafTextureWrapper")
+
+  createP("Leaf Texture").parent(leavesContainer).style('text-decoration', 'underline');
+  LEAF_TEXTURE = createRadio(leafTextureWrapper).parent(leavesContainer);
+  LEAF_TEXTURE.option('-1', 'none');
+  LEAF_TEXTURE.option('2', 'stained glass');
+  LEAF_TEXTURE.option('0', 'rain');
+  LEAF_TEXTURE.selected('-1');
+
+  // The radios need to be given an id to differentiate from other p5 generated radios
+  const leafTextureRadios = LEAF_TEXTURE.elt.querySelectorAll('input')
+  for (let i = 0; i < leafTextureRadios.length; i++) {
+    leafTextureRadios[i].name = "leafTextureRadio";
+  }
+
   const leafShapeWrapper = createDiv()
   leafShapeWrapper.id("leafShapeWrapper")
   createP("Shape").parent(leavesContainer).style('text-decoration', 'underline');
@@ -174,12 +191,12 @@ function setup() {
   CAMERA_Z = createSlider(-width * .5, width * .5, 0).parent(createDiv('Z').parent(cameraContainer));
 
 
-  let valueDisplayer = createP("5 second(s)").parent(exportContainer);
-  EXPORT_SECONDS = createSlider(1, 60, 4).parent(createDiv('Seconds').parent(exportContainer));
+  let valueDisplayer = createP("6 second(s)").parent(exportContainer);
+  EXPORT_SECONDS = createSlider(1, 60, 6).parent(createDiv('Seconds').parent(exportContainer));
   EXPORT_SECONDS.input(() => {
     valueDisplayer.html(EXPORT_SECONDS.value() + " second(s)")
   })
-  SAVE_BUTTON = createButton('Save to gif', '5', 'number').parent(exportContainer);
+  SAVE_BUTTON = createButton('Save to gif', '6', 'number').parent(exportContainer);
 
   SAVE_BUTTON.mousePressed(() => {
     saveGif('treeGif', Number(EXPORT_SECONDS.value()));
@@ -204,7 +221,6 @@ function preload() {
   images = [loadImage('./Embroidery/pys1.png'), loadImage('./Embroidery/embroider2white.png'), loadImage('./Embroidery/3dpys.jpg'), loadImage('./Embroidery/3dpys2.jpg'), loadImage('./Embroidery/blue.png')]
   barks = [loadImage('./textures/bark1.jpg')]
   leafTextures = [loadImage('./textures/wet.jpg'), loadImage('./textures/cloud.jpg'), loadImage('./textures/glass.jpeg')]
-
 }
 
 function windowResized() {
@@ -268,9 +284,9 @@ function branch(len) {
     rotate(random(50, 50 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value()+ sinFunction + swayFunction);
     branch(len * random(...branchLengthRange))
   } else {
-    var r = LEAF_COLOR.levels[0] + random(-20, 20)
-    var g = LEAF_COLOR.levels[1] + random(-20, 20)
-    var b = LEAF_COLOR.levels[2] + random(-20, 20)
+    var r = LEAF_COLOR_PICKER.color().levels[0] + random(-20, 20)
+    var g = LEAF_COLOR_PICKER.color().levels[1] + random(-20, 20)
+    var b = LEAF_COLOR_PICKER.color().levels[2] + random(-20, 20)
     fill(r, g, b, 150);
     noStroke()
     beginShape()
@@ -320,9 +336,9 @@ function three_branch(len) {
       pop()
     }
   } else {
-    var r = LEAF_COLOR.levels[0] + random(-20, 20)
-    var g = LEAF_COLOR.levels[1] + random(-20, 20)
-    var b = LEAF_COLOR.levels[2] + random(-20, 20)
+    var r = LEAF_COLOR_PICKER.color().levels[0] + random(-20, 20)
+    var g = LEAF_COLOR_PICKER.color().levels[1] + random(-20, 20)
+    var b = LEAF_COLOR_PICKER.color().levels[2] + random(-20, 20)
     fill(r, g, b, 150);
 
     if (EGG_MODE.checked()) {
@@ -337,7 +353,7 @@ function three_branch(len) {
       noStroke()
       strokeWeight(.1)
       fill(r, g, b, 150)
-      LEAF_TEXTURE != -1 ? texture(leafTextures[LEAF_TEXTURE]) : null;
+      LEAF_TEXTURE.value() && Number(LEAF_TEXTURE.value()) != -1? texture(leafTextures[Number(LEAF_TEXTURE.value())]) : console.log("huh");;
       eval(leafShapeFunctions[LEAF_SHAPE.value()])
       endShape(CLOSE)
 
