@@ -267,11 +267,11 @@ function branch(len) {
     var sinFunction = ROTATION_WAVE.checked() ? map(sin(frameCount), -1, 1, 0, 360) : 0;
     var swayFunction = SWAY_MODE.checked() ? map(sin(frameCount), -1, 1, -SWAY_MODE_SLIDER.value(), SWAY_MODE_SLIDER.value()) : 0;
     strokeWeight(map(len, 10, 100, 1, 15));
-    stroke(BRANCH_COLOR);
+    stroke(BRANCH_COLOR_PICKER.color());
     noStroke();
     noFill()
     HIDE_BRANCHES.checked() && strokeWeight(0);
-    fill(BRANCH_COLOR)
+    fill(BRANCH_COLOR_PICKER.color())
     // line(0, 0, 0, -len);
     translate(0, -len * 0.5, 0)
     eval(BRANCH_TEXTURE.value());
@@ -319,7 +319,7 @@ function three_branch(len) {
   beginShape()
   strokeWeight(0);
   !HIDE_BRANCHES.checked() && eval(branchShapeFunctions[BRANCH_SHAPE.value()])
-  fill(BRANCH_COLOR)
+  fill(BRANCH_COLOR_PICKER.color())
   eval(BRANCH_TEXTURE.value());
   endShape(CLOSE)
   translate(0, len * 0.5, 0)

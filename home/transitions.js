@@ -116,7 +116,6 @@ function transition(e, page) {
         pages[page].classList.add('active')
         if (page === 3 && !musicLoaded || page === 4 && !websitesLoaded) {
 
-            console.log("entered")
             let iframes = pages[page].getElementsByTagName('iframe')
 
             if (isMobile) {
