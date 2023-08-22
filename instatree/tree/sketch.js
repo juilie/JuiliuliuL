@@ -3,8 +3,6 @@ var treeLength = 1;
 var maxTreeLength = 98;
 var MINUTES_TO_FULL_SIZE = .1;
 MINUTES_TO_FULL_SIZE = MINUTES_TO_FULL_SIZE * 60000
-let LEAF_TEXTURE = '-1'
-let leafTextures = []
 
 var branchLengthRange = [.7, .9]
 var ROTATION_RANGE_SLIDER;
@@ -32,6 +30,8 @@ var THREE_D_MODE_BOX;
 var LEAF_COLOR;
 var LEAF_COLOR_PICKER;
 var LEAF_OUTLINE_PICKER;
+let LEAF_TEXTURE = '-1'
+
 var BRANCH_COLOR_PICKER;
 var BRANCH_COLOR;
 var BRANCH_TEXTURE = '';
@@ -72,14 +72,9 @@ var RANDOMIZE_VARIABLES;
 var sliderRate;
 var sliderPan;
 
-document.addEventListener("midimessage", (event) => {
-  console.log("hello")
-});
-
 p5.disableFriendlyErrors = true;
 
 function setup() {
-  var isMobile = screen.width <= 480;
   let leavesContainer = document.querySelector('#leaves')
   let branchesContainer = document.querySelector('#branches')
   let animationsContainer = document.querySelector('#animations')
@@ -95,13 +90,10 @@ function setup() {
   angleMode(DEGREES)
   background('black');
 
-  frameRate(60)
-
   ROTATION_RANGE_SLIDER = createSlider(0, 1000, 20).parent(createDiv('Rotate Range').parent(animationsContainer));
   ROTATION_MODIFIER_SLIDER = createSlider(0, 360, 0).parent(createDiv('Rotate Mod').parent(animationsContainer));
 
   EGG_MODE = createCheckbox('Egg Mode', false).parent(miscContainer);
-  console.log(EGG_MODE);
 
   THREE_D_MODE = createCheckbox('3D Mode', true).parent(miscContainer);
 
@@ -127,13 +119,17 @@ function setup() {
 
   const leafTextureWrapper = createDiv()
   leafTextureWrapper.id("leafTextureWrapper")
-
   createP("Leaf Texture").parent(leavesContainer).style('text-decoration', 'underline');
   LEAF_TEXTURE = createRadio(leafTextureWrapper).parent(leavesContainer);
   LEAF_TEXTURE.option('-1', 'none');
-  LEAF_TEXTURE.option('2', 'stained glass');
-  LEAF_TEXTURE.option('0', 'rain');
+  LEAF_TEXTURE.option('3', 'stained glass');
+  LEAF_TEXTURE.option('1', 'rain');
+  LEAF_TEXTURE.option('4', 'spongebob');
+  LEAF_TEXTURE.option('5', 'twinkle stars');
+  LEAF_TEXTURE.option('6', 'liquid metal');
+  // LEAF_TEXTURE.option('7', 'green sludge');
   LEAF_TEXTURE.selected('-1');
+
 
   // The radios need to be given an id to differentiate from other p5 generated radios
   const leafTextureRadios = LEAF_TEXTURE.elt.querySelectorAll('input')
@@ -166,11 +162,18 @@ function setup() {
   const shapeWrapper = createDiv()
   shapeWrapper.id("shapeWrapper")
 
+
+
   createP("Texture").parent(branchesContainer).style('text-decoration', 'underline');
   BRANCH_TEXTURE = createRadio(textureWrapper).parent(branchesContainer);
   BRANCH_TEXTURE.option('', 'none');
   BRANCH_TEXTURE.option('texture(images[floor(random(0, images.length))]);', 'embroidery');
-  BRANCH_TEXTURE.option('texture(barks[0]);', 'bark');
+  BRANCH_TEXTURE.option('texture(textures[0]);', 'bark');
+  BRANCH_TEXTURE.option('texture(textures[3]);', 'stained glass');
+  BRANCH_TEXTURE.option('texture(textures[4]);', 'spongebob');
+  BRANCH_TEXTURE.option('texture(textures[5]);', 'twinkle stars');
+  BRANCH_TEXTURE.option('texture(textures[6]);', 'liquid metal');
+  // BRANCH_TEXTURE.option('texture(textures[7]);', 'toxic sludge');
   BRANCH_TEXTURE.selected('');
 
   createP("Shape").parent(branchesContainer).style('text-decoration', 'underline');
@@ -186,7 +189,7 @@ function setup() {
   }
   BRANCH_SHAPE.selected('0');
 
-  CAMERA_X = createSlider(-width * .5, width *.5, 0).parent(createDiv('X').parent(cameraContainer));
+  CAMERA_X = createSlider(-width * .5, width * .5, 0).parent(createDiv('X').parent(cameraContainer));
   CAMERA_Y = createSlider(-height * .5, height * .5, 0).parent(createDiv('Y').parent(cameraContainer));
   CAMERA_Z = createSlider(-width * .5, width * .5, 0).parent(createDiv('Z').parent(cameraContainer));
 
@@ -213,14 +216,16 @@ function setup() {
 }
 
 let images = [];
-let barks = []
-let amplitude = {"volNorm": 0};
+let textures = []
+let amplitude = {
+  "volNorm": 0
+};
 
 
 function preload() {
-  images = [loadImage('./Embroidery/pys1.png'), loadImage('./Embroidery/embroider2white.png'), loadImage('./Embroidery/3dpys.jpg'), loadImage('./Embroidery/3dpys2.jpg'), loadImage('./Embroidery/blue.png')]
-  barks = [loadImage('./textures/bark1.jpg')]
-  leafTextures = [loadImage('./textures/wet.jpg'), loadImage('./textures/cloud.jpg'), loadImage('./textures/glass.jpeg')]
+  images = [loadImage('./Embroidery/embroider2white.png'), loadImage('./Embroidery/3dpys.jpg'), loadImage('./Embroidery/3dpys2.jpg'), loadImage('./Embroidery/blue.png')]
+  textures = [loadImage('./textures/bark1.jpg'), loadImage('./textures/wet.jpg'), loadImage('./textures/cloud.jpg'), loadImage('./textures/glass.jpeg'), loadImage('./textures/spongebob.png'),
+              loadImage('../../assets/textures/9.gif'), loadImage('../../assets/textures/6.jpg'), loadImage('../../assets/textures/3.gif')]
 }
 
 function windowResized() {
@@ -281,7 +286,7 @@ function branch(len) {
     translate(0, -len);
     rotate((random(-20, -20 - ROTATION_RANGE_SLIDER.value())) + ROTATION_MODIFIER_SLIDER.value() + sinFunction + swayFunction);
     branch(len * random(...branchLengthRange))
-    rotate(random(50, 50 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value()+ sinFunction + swayFunction);
+    rotate(random(50, 50 + ROTATION_RANGE_SLIDER.value()) + ROTATION_MODIFIER_SLIDER.value() + sinFunction + swayFunction);
     branch(len * random(...branchLengthRange))
   } else {
     var r = LEAF_COLOR_PICKER.color().levels[0] + random(-20, 20)
@@ -353,7 +358,7 @@ function three_branch(len) {
       noStroke()
       strokeWeight(.1)
       fill(r, g, b, 150)
-      LEAF_TEXTURE.value() && Number(LEAF_TEXTURE.value()) != -1? texture(leafTextures[Number(LEAF_TEXTURE.value())]) : console.log("huh");;
+      LEAF_TEXTURE.value() && Number(LEAF_TEXTURE.value()) != -1 ? texture(textures[Number(LEAF_TEXTURE.value())]) : null;
       eval(leafShapeFunctions[LEAF_SHAPE.value()])
       endShape(CLOSE)
 
