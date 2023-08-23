@@ -13,6 +13,10 @@ body {
   color: white;
 }
 
+body > input {
+  display: none;
+}
+
 canvas {
   margin-top: 20px;
   display: block;

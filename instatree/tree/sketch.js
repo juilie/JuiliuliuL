@@ -327,6 +327,7 @@ function three_branch(len) {
   fill(BRANCH_COLOR_PICKER.color())
   eval(BRANCH_TEXTURE.value());
   endShape(CLOSE)
+  
   translate(0, len * 0.5, 0)
 
   translate(0, -len, 0)

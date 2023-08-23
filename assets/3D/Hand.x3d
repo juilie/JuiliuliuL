@@ -6,13 +6,15 @@
   <head>
     <meta content='Hand.x3d' name='title' />
     <meta
-      content='Robotic hand juggling primitives: this scene illustrates the use of the primitive shapes and a lot of nested Transform nodes to created articulated structures.'
+      content='Robotic hand holding floating orb'
       name='description' />
     <meta content='David R. Nadeau' name='creator' />
     <meta content='Don Brutzman' name='translator' />
     <meta content='1 July 1998' name='created' />
     <meta content='2 February 2014' name='translated' />
     <meta content='20 October 2019' name='modified' />
+    <meta content='Julie Bodian' name='modifier' />
+    <meta content='23 August 2023' name='modified' />
     <meta content='Hand.png' name='Image' />
     <meta content='originals/hand.wrl' name='reference' />
     <meta content='http://www.siggraph.org/s98' name='reference' />
@@ -39,7 +41,6 @@
         <Shape>
           <Appearance DEF='HandColor'>
             <ImageTexture DEF="IM_texture_png" url='"../textures/8.gif"'/>
-            <!-- <Material ambientIntensity='0.3' diffuseColor='0.3 0.3 0.5' shininess='.1' specularColor='0.7 0.7 0.8' /> -->
             <Material ambientIntensity='0.3' diffuseColor='0.3 0.3 0.5' shininess='.1' specularColor='0.1 0.1 0.1' />
           </Appearance>
         </Shape>
@@ -286,47 +287,31 @@
           <Group USE='hand' />
         </Transform>
       </Transform>
-      <!-- <Transform DEF="CONE" rotation='1.0 0.0 1.0 0.3' translation='1.5 1.0 -2.0'>
-      <Shape>
-        <Appearance>
-        							<ImageTexture DEF="IM_texture_png" url='"../textures/4.gif"'/>
-          <Material diffuseColor='1.0 0.0 0.0'/>
-        </Appearance>
-        <Cone/>
-      </Shape>
-    </Transform> -->
+
       <Transform DEF="SPHERE" translation='2.0 3.0 0'>
         <Shape onclick="goToHomepage();">
           <Appearance>
-            <!-- <ImageTexture DEF="IM_texture_png" url='"../textures/6.jpg"'/> -->
-            <ImageTexture DEF="IM_texture_png" url='"../textures/9.gif"'/>
-            <Material diffuseColor='1.0 1.0 0.0' />
+            <ImageTexture DEF="IM_texture_png" url='"../textures/13.GIF"'/>
+            <!-- <ImageTexture DEF="IM_texture_png" url='"../textures/9.GIF"'/> -->
+            <TextureTransform translation="0 0" scale="3.5 3.5" rotation="0" />
+            <Material ambientIntensity='0.3' diffuseColor='0.3 0.3 0.5' shininess='1' specularColor='0.1 0.1 0.1' />
           </Appearance>
           <Sphere />
         </Shape>
       </Transform>
-      <!-- <Transform DEF="CYLINDER" rotation='1.0 0.0 0.2 0.82' translation='2 3 -.5'>
-      <Shape>
-      
-        <Appearance>
-        							<ImageTexture DEF="IM_texture_png"
-							              url='"../textures/9.gif"'
-							              />
-          <Material diffuseColor='0.0 0.7 1.0'/>
-        </Appearance>
-        <Cylinder height='1.5' radius='0.75'/>
-      </Shape>
-    </Transform> -->
+
+<!-- TEXT -->
       <Transform translation='0 3.5 0' rotation="0 -0.5 0 .5">
         <Shape>
           <Text string='"Click Orb to Enter"'>
             <FontStyle family="Comic Sans" DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='0 0 0' />
+            <Material diffuseColor='1 1 1' />
           </Appearance>
         </Shape>
       </Transform>
+
       <Transform translation='0 3.5 0' rotation="0 -0.5 0 .5">
       <Transform translation="0 0 0" rotation="0 1 0 3.1416">
         <Shape>
@@ -334,23 +319,14 @@
             <FontStyle DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='1.25' />
           </Text>
           <Appearance DEF='LightBlueAppearance'>
-            <Material diffuseColor='0 0 0' />
+            <Material diffuseColor='1 1 1' />
           </Appearance>
         </Shape>
       </Transform>
       </Transform>
-      <!-- <Transform DEF="BOX" rotation='1.0 0.0 0.7 1.3' translation='0.0 2.6 -1.1'>
-      <Shape>
-        <Appearance>
-        							<ImageTexture DEF="IM_texture_png"
-							              url='"../textures/1.gif"'
-							              />
-          <Material diffuseColor='0.0 1.0 0.0'/>
-        </Appearance>
-        <Box size='1.25 1.25 1.25'/>
-      </Shape>
-    </Transform> -->
     </Transform>
+
+
     <OrientationInterpolator DEF='SPIN_ME' key='0.00 0.25 0.50 0.75 1.00'
       keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159 0 1 0 4.7123889 0 1 0 6.2831852' />
       
@@ -358,13 +334,9 @@
       keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159 0 1 0 4.7123889 0 1 0 6.2831852' />
 
     <TimeSensor DEF='NORMAL_TIMER' cycleInterval='3' loop='true' />
-    <TimeSensor DEF='SLOW_TIMER' cycleInterval='15' loop='true' />
     <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
+    
+    <TimeSensor DEF='SLOW_TIMER' cycleInterval='15' loop='true' />
     <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='SPHERE' toField='translation' />
-    <!-- <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
-        <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='BOX' toField='rotation' /> -->
-
-    <!-- <ROUTE fromNode='SLOW_TIMER' fromField='fraction_changed' toNode='SPIN_ME_SLOW' toField='set_fraction' />
-    <ROUTE fromNode='SPIN_ME_SLOW' fromField='value_changed' toNode='WORLD' toField='rotation' /> -->
   </Scene>
 </X3D>

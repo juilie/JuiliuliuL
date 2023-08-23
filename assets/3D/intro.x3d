@@ -4,70 +4,38 @@
     xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
     <Scene>
         <WorldInfo title='julipode' />
-        <Background skyColor='0.871, 0.765, 0.89'/>
-        <!-- <Background skyColor='0.1, 0.2, 0.3'/> -->
-        <!-- <Background skyColor='0.396, 0.8235, 0.9764'/> -->
+
+        <Background skyColor='0.0, 0.005, 0.05'/>
 
         <Viewpoint position="0 8 120" orientation="0 0 0 0"
-            centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description=""></Viewpoint>
+            centerOfRotation="0 0 0" fieldOfView="0.78540" description=""></Viewpoint>
 
-        <navigationInfo type='"LOOKAT"' headlight='false' speed='0.5' avatarSize='120'></navigationInfo>
+        <navigationInfo type='"LOOKAT"' headlight='true' speed='0.5' avatarSize='120'></navigationInfo>
 
         <Transform DEF='WORLD' translation='0 0 0'>
-
             <Transform translation='0 -30 0' scale="1 1 1">
                 <inline url='./hill.x3d' />
             </Transform>
 
-                <Transform translation='0 -21 0'>
+            <Transform translation='0 -21 0'>
                 <Shape>
                     <Box size='500 0.1 500' />
                     <Appearance>
-                        <ImageTexture url='../textures/5.JPG' />
-                        <!-- <ImageTexture url='../textures/3.gif' /> -->
+                        <ImageTexture url='../textures/21.jpg' />
+                        <TextureTransform translation="0 0" scale="10 10" rotation="0" />
                     </Appearance>
                 </Shape>
-                
             </Transform>
 
-            <!-- <Transform translation='0 0 0'>
-                <Shape onclick="goToHomepage();">
-                    <Sphere radius='5' />
-                    <Appearance>
-                        <ImageTexture url='../textures/1.gif' />
-                    </Appearance>
-                </Shape>
-            </Transform> -->
             <Transform translation='3 10 7' scale="4.5 4.5 4.5" >
                 <inline url='./Hand.x3d' />
             </Transform>
-            <!-- <Transform translation='0 10 0'>
-                <Shape>
-                    <Text string='"Welcome"'>
-                        <FontStyle DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='8' />
-                    </Text>
-                    <Appearance DEF='LightBlueAppearance'>
-                        <Material diffuseColor='0 0 0' />
-                    </Appearance>
-                </Shape>
-            </Transform> -->
-            <!-- <Transform translation='2 10 0' rotation="0 1 0 3.1">
-                <Shape>
-                    <Text string='"Click orb to enter"'>
-                        <FontStyle DEF='testFontStyle' justify='"MIDDLE" "MIDDLE"' size='6' />
-                    </Text>
-                    <Appearance DEF='LightBlueAppearance'>
-                        <Material diffuseColor='0 0 0' />
-                    </Appearance>
-                </Shape>
-            </Transform> -->
-
         </Transform>
-
-        <TimeSensor DEF='NORMAL_TIMER' cycleInterval='10' loop='true' />
 
         <OrientationInterpolator DEF='SPIN_ME' key='0.00 0.25 0.50 0.75 1.00'
             keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159 0 1 0 4.7123889 0 1 0 6.2831852' />
+
+        <TimeSensor DEF='NORMAL_TIMER' cycleInterval='10' loop='true' />
 
         <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
         <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='WORLD' toField='rotation' />
