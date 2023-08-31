@@ -16,8 +16,8 @@
 				<Group DEF="group_ME_Plane">
 					<Shape>
 						<Appearance>
-							<ImageTexture DEF="IM_texture_png" url='"../textures/13.GIF"'/>
-							<!-- <ImageTexture DEF="IM_texture_png" url='"../textures/9.GIF"'/> -->
+							<!-- <ImageTexture DEF="IM_texture_png" url='"../textures/13.GIF"'/> -->
+							<ImageTexture DEF="IM_texture_png" url='"../textures/9.GIF"'/>
 							<TextureTransform 
 							    translation="0 0"
 							    scale="20 20"

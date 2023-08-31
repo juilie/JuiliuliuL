@@ -5,14 +5,22 @@
     <Scene>
         <WorldInfo title='julipode' />
 
-        <Background skyColor='0.0, 0.005, 0.05'/>
-
-        <Viewpoint position="0 8 120" orientation="0 0 0 0"
-            centerOfRotation="0 0 0" fieldOfView="0.78540" description=""></Viewpoint>
+        <!-- <Background skyColor='0.0, 0.005, 0.05'/> -->
+    <Background
+      backUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_back.jpg"'
+      bottomUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_bottom.jpg"'
+      frontUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_front.jpg"'
+      groundColor='0 0 0'
+      leftUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_left.jpg"'
+      rightUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_right.jpg"'
+      topUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_top.jpg"' />
+      
+        <Viewpoint DEF='WORLD' position="0 8 120" orientation="0 0 0 0"
+            centerOfRotation="0 0 120" fieldOfView="0.78540" description=""></Viewpoint>
 
         <navigationInfo type='"LOOKAT"' headlight='true' speed='0.5' avatarSize='120'></navigationInfo>
 
-        <Transform DEF='WORLD' translation='0 0 0'>
+        <Transform  translation='0 0 0'>
             <Transform translation='0 -30 0' scale="1 1 1">
                 <inline url='./hill.x3d' />
             </Transform>
@@ -39,6 +47,7 @@
 
         <ROUTE fromNode='NORMAL_TIMER' fromField='fraction_changed' toNode='SPIN_ME' toField='set_fraction' />
         <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='WORLD' toField='rotation' />
+        <!-- <ROUTE fromNode='SPIN_ME' fromField='value_changed' toNode='WORLD' toField='orientation' /> -->
         
     </Scene>
 </X3D>
