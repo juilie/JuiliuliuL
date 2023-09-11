@@ -225,7 +225,7 @@ let amplitude = {
 function preload() {
   images = [loadImage('./Embroidery/embroider2white.png'), loadImage('./Embroidery/3dpys.jpg'), loadImage('./Embroidery/3dpys2.jpg'), loadImage('./Embroidery/blue.png')]
   textures = [loadImage('./textures/bark1.jpg'), loadImage('./textures/wet.jpg'), loadImage('./textures/cloud.jpg'), loadImage('./textures/glass.jpeg'), loadImage('./textures/spongebob.png'),
-              loadImage('../../assets/textures/9.gif'), loadImage('../../assets/textures/6.jpg'), loadImage('../../assets/textures/3.gif')]
+              loadImage('../../assets/textures/9.gif'), loadImage('../../assets/textures/6.JPG'), loadImage('../../assets/textures/3.GIF')]
 }
 
 function windowResized() {
@@ -329,7 +329,6 @@ function three_branch(len) {
   endShape(CLOSE)
   
   translate(0, len * 0.5, 0)
-
   translate(0, -len, 0)
 
   if (len > 10) {

@@ -292,7 +292,7 @@
         <Shape onclick="goToHomepage();">
           <Appearance>
             <!-- <ImageTexture DEF="IM_texture_png" url='"../textures/13.GIF"'/> -->
-            <ImageTexture DEF="IM_texture_png" url='"../textures/9.GIF"'/>
+            <ImageTexture DEF="IM_texture_png" url='"../textures/9.gif"'/>
             <TextureTransform translation="0 0" scale="3.5 3.5" rotation="0" />
             <Material ambientIntensity='0.3' diffuseColor='0.3 0.3 0.5' shininess='1' specularColor='0.1 0.1 0.1' />
           </Appearance>
