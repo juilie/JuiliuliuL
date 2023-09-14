@@ -675,9 +675,14 @@ canvas {
     top: 24%;
 }
 
-.logo {
+#tandyWebring {
     position: absolute;
-    width: 25%;
-    top: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: whitesmoke;
+}
+
+#tandWebring a, #tandWebring a:visited {
+    color: yellow;
 }
