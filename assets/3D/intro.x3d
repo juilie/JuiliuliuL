@@ -5,15 +5,15 @@
     <Scene>
         <WorldInfo title='julipode' />
 
-        <!-- <Background skyColor='0.0, 0.005, 0.05'/> -->
-    <Background
+        <Background skyColor='0.0, 0.005, 0.05'/>
+    <!-- <Background
       backUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_back.jpg"'
       bottomUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_bottom.jpg"'
       frontUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_front.jpg"'
       groundColor='0 0 0'
       leftUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_left.jpg"'
       rightUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_right.jpg"'
-      topUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_top.jpg"' />
+      topUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_top.jpg"' /> -->
       
         <Viewpoint DEF='WORLD' position="0 8 120" orientation="0 0 0 0"
             centerOfRotation="0 0 120" fieldOfView="0.78540" description=""></Viewpoint>

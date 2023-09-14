@@ -5,7 +5,7 @@
     <Scene>
         <WorldInfo title='bloop' />
 
-        <!-- <Background skyColor='0.0, 0.005, 0.05'/> -->
+        <Background skyColor='0.0, 0.005, 0.05'/>
         <!-- <Background
             backUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_back.jpg"'
             bottomUrl='"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/space_3_bottom.jpg"'
