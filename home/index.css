@@ -681,7 +681,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     color: whitesmoke;
-    animation: webring-fade 1s linear 2s forwards;
+    animation: webring-fade 1s linear 2s backwards;
 }
 
 #tandyWebring a, #tandyWebring a:visited {
