@@ -46,9 +46,11 @@ body {
     overflow-x: hidden;
 }
 
-.left {
+.left.panel {
     animation: slide-from-left .5s linear backwards;
     animation-delay: .3s;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .panel.right {
@@ -59,6 +61,14 @@ body {
 
 .panel h1 {
     font-size: 30pt;
+}
+
+.blog-directory {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 1.2rem;
 }
 
 canvas {
@@ -119,11 +129,6 @@ canvas {
     padding-top: 10px;
     font-family: "TandyOS";
     color: rgb(144, 1, 99);
-}
-
-.welcome {
-    animation: beep 5s linear infinite alternate backwards;
-    animation-delay: 4s;
 }
 
 @keyframes fadein {
