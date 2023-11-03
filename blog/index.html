@@ -1,3 +1,7 @@
+---
+title: "Jekyll Test"
+---
+
 <html>
 
 <head>
@@ -39,16 +43,31 @@
 
     <div class="container">
         <aside class="left panel">
-            <h1 class="welcome">Welcome to my blog</h1>
+            <h1 class="welcome">Welcome to my blog {{page.title}}</h1>
+            <ul>
+                {% for post in site.posts %}
+                  <li>
+                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                  </li>
+                {% endfor %}
+              </ul>
         </aside>
 
         <main class="main-div">
             <header class="nav">
-                <marquee><b>Status:</b> doin' good &nbsp&nbsp&nbsp&nbsp Status:</b> doin' good
+                <marquee><b>Status:</b> sleep recovery &nbsp&nbsp&nbsp&nbsp Status:</b> sleep recovery
                     &nbsp&nbsp&nbsp&nbsp
-                    Status:</b> doin' good &nbsp&nbsp&nbsp&nbsp Status:</b> doin' good</marquee>
+                    Status:</b> sleep recovery &nbsp&nbsp&nbsp&nbsp Status:</b> sleep recovery</marquee>
             </header>
-
+            <div class="blog-post words" onmouseover="hue(true, 'Words/Personal')" onmouseleave="hue(false)">
+                    {% for post in site.posts %}
+                        {{ post }}
+                    {% endfor %}
+                <div class="signature">
+                    <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+                    <p style="margin-left: auto; border: 1px dashed; padding: 2px;">Oct 29, 2023</p>
+                </div>
+            </div>
             <div class="blog-post music" onmouseover="hue(true, 'Music')" onmouseleave="hue(false)">
                 <h1>Pokemon Metronome</h1>
                 <p>
@@ -177,7 +196,7 @@
                     </ul>
                     There's bad stuff too - I don't know how I will or won't share the sad and bad things - a
                     shadowpode? we'll see.
-                    For now, refer to the left column to understand the content of each pode before reading Goodnight ♥
+                    For now, refer to the right column to understand the content of each pode before reading Goodnight ♥
                 </p>
                 <div class="signature">
                     <p style="border: 1px outset; padding: 2px 5px;">... juili</p>

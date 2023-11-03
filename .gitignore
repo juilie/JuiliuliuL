@@ -1,3 +1,6 @@
 assets/.DS_Store
 .DS_Store
 NOC/coinTest/fish.mp4
+_site
+.jekyll-cache
+.vscode
