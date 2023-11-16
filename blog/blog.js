@@ -47,15 +47,16 @@ function animate() {
 
 function setupWorld() {
     // const loader = new THREE.TextureLoader();
-    var material = new THREE.MeshPhongMaterial({
+    var material = new THREE.MeshPhysicalMaterial({
         // light
         specular: "blue",
         // intermediate
         color: "blue",
+        roughness: 0,
         // dark
         emissive: "teal",
         shininess: 100,
-        wireframe: true,
+        // wireframe: true,
     });
 
     const color = 0xFFFFFF; // white
