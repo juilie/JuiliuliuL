@@ -92,7 +92,7 @@ function draw() {
       stroke('black')
       strokeWeight(1)
       rect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE)
-      nextGen[i] = -1*cells[i];
+      nextGen[i] = -1 * cells[i];
     }
   }
 }
