@@ -1,6 +1,6 @@
 ---
 layout: post
-topic: "words"
+topic: "tutorial"
 title: "We made an Apple ][ Selfie Studio"
 ---
 

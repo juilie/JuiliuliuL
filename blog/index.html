@@ -8,6 +8,13 @@ title: "Jekyll Test"
     <link rel="stylesheet" href="blog.css">
     <title>juli's BlogiPode</title>
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
 </head>
 
 <body>
@@ -32,8 +39,8 @@ title: "Jekyll Test"
 
             {% for post in site.posts %}
             <div class="blog-post {{post.topic}}" onmouseover="hue(true, `{{post.topic}}`)" onmouseleave="hue(false)">
-                <!-- <h1>{{ post.title }}</h1> -->
-                {{ post }}
+                <h1>{{ post.title }}</h1>
+                {{ post.content }}
                 <div class="signature">
                     <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
                     <p style="margin-left: auto; border: 1px dashed; padding: 2px;">{{ post.date | date: "%b %-d %Y" }}

@@ -396,11 +396,7 @@ canvas {
     }
 
     .blog-post:hover {
-        transform: scale(1.075);
-    }
-
-    body {
-        overflow: hidden;
+        transform: scale(1.02);
     }
 
     .fake-mobile-footer {
