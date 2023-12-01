@@ -2,6 +2,7 @@
 layout: post
 topic: "tutorial"
 title: "We made an Apple ][ Selfie Studio"
+excerpt_separator: <!--more-->
 ---
 
 I'm currently at the <a href="https://www.recurse.com/">Recurse Center</a> in  New York, basically having fun and learning a lot...ok
@@ -11,6 +12,9 @@ A few of us have been hacking at the Apple ][ in the space, and decided to make 
 <div style="text-align: center;">
     <img src="/assets/images/apple2.jpg" style="width:400px">
 </div>
+
+
+<!--more-->
 
 ## What is all of this?
 
