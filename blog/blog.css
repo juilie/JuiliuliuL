@@ -76,6 +76,15 @@ canvas {
     filter: drop-shadow(-13px 8px 4px #000);
 }
 
+.home-button {
+    font-size: large;
+    padding: 10px;
+    background-color: lightgray;
+    border: 2px ridge gray;
+    width: fit-content;
+    margin: 10px auto;
+}
+
 @keyframes slide-from-left {
     from {
         transform: translateX(-100%);;
