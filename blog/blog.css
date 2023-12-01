@@ -76,7 +76,7 @@ canvas {
     filter: drop-shadow(-13px 8px 4px #000);
 }
 
-.home-button {
+.home-button, .read-more {
     font-size: large;
     padding: 10px;
     background-color: lightgray;
@@ -212,7 +212,7 @@ canvas {
 }
 
 .blog-post:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform .3s ease-out;
     z-index: 3;
 }
@@ -421,11 +421,6 @@ canvas {
         font-size: 40pt;
         width: 99%;
     }
-
-    .nav marquee {
-        font-size: 50pt;
-    }
-
     .panel {
         border-top: ridge 10px rgb(134, 134, 134);
     }

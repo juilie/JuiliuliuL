@@ -42,7 +42,7 @@ title: "Jekyll Test"
             <div class="blog-post {{post.topic}}" onmouseover="hue(true, `{{post.topic}}`)" onmouseleave="hue(false)">
                 <h1>{{ post.title }}</h1>
                 {{ post.excerpt }}
-                <a href="{{post.url}}">Read more...</a>
+                <div class="read-more"><a href="{{post.url}}" >Read more...</a></div>
                 <div class="signature">
                     <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
                     <p style="margin-left: auto; border: 1px dashed; padding: 2px;">{{ post.date | date: "%b %-d %Y" }}
