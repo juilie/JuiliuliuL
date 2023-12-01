@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/blog/post.css">
+    <title>{{ page.title }} | juli's BlogiPode</title>
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</head>
+
+<body>
+
+    <div class="blog-post {{post.topic}}" onmouseover="hue(true, `{{post.topic}}`)" onmouseleave="hue(false)">
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+
+        <div class="signature">
+            <p style="border: 1px outset; padding: 2px 5px;">... juili</p>
+            <p style="margin-left: auto; border: 1px dashed; padding: 2px;">{{ post.date | date: "%b %-d %Y" }}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
