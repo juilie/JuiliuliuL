@@ -1,4 +1,4 @@
-var DIAMETER_SLIDER
+let DIAMETER_SLIDER
 var MULTIPLIER_SLIDER
 var isMobile = screen.width <= 480;
 

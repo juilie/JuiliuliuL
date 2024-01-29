@@ -51,13 +51,17 @@ function setup() {
     detector.detect(video, gotDetections);
     testCoin = new coinClass(300, 200, 50);
     console.log(window);
-
-    
 }
 
+let zoomScale = 2; // The scale of zoom
+let zoomX = 150;   // X-coordinate of the top-left corner of the zoom area
+let zoomY = 100;   // Y-coordinate of the top-left corner of the zoom area
+let zoomWidth = 320;  // Width of the zoom area
+let zoomHeight = 180;
 
 function draw() {
-    image(video, 0, 0);
+    // image(video, 0, 0);
+    // image(video, 0, 0, width, height, zoomX, zoomY, zoomWidth, zoomHeight);
 
     for (let i = 0; i < detections.length; i++) {
         let object = detections[i];
