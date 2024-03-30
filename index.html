@@ -5,22 +5,22 @@
     <link rel="stylesheet" href="x3dom.css">
     <link rel="stylesheet" href="index.css">
     <script>
-        // let seconds = 15;
-        // function redirect() {
-        //     if (seconds === 0) {
-        //         window.location = "/home"
-        //     }
+        let seconds = 15;
+        function redirect() {
+            if (seconds === 0) {
+                window.location = "/home"
+            }
             
-        //     document.querySelector('#redirect').innerText = `Redirect in ${seconds}s`;
-        //     seconds--;
-        // }
-        // setInterval(redirect, 1000);
+            document.querySelector('#redirect').innerText = `Redirect in ${seconds}s`;
+            seconds--;
+        }
+        setInterval(redirect, 1000);
     </script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <!-- <h1 id="redirect">Redirect in 15s</h1> -->
+    <h1 id="redirect">Redirect in 15s</h1>
 <!-- <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/intro.x3d'/></scene></x3d> -->
 <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/meta.x3d'/></scene></x3d>
 <!-- <x3d PrimitiveQuality='Medium' disableDoubleClick="true"><scene><inline url='assets/3D/space3.x3d'/></scene></x3d> -->
@@ -34,9 +34,9 @@
     let emojis = ["🌑","🌒","🌓","🌔","🌕","🌖","🌗","🌘"]
     let i = 0;
 
-    setInterval(()=>{
-        window.location.hash = emojis[i];
-        i = (i+1)%emojis.length;
-    }, 100);
+    // setInterval(()=>{
+    //     window.location.hash = emojis[i];
+    //     i = (i+1)%emojis.length;
+    // }, 100);
 </script>
 </html>
