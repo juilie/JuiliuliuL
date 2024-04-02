@@ -49,12 +49,12 @@ function setupWorld() {
     // const loader = new THREE.TextureLoader();
     var material = new THREE.MeshPhysicalMaterial({
         // light
-        specular: "blue",
+        specular: "yellow",
         // intermediate
-        color: "blue",
+        color: "yellow",
         roughness: 0,
         // dark
-        emissive: "teal",
+        emissive: "red",
         shininess: 100,
         // wireframe: true,
     });
