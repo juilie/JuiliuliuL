@@ -1,7 +1,7 @@
 let renderer
 var treeLength = 1;
 var maxTreeLength = 98;
-var MINUTES_TO_FULL_SIZE = .1;
+var MINUTES_TO_FULL_SIZE = .7;
 MINUTES_TO_FULL_SIZE = MINUTES_TO_FULL_SIZE * 60000
 
 var branchLengthRange = [.7, .9]
@@ -25,7 +25,7 @@ TREES_PER_SEC = 60 / TREES_PER_SEC
 var EGG_MODE = false;
 var EGG_MODE_BOX;
 
-var THREE_D_MODE = true;
+var THREE_D_MODE = false;
 var THREE_D_MODE_BOX;
 var LEAF_COLOR;
 var LEAF_COLOR_PICKER;
@@ -72,6 +72,11 @@ var RANDOMIZE_VARIABLES;
 var sliderRate;
 var sliderPan;
 
+var ANIMATION_SPEED;
+var ANIMATION_SPEED_SLIDER;
+
+let animationTime = 0;
+
 p5.disableFriendlyErrors = true;
 
 function setup() {
@@ -82,8 +87,8 @@ function setup() {
   let cameraContainer = document.querySelector('#camera')
   let exportContainer = document.querySelector('#export')
 
-  sliderRate = createSlider(0, 1.5, 1, 0.01);
-  sliderPan = createSlider(-1, 1, 0, 0.01);
+  sliderRate = createSlider(0, 1.5, 1, 0.0);
+  sliderPan = createSlider(-1, 1, 0, 0.0);
 
   renderer = createCanvas(windowWidth, windowHeight, WEBGL);
   renderer.drawingContext.disable(renderer.drawingContext.DEPTH_TEST);
@@ -95,7 +100,7 @@ function setup() {
 
   EGG_MODE = createCheckbox('Egg Mode', false).parent(miscContainer);
 
-  THREE_D_MODE = createCheckbox('3D Mode', true).parent(miscContainer);
+  THREE_D_MODE = createCheckbox('3D Mode', false).parent(miscContainer);
 
   SPINNING = createCheckbox('Spinning (3D Only)', true).parent(animationsContainer);
   TREE_SWITCHING = createCheckbox('Tree Switching (2D only)', false).parent(animationsContainer);
@@ -189,7 +194,7 @@ function setup() {
   }
   BRANCH_SHAPE.selected('0');
 
-  CAMERA_X = createSlider(-width * .5, width * .5, 0).parent(createDiv('X').parent(cameraContainer));
+  CAMERA_X = createSlider(-width * .5, width * .5, -125).parent(createDiv('X').parent(cameraContainer));
   CAMERA_Y = createSlider(-height * .5, height * .5, 0).parent(createDiv('Y').parent(cameraContainer));
   CAMERA_Z = createSlider(-width * .5, width * .5, 0).parent(createDiv('Z').parent(cameraContainer));
 
@@ -204,6 +209,8 @@ function setup() {
   SAVE_BUTTON.mousePressed(() => {
     saveGif('treeGif', Number(EXPORT_SECONDS.value()));
   });
+
+  ANIMATION_SPEED_SLIDER = createSlider(0.01, 1, 0.2, 0).parent(createDiv('Animation Speed').parent(animationsContainer));
 
   var RANDOMIZE_VARIABLES = {
     sliders: [ROTATION_MODIFIER_SLIDER, ROTATION_RANGE_SLIDER, BRANCH_RADIUS, BRANCH_LENGTH, LEAF_SIZE_X, LEAF_SIZE_Y, LEAF_SIZE_Z,
@@ -233,6 +240,8 @@ function windowResized() {
 }
 
 function draw() {
+  animationTime += deltaTime * 0.001 * ANIMATION_SPEED_SLIDER.value();
+
   if (THREE_D_MODE.checked()) {
     renderer.drawingContext.enable(renderer.drawingContext.DEPTH_TEST);
     background('black')
@@ -241,7 +250,7 @@ function draw() {
 
     // Camera Position
     translate(0 + CAMERA_X.value(), (height * .2 + CAMERA_Y.value()), height * .25 + CAMERA_Z.value())
-    SPINNING.checked() && rotateY(frameCount)
+    SPINNING.checked() && rotateY(360 * animationTime)
     three_branch(treeLength)
     if (millis() < MINUTES_TO_FULL_SIZE) {
       treeLength = map(millis(), 0, MINUTES_TO_FULL_SIZE, 1, maxTreeLength);
@@ -269,8 +278,10 @@ function draw() {
 function branch(len) {
   push()
   if (len > 10) {
-    var sinFunction = ROTATION_WAVE.checked() ? map(sin(frameCount), -1, 1, 0, 360) : 0;
-    var swayFunction = SWAY_MODE.checked() ? map(sin(frameCount), -1, 1, -SWAY_MODE_SLIDER.value(), SWAY_MODE_SLIDER.value()) : 0;
+    var sinFunction = ROTATION_WAVE.checked() ? 
+      map(sin(360 * animationTime), -1, 1, 0, 360) : 0;
+    var swayFunction = SWAY_MODE.checked() ? 
+      map(sin(360 * animationTime), -1, 1, -SWAY_MODE_SLIDER.value(), SWAY_MODE_SLIDER.value()) : 0;
     strokeWeight(map(len, 10, 100, 1, 15));
     stroke(BRANCH_COLOR_PICKER.color());
     noStroke();
@@ -316,7 +327,8 @@ function branch(len) {
 var animation_complete = true;
 
 function three_branch(len) {
-  var sinFunction = ROTATION_WAVE.checked() || !animation_complete ? map(sin(frameCount), -1, 1, 0, 360) : 0;
+  var sinFunction = ROTATION_WAVE.checked() || !animation_complete ? 
+    map(sin(360 * animationTime), -1, 1, 0, 360) : 0;
   animation_complete = sinFunction === 0 || sinFunction === 360 ? true : false;
 
   translate(0, -len * 0.5, 0)

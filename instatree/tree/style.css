@@ -104,6 +104,10 @@ main {
   padding-bottom: 0;
 }
 
+canvas {
+cursor: none;
+}
+
 .controls.closed {
   gap: 0px;
   transition: all .5s ease;
