@@ -186,6 +186,9 @@ canvas {
 .chatbox {
     -webkit-mask-image: linear-gradient(to top, black 95%, rgba(0, 128, 0, 0) 100%);
     mask-image: linear-gradient(to top, black 95%, rgba(0, 128, 0, 0) 100% 100%);
+    display: block !important;
+    visibility: visible !important;
+    min-height: 450px;
 }
 
 .container {
