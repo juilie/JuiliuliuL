@@ -692,3 +692,26 @@ canvas {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+.logo {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    width: auto;
+    height: 100px;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    animation: fade-in 1s ease 2s backwards;
+    padding: 5px 0;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

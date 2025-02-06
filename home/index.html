@@ -11,6 +11,7 @@
 
 <body>
     <script src="./transitions.js"></script>
+    <img src="./assets/logo.png" class="logo">
     <div class="chiron">
         <div class="type">
             <div>&nbsp;&nbsp;&nbsp;&nbsp;julipode: julie bodian: webmain at pcotandy</div>
@@ -391,7 +392,81 @@
             </script>
         </div>
 
-        <script src="./index.js"></script>
+        <script>
+            // Modify your existing transition function to update history
+            const originalTransition = window.transition;
+            window.transition = function(element, index) {
+                const sections = ['home', 'contact', 'friends', 'music', 'websites'];
+                const targetSection = sections[index];
+                
+                // Clear hash when going to home, otherwise set it to the section name
+                const newHash = index === 0 ? '' : `#${targetSection}`;
+                history.pushState({ section: targetSection }, '', newHash);
+                
+                // Call your original transition function
+                originalTransition(element, index);
+            };
+
+            // Handle browser back/forward without modifying transitions
+            window.addEventListener('popstate', (event) => {
+                // Get section from hash instead of pathname
+                const hash = window.location.hash.substring(1);
+                const section = hash || 'home';
+                const sections = ['home', 'contact', 'friends', 'music', 'websites'];
+                const index = sections.indexOf(section);
+                if (index >= 0) {
+                    // If we're going back to home, use the same transition as the back buttons
+                    if (section === 'home') {
+                        // Find the currently active container and use it as the parent element
+                        const activeContainer = document.querySelector('.container.active');
+                        if (activeContainer) {
+                            transition(activeContainer.querySelector('.back-button'), 0);
+                        }
+                    } else {
+                        transition(null, index);
+                    }
+                }
+            });
+
+            // Handle initial page load
+            document.addEventListener('DOMContentLoaded', () => {
+                const hash = window.location.hash.substring(1);
+                const section = hash || 'home';
+                const sections = ['home', 'contact', 'friends', 'music', 'websites'];
+                const index = sections.indexOf(section);
+                
+                if (index >= 0) {
+                    // Remove active class from home if we're loading a different section
+                    if (section !== 'home') {
+                        document.getElementById('home').classList.remove('active');
+                    }
+                    
+                    // Add active class to target section
+                    document.getElementById(sections[index]).classList.add('active');
+                    
+                    // Set initial CSS properties for the section
+                    const root = document.querySelector(':root');
+                    switch (index) {
+                        case 1: // contact
+                            root.style.setProperty('--bg-color', '#6888ff');
+                            root.style.setProperty('--chiron-visible', 'none');
+                            break;
+                        case 2: // friends
+                            root.style.setProperty('--bg-color', '#ffdbf1');
+                            root.style.setProperty('--chiron-visible', 'none');
+                            break;
+                        case 3: // music
+                            root.style.setProperty('--bg-color', '#152400');
+                            root.style.setProperty('--chiron-visible', 'none');
+                            break;
+                        case 4: // websites
+                            root.style.setProperty('--bg-color', '#15000e');
+                            root.style.setProperty('--chiron-visible', 'none');
+                            break;
+                    }
+                }
+            });
+        </script>
 </body>
 
 </html>

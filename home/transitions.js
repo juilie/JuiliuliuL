@@ -12,6 +12,16 @@ var musicLoaded = false;
 var root = document.querySelector(':root');
 
 function transition(e, page) {
+    // Handle URL updates
+    const sections = ['home', 'contact', 'friends', 'music', 'websites'];
+    const targetSection = sections[page];
+    
+    // Update URL without triggering popstate
+    if (page === 0) {
+        history.replaceState(null, '', window.location.pathname);
+    } else {
+        history.replaceState(null, '', `#${targetSection}`);
+    }
 
     switch (page) {
         // Home
@@ -134,3 +144,18 @@ function transition(e, page) {
         }
     }, 300);
 }
+
+// Add event listener for browser back/forward
+window.addEventListener('popstate', (event) => {
+    const hash = window.location.hash.slice(1);
+    const sections = ['home', 'contact', 'friends', 'music', 'websites'];
+    const index = hash ? sections.indexOf(hash) : 0;
+    
+    if (index >= 0) {
+        const activeContainer = document.querySelector('.container.active');
+        if (activeContainer) {
+            const backButton = activeContainer.querySelector('.back-button') || activeContainer;
+            transition(backButton, index);
+        }
+    }
+});
